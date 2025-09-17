@@ -7,7 +7,8 @@ export async function GET() {
     port: process.env.CLICKHOUSE_PORT || 'not-set',
     protocol: process.env.CLICKHOUSE_PROTOCOL || 'not-set',
     user: process.env.CLICKHOUSE_USER || 'not-set',
-    password: process.env.CLICKHOUSE_PASSWORD ? 'SET' : 'NOT-SET',
+    password: process.env.CLICKHOUSE_PASSWORD || 'not-set',
+    passwordLength: process.env.CLICKHOUSE_PASSWORD?.length || 0,
     db: process.env.CLICKHOUSE_DB || 'not-set',
   };
 
