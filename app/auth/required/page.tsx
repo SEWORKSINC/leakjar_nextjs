@@ -1,12 +1,13 @@
 'use client';
 
+import { Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Shield, Lock, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 
-export default function AuthRequiredPage() {
+function AuthRequiredContent() {
   const searchParams = useSearchParams();
   const redirectedFrom = searchParams.get('from') || '/dashboard';
 
@@ -70,5 +71,17 @@ export default function AuthRequiredPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function AuthRequiredPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center p-4">
+        <div className="text-gray-600 dark:text-gray-400">Loading...</div>
+      </div>
+    }>
+      <AuthRequiredContent />
+    </Suspense>
   );
 }
