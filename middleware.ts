@@ -37,7 +37,9 @@ export async function middleware(request: NextRequest) {
 
   // 공개 경로 정의
   const publicPaths = ['/', '/landing', '/auth/login', '/auth/signup'];
-  const isPublicPath = publicPaths.some(publicPath => path === publicPath) || path.startsWith('/auth/');
+  const isPublicPath = publicPaths.some(publicPath => path === publicPath) ||
+    path.startsWith('/auth/') ||
+    path.startsWith('/open-search/');
 
   // 로그인하지 않은 사용자가 보호된 경로에 접근하려고 할 때
   if (!user && !isPublicPath && !path.startsWith('/api/')) {
