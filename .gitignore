@@ -81,3 +81,5 @@ coverage/
 # Build artifacts
 dist/
 out/
+
+.vercel
