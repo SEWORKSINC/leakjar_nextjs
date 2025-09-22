@@ -25,8 +25,19 @@ export default function EmailMonitoringPage({ params }: PageProps) {
   const [showTip, setShowTip] = useState(true);
   const [isRestricted, setIsRestricted] = useState(false);
   const [showWarningModal, setShowWarningModal] = useState(false);
+  const [isVerified, setIsVerified] = useState<boolean>(true);
 
   const decodedDomain = decodeURIComponent(resolvedParams.domain);
+
+  // Check domain verification status when domains are loaded
+  useEffect(() => {
+    if (domains && domains.length > 0) {
+      const currentDomain = domains.find(d => d.domain === decodedDomain && d.type === 'EMAIL');
+      if (currentDomain) {
+        setIsVerified(currentDomain.isVerified !== false);
+      }
+    }
+  }, [domains, decodedDomain]);
 
   // Show warning modal when restricted access is detected
   useEffect(() => {
@@ -119,6 +130,7 @@ export default function EmailMonitoringPage({ params }: PageProps) {
           isDebugMode={false}
           onError={setError}
           onRestrictedAccess={setIsRestricted}
+          isVerified={isVerified}
         />
       </div>
 

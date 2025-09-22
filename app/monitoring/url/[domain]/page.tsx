@@ -25,6 +25,7 @@ export default function URLMonitoringPage({ params }: PageProps) {
   const [showTip, setShowTip] = useState(true);
   const [isRestricted, setIsRestricted] = useState(false);
   const [showWarningModal, setShowWarningModal] = useState(false);
+  const [isVerified, setIsVerified] = useState<boolean>(true);
 
   const decodedDomain = decodeURIComponent(resolvedParams.domain);
 
@@ -84,6 +85,16 @@ export default function URLMonitoringPage({ params }: PageProps) {
     );
   }
 
+  // Check domain verification status when domains are loaded
+  useEffect(() => {
+    if (domains && domains.length > 0) {
+      const currentDomain = domains.find(d => d.domain === decodedDomain && d.type === 'URL');
+      if (currentDomain) {
+        setIsVerified(currentDomain.isVerified !== false);
+      }
+    }
+  }, [domains, decodedDomain]);
+
   return (
     <DynamicSidebarLayout
       activeItem={selectedMenu}
@@ -119,6 +130,7 @@ export default function URLMonitoringPage({ params }: PageProps) {
           isDebugMode={false}
           onError={setError}
           onRestrictedAccess={setIsRestricted}
+          isVerified={isVerified}
         />
       </div>
 

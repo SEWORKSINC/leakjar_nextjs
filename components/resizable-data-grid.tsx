@@ -41,9 +41,10 @@ interface DataGridProps {
   showDebug?: boolean; // Control debug visibility
   onError?: (error: string | null) => void; // Callback to handle errors
   onRestrictedAccess?: (isRestricted: boolean) => void; // Callback when access is restricted
+  isVerified?: boolean; // Domain verification status
 }
 
-export function ResizableDataGrid({ domain: initialDomain, domainType: initialDomainType, isDebugMode = false, showDebug: externalShowDebug, onError, onRestrictedAccess }: DataGridProps = {}) {
+export function ResizableDataGrid({ domain: initialDomain, domainType: initialDomainType, isDebugMode = false, showDebug: externalShowDebug, onError, onRestrictedAccess, isVerified }: DataGridProps = {}) {
   const [data, setData] = useState<LeakData[]>([]);
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(1);
@@ -640,6 +641,7 @@ export function ResizableDataGrid({ domain: initialDomain, domainType: initialDo
           <CellInspector
             data={selectedCell.data}
             columnKey={selectedCell.columnKey}
+            isVerified={isVerified}
             onClose={() => setSelectedCell(null)}
             showDebug={externalShowDebug}
           />

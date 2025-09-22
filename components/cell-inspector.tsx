@@ -9,9 +9,10 @@ interface CellInspectorProps {
   columnKey: string;
   onClose: () => void;
   showDebug?: boolean;
+  isVerified?: boolean;
 }
 
-export function CellInspector({ data, columnKey, onClose, showDebug = false }: CellInspectorProps) {
+export function CellInspector({ data, columnKey, onClose, showDebug = false, isVerified }: CellInspectorProps) {
   const [copiedField, setCopiedField] = useState<string | null>(null);
 
   const handleCopy = (value: string, field: string) => {
@@ -28,6 +29,15 @@ export function CellInspector({ data, columnKey, onClose, showDebug = false }: C
     // Special formatting for password field
     if (key === 'pw' && value === '[NOT_SAVED]') {
       return 'Compromised';
+    }
+
+    // Mask password for unverified domains (show first 3 chars only)
+    if (key === 'pw' && value && value !== '[NOT_SAVED]' && isVerified === false) {
+      const pwStr = String(value);
+      if (pwStr.length <= 3) {
+        return pwStr + '***';
+      }
+      return pwStr.substring(0, 3) + '*'.repeat(pwStr.length - 3);
     }
 
     // Special formatting for country field
