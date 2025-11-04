@@ -9,9 +9,10 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
-import { Mail, Lock, User, CheckCircle2, Shield, ArrowRight, Activity, Database, AlertTriangle } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Mail, Lock, User, CheckCircle2, Shield, ArrowRight, Zap, Eye, AlertTriangle } from 'lucide-react';
 
-export default function SignupPage() {
+export default function FreeTierSignupPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
@@ -94,10 +95,10 @@ export default function SignupPage() {
               </span>
             </Link>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">
-              Create Your Account
+              Start Free Tier
             </h1>
             <p className="text-gray-600">
-              Join LeakJar and start monitoring credential breaches
+              No credit card required • Full feature access
             </p>
           </div>
 
@@ -137,7 +138,7 @@ export default function SignupPage() {
 
                   <div>
                     <Label htmlFor="email" className="text-gray-700 font-medium">
-                      Email Address
+                      Work Email
                     </Label>
                     <div className="mt-1.5 relative">
                       <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
@@ -208,7 +209,7 @@ export default function SignupPage() {
                     </>
                   ) : (
                     <>
-                      Create Account
+                      Create Free Account
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </>
                   )}
@@ -253,32 +254,32 @@ export default function SignupPage() {
           {/* Trust Indicator */}
           <div className="mt-6 text-center">
             <p className="text-sm text-gray-500">
-              Trusted by security teams worldwide to protect against credential breaches
+              Join security teams monitoring 50B+ leaked credentials
             </p>
           </div>
         </div>
       </div>
 
-      {/* Right Side - Feature Highlights (Hidden on mobile) */}
+      {/* Right Side - Value Proposition (Hidden on mobile) */}
       <div className="hidden lg:flex lg:flex-1 bg-gradient-to-br from-gray-700 via-gray-800 to-gray-900 items-center justify-center p-12">
         <div className="max-w-lg">
           <h2 className="text-4xl font-bold text-white mb-6 leading-tight">
-            Monitor 50B+ Leaked Credentials
+            Start Protecting Your Organization in Minutes
           </h2>
           
           <p className="text-xl text-gray-300 mb-8 leading-relaxed">
-            Detect compromised employee and customer accounts before they're exploited by attackers.
+            Get instant access to our credential monitoring platform. No credit card required.
           </p>
 
-          <div className="space-y-4">
+          <div className="space-y-4 mb-10">
             <div className="flex items-start gap-3">
               <div className="flex-shrink-0 w-8 h-8 bg-green-500/20 rounded-lg flex items-center justify-center">
                 <CheckCircle2 className="h-5 w-5 text-green-400" />
               </div>
               <div>
-                <h3 className="text-white font-semibold mb-1">Real-Time Breach Detection</h3>
+                <h3 className="text-white font-semibold mb-1">Full Feature Access</h3>
                 <p className="text-gray-400 text-sm">
-                  Get instant alerts when your organization's credentials appear in new data breaches
+                  Access all features with limited results (latest 5 breach records)
                 </p>
               </div>
             </div>
@@ -288,9 +289,9 @@ export default function SignupPage() {
                 <CheckCircle2 className="h-5 w-5 text-blue-400" />
               </div>
               <div>
-                <h3 className="text-white font-semibold mb-1">HUMINT Intelligence Network</h3>
+                <h3 className="text-white font-semibold mb-1">Instant Setup</h3>
                 <p className="text-gray-400 text-sm">
-                  Access exclusive threat data from underground forums and dark web sources
+                  Start monitoring your domain for breaches immediately after signup
                 </p>
               </div>
             </div>
@@ -300,39 +301,34 @@ export default function SignupPage() {
                 <CheckCircle2 className="h-5 w-5 text-purple-400" />
               </div>
               <div>
-                <h3 className="text-white font-semibold mb-1">Comprehensive Analytics</h3>
+                <h3 className="text-white font-semibold mb-1">No Credit Card Required</h3>
                 <p className="text-gray-400 text-sm">
-                  Detailed forensic data including IPs, geolocations, and breach sources
-                </p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-3">
-              <div className="flex-shrink-0 w-8 h-8 bg-orange-500/20 rounded-lg flex items-center justify-center">
-                <CheckCircle2 className="h-5 w-5 text-orange-400" />
-              </div>
-              <div>
-                <h3 className="text-white font-semibold mb-1">API Integration</h3>
-                <p className="text-gray-400 text-sm">
-                  Seamlessly integrate breach monitoring into your security workflow
+                  Evaluate the platform risk-free. Upgrade anytime for full data access
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-white/10">
-            <div>
-              <div className="text-3xl font-bold text-white mb-1">50B+</div>
-              <div className="text-sm text-gray-400">Credential Records</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white mb-1">24/7</div>
-              <div className="text-sm text-gray-400">Monitoring</div>
-            </div>
-            <div>
-              <div className="text-3xl font-bold text-white mb-1">&lt;1hr</div>
-              <div className="text-sm text-gray-400">Alert Delivery</div>
+          {/* What You'll Get */}
+          <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+            <h3 className="text-lg font-semibold text-white mb-4">What You'll Get:</h3>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex items-center gap-2">
+                <Zap className="h-4 w-4 text-blue-400" />
+                <span className="text-sm text-gray-300">Email alerts</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Eye className="h-4 w-4 text-blue-400" />
+                <span className="text-sm text-gray-300">Dashboard access</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Shield className="h-4 w-4 text-blue-400" />
+                <span className="text-sm text-gray-300">1 domain monitoring</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-4 w-4 text-blue-400" />
+                <span className="text-sm text-gray-300">Latest 5 records</span>
+              </div>
             </div>
           </div>
         </div>
@@ -340,3 +336,4 @@ export default function SignupPage() {
     </div>
   );
 }
+

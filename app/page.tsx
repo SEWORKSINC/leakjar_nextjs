@@ -251,7 +251,7 @@ export default function Home() {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href="/auth/signup">
+                <Link href="/auth/freetier">
                   <Button size="lg" className="bg-gray-900 hover:bg-gray-800 w-full sm:w-auto">
                     Get Started Free
                     <ArrowRight className="ml-2 h-4 w-4" />
@@ -736,7 +736,7 @@ export default function Home() {
             </p>
             
                   <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-                    <Link href="/auth/signup">
+                    <Link href="/auth/freetier">
                       <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-6 text-lg w-full sm:w-auto">
                         Get Started Free
                         <ArrowRight className="ml-2 h-5 w-5" />
