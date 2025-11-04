@@ -36,7 +36,7 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
   // 공개 경로 정의
-  const publicPaths = ['/', '/landing', '/auth/login', '/auth/signup', '/features', '/about', '/developer', '/pricing', '/hello', '/pci-compliance'];
+  const publicPaths = ['/', '/landing', '/auth/login', '/auth/signup', '/features', '/about', '/developer', '/pricing', '/hello', '/pci-compliance', '/nist-compliance'];
   const isPublicPath = publicPaths.some(publicPath => path === publicPath) ||
     path.startsWith('/auth/') ||
     path.startsWith('/open-search/');
