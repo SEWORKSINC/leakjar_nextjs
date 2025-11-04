@@ -87,6 +87,31 @@ export default function LandingPage() {
         </div>
       </header>
 
+      <section id="cover">
+        <div class="container mx-auto">
+          <div class="flex flex-row-reverse">
+            <div class="relative -z-1 aspect-square">
+              <picture class="hidden lg:hidden w-460 ml-10">
+                <source srcset="https://www.leakjar.com/static/img/world_c.webp" type="image/webp">
+                <img src="https://www.leakjar.com/static/img/world_c.png" alt="leakjar.com cover image">
+              </picture>
+              <video class="hidden lg:block w-460 ml-10" poster="https://www.leakjar.com/static/img/world_c.webp" preload="none" muted autoplay loop playsinline>
+                <source src="https://www.leakjar.com/static/mov/world_c.webm" type="video/webm">
+                <source src="https://www.leakjar.com/static/mov/world_c.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="flex-auto flex flex-col justify-center">
+              <div class="pt-16 lg:pt-12 xl:pt-0">
+                <h1 class="text-4xl font-bold lg:-mr-24 mb-3">Proactively Monitor for Leaked Credentials Instantly Identify Compromised Accounts Stay ahead of cyber threats.</h1>
+              </div>
+              <p>LeakJar continuously scans for leaked credentials linked to your employees and customers, alerting you the moment they appear. Our advanced post-breach detection empowers you to respond swiftly, minimizing risks and preventing secondary attacks.</p>
+              <h4 class="text-2xl mt-5">Dashboard + API: Easy access and seamless integration</h4>
+              <div class="w-100 h-24 mt-10 bg-cyan-500 hidden"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-20">
         <div className="max-w-4xl mx-auto text-center">
