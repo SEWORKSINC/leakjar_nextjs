@@ -291,8 +291,9 @@ export default function NISTCompliancePage() {
                       <div>
                         <p className="font-semibold text-gray-900 text-sm mb-1">Real-Time Alerts</p>
                         <p className="text-gray-700 leading-relaxed">
-                          Our service acts as your "smoke detector" for the dark web. The instant one of your employee's or 
-                          executive's credentials appears in a new breach, we detect it and alert you. This is the 
+                          Our service acts as your "smoke detector" across <strong>multiple intelligence sources</strong>—underground 
+                          forums, threat actor networks, the deep and dark web, and HUMINT operatives. The instant one of your employee's 
+                          or executive's credentials appears in a new breach, we detect it and alert you. This is the 
                           <strong> earliest possible warning</strong> that an account is at high risk of takeover.
                         </p>
                       </div>

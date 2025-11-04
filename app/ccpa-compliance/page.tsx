@@ -292,8 +292,9 @@ export default function CCPACompliancePage() {
                     How It Works
                   </h4>
                   <p className="text-gray-700 leading-relaxed mb-3">
-                    We monitor the dark web <strong>24/7</strong>. The instant a credential for one of your users or employees 
-                    appears in a breach, we alert you.
+                    We monitor <strong>multiple intelligence sources 24/7</strong>—including underground forums, threat actor 
+                    networks, the deep and dark web, and HUMINT operatives. The instant a credential for one of your users or 
+                    employees appears in a breach, we alert you.
                   </p>
                   <p className="text-gray-700 leading-relaxed">
                     This allows you to <strong>force a password reset and lock the account</strong> before an attacker can use it, 
@@ -531,7 +532,7 @@ export default function CCPACompliancePage() {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-1">24/7</div>
-                <div className="text-sm text-gray-400">Dark Web Monitoring</div>
+                <div className="text-sm text-gray-400">Threat Intelligence Monitoring</div>
               </div>
             </div>
           </div>
