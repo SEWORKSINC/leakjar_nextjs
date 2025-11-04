@@ -56,7 +56,7 @@ export default function NISTCompliancePage() {
       <SharedHeader />
 
       {/* Hero Section */}
-      <section className="bg-blue-50 border-b border-blue-100">
+      <section className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight leading-tight">
@@ -69,10 +69,10 @@ export default function NISTCompliancePage() {
             <p className="text-lg text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
               But are you aware of the specific, mandatory requirements for password security detailed in NIST's digital identity guidelines?
             </p>
-            <div className="bg-white border-l-4 border-blue-600 p-6 rounded-r-lg shadow-sm max-w-3xl mx-auto">
+            <div className="bg-white border-l-4 border-gray-300 p-6 rounded-r-lg shadow-sm max-w-3xl mx-auto">
               <p className="text-lg text-gray-800 leading-relaxed">
                 The NIST framework is not just a high-level guide; it's supported by specific publications that outline how to 
-                implement its controls. For credential security, the most important one is <strong className="text-blue-600">NIST 
+                implement its controls. For credential security, the most important one is <strong>NIST 
                 Special Publication 800-63B</strong>. This document moves credential monitoring from a "nice-to-have" security 
                 feature to a <strong>foundational, mandated control</strong>.
               </p>
@@ -86,7 +86,7 @@ export default function NISTCompliancePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
-              <FileText className="h-4 w-4 mr-2 inline text-blue-600" />
+              <FileText className="h-4 w-4 mr-2 inline text-gray-700" />
               Official Standard
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
@@ -99,10 +99,10 @@ export default function NISTCompliancePage() {
           </div>
 
           {/* Main Requirement Card */}
-          <Card className="border-2 border-blue-200 shadow-lg mb-8">
-            <CardHeader className="bg-blue-50 border-b border-blue-100">
+          <Card className="border-2 border-gray-200 shadow-lg mb-8">
+            <CardHeader className="bg-gray-50 border-b border-gray-200">
               <CardTitle className="text-2xl flex items-center gap-3">
-                <ShieldCheck className="h-7 w-7 text-blue-600" />
+                <ShieldCheck className="h-7 w-7 text-gray-700" />
                 Section 5.1.1.2: Mandatory Requirements
               </CardTitle>
             </CardHeader>
@@ -123,8 +123,8 @@ export default function NISTCompliancePage() {
                 </div>
 
                 <div className="flex items-start gap-4 pt-4">
-                  <div className="h-8 w-8 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <AlertTriangle className="h-5 w-5 text-blue-600" />
+                  <div className="h-8 w-8 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <AlertTriangle className="h-5 w-5 text-red-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-gray-900 mb-2">What "SHALL" Means</h3>
@@ -168,10 +168,10 @@ export default function NISTCompliancePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
-                <Shield className="h-4 w-4 mr-2 inline text-purple-600" />
-                Framework Alignment
-              </Badge>
+            <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
+              <Shield className="h-4 w-4 mr-2 inline text-gray-700" />
+              Framework Alignment
+            </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
                 How Leaked Credential Monitoring Connects to the NIST CSF 2.0 Functions
               </h2>
@@ -183,11 +183,11 @@ export default function NISTCompliancePage() {
 
             <div className="space-y-6">
               {/* 1. GOVERN */}
-              <Card className="border-l-4 border-l-purple-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Building2 className="h-7 w-7 text-purple-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Building2 className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -200,9 +200,9 @@ export default function NISTCompliancePage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-purple-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       How We Help
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -264,11 +264,11 @@ export default function NISTCompliancePage() {
               </Card>
 
               {/* 3. DETECT */}
-              <Card className="border-l-4 border-l-blue-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Eye className="h-7 w-7 text-blue-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Eye className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -281,13 +281,13 @@ export default function NISTCompliancePage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       How We Help (DE.CM - Continuous Monitoring)
                     </h4>
                     <div className="flex items-start gap-3">
-                      <Bell className="h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                      <Bell className="h-5 w-5 text-gray-700 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-semibold text-gray-900 text-sm mb-1">Real-Time Alerts</p>
                         <p className="text-gray-700 leading-relaxed">
@@ -303,11 +303,11 @@ export default function NISTCompliancePage() {
               </Card>
 
               {/* 4. RESPOND */}
-              <Card className="border-l-4 border-l-orange-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-orange-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Zap className="h-7 w-7 text-orange-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Zap className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -320,13 +320,13 @@ export default function NISTCompliancePage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-3 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-orange-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       How We Help (RS.MI - Mitigation)
                     </h4>
                     <div className="flex items-start gap-3">
-                      <Users className="h-5 w-5 text-orange-600 flex-shrink-0 mt-0.5" />
+                      <Users className="h-5 w-5 text-gray-700 flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="font-semibold text-gray-900 text-sm mb-1">Actionable Intelligence</p>
                         <p className="text-gray-700 leading-relaxed">
@@ -358,10 +358,10 @@ export default function NISTCompliancePage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-6 mb-8">
-            <Card className="border-l-4 border-l-red-500 shadow-sm">
+            <Card className="border-l-4 border-l-red-600 shadow-sm">
               <CardHeader>
                 <div className="flex items-start gap-3">
-                  <div className="h-10 w-10 bg-red-50 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <AlertTriangle className="h-6 w-6 text-red-600" />
                   </div>
                   <div>
@@ -398,11 +398,11 @@ export default function NISTCompliancePage() {
             </Card>
           </div>
 
-          <Card className="border-2 border-blue-200 shadow-lg">
+          <Card className="border-2 border-gray-200 shadow-lg">
             <CardContent className="p-8">
               <div className="flex items-start gap-4 mb-6">
-                <div className="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <TrendingUp className="h-7 w-7 text-blue-600" />
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <TrendingUp className="h-7 w-7 text-gray-700" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold mb-3 text-gray-900">
@@ -447,7 +447,7 @@ export default function NISTCompliancePage() {
       <section className="bg-gray-900 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white border-0">
+            <Badge className="mb-6 px-4 py-2 bg-gray-800 hover:bg-black text-white border-0">
               <Shield className="h-4 w-4 mr-2 inline" />
               Achieve NIST Compliance
             </Badge>
@@ -465,7 +465,7 @@ export default function NISTCompliancePage() {
                   See Our API Documentation
                 </Link>
               </Button>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white" asChild>
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" asChild>
                 <Link href="/auth/signup">
                   Get a Demo of Our Monitoring Platform
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -495,9 +495,9 @@ export default function NISTCompliancePage() {
       {/* Supporting Information Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-lg">
+          <div className="bg-gray-50 border-l-4 border-gray-300 p-8 rounded-r-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <FileText className="h-6 w-6 text-blue-600" />
+              <FileText className="h-6 w-6 text-gray-700" />
               About NIST SP 800-63B Digital Identity Guidelines
             </h3>
             <div className="space-y-4 text-gray-700">

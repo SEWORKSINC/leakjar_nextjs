@@ -57,7 +57,7 @@ export default function HIPAACompliancePage() {
       <SharedHeader />
 
       {/* Hero Section */}
-      <section className="bg-blue-50 border-b border-blue-100">
+      <section className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight leading-tight">
@@ -74,12 +74,12 @@ export default function HIPAACompliancePage() {
                 can lead to massive fines, mandatory patient notification, and devastating reputational damage.
               </p>
             </div>
-            <div className="bg-white border-l-4 border-orange-600 p-6 rounded-r-lg shadow-sm max-w-3xl mx-auto">
+            <div className="bg-white border-l-4 border-red-600 p-6 rounded-r-lg shadow-sm max-w-3xl mx-auto">
               <div className="flex items-start gap-4">
-                <AlertTriangle className="h-6 w-6 text-orange-600 flex-shrink-0 mt-1" />
+                <AlertTriangle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
                 <p className="text-lg text-gray-800 leading-relaxed text-left">
                   <strong>The worst part?</strong> If you weren't actively looking for that stolen password, the Office for 
-                  Civil Rights (OCR) will likely classify the breach as a result of <strong className="text-orange-600">"willful neglect,"</strong> triggering 
+                  Civil Rights (OCR) will likely classify the breach as a result of <strong className="text-red-600">"willful neglect,"</strong> triggering 
                   the highest tier of financial penalties.
                 </p>
               </div>
@@ -93,7 +93,7 @@ export default function HIPAACompliancePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
-              <ClipboardCheck className="h-4 w-4 mr-2 inline text-blue-600" />
+              <ClipboardCheck className="h-4 w-4 mr-2 inline text-gray-700" />
               Legal Requirement
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
@@ -132,8 +132,8 @@ export default function HIPAACompliancePage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="h-8 w-8 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <ClipboardCheck className="h-5 w-5 text-blue-600" />
+                  <div className="h-8 w-8 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <ClipboardCheck className="h-5 w-5 text-gray-700" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-gray-900 mb-2">The Mandate</h3>
@@ -145,8 +145,8 @@ export default function HIPAACompliancePage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="h-8 w-8 bg-orange-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <AlertTriangle className="h-5 w-5 text-orange-600" />
+                  <div className="h-8 w-8 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <AlertTriangle className="h-5 w-5 text-red-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg text-gray-900 mb-2">The Gap</h3>
@@ -159,10 +159,10 @@ export default function HIPAACompliancePage() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-gray-200">
-                <div className="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
+                <div className="bg-white border-l-4 border-red-600 p-6 rounded-r-lg shadow-sm">
                   <p className="text-gray-800 font-semibold leading-relaxed">
                     Failing to monitor for leaked credentials is a failure to manage the most common and high-impact risk to ePHI. 
-                    This is what auditors see as <span className="text-orange-600">"willful neglect."</span>
+                    This is what auditors see as <span className="text-red-600">"willful neglect."</span>
                   </p>
                 </div>
               </div>
@@ -176,10 +176,10 @@ export default function HIPAACompliancePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
-                <Shield className="h-4 w-4 mr-2 inline text-green-600" />
-                HIPAA Safeguards
-              </Badge>
+            <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
+              <Shield className="h-4 w-4 mr-2 inline text-gray-700" />
+              HIPAA Safeguards
+            </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
                 How We Help You Meet HIPAA Safeguards
               </h2>
@@ -191,11 +191,11 @@ export default function HIPAACompliancePage() {
 
             <div className="space-y-6">
               {/* 1. Risk Analysis */}
-              <Card className="border-l-4 border-l-blue-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <ClipboardCheck className="h-7 w-7 text-blue-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <ClipboardCheck className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -210,9 +210,9 @@ export default function HIPAACompliancePage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       Our Solution
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -260,11 +260,11 @@ export default function HIPAACompliancePage() {
               </Card>
 
               {/* 3. Breach Detection */}
-              <Card className="border-l-4 border-l-purple-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Eye className="h-7 w-7 text-purple-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Eye className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -280,9 +280,9 @@ export default function HIPAACompliancePage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-purple-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       Our Solution
                     </h4>
                     <p className="text-gray-700 leading-relaxed mb-3">
@@ -298,11 +298,11 @@ export default function HIPAACompliancePage() {
               </Card>
 
               {/* 4. Business Associate Risk */}
-              <Card className="border-l-4 border-l-orange-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-orange-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Users className="h-7 w-7 text-orange-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Users className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -316,9 +316,9 @@ export default function HIPAACompliancePage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-orange-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       Our Solution
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -386,11 +386,11 @@ export default function HIPAACompliancePage() {
             </Card>
           </div>
 
-          <Card className="border-2 border-blue-200 shadow-lg">
+          <Card className="border-2 border-gray-200 shadow-lg">
             <CardContent className="p-8">
               <div className="flex items-start gap-4 mb-6">
-                <div className="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Shield className="h-7 w-7 text-blue-600" />
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Shield className="h-7 w-7 text-gray-700" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold mb-3 text-gray-900">
@@ -439,7 +439,7 @@ export default function HIPAACompliancePage() {
       <section className="bg-gray-900 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white border-0">
+            <Badge className="mb-6 px-4 py-2 bg-gray-800 hover:bg-black text-white border-0">
               <Database className="h-4 w-4 mr-2 inline" />
               Protect ePHI
             </Badge>
@@ -457,7 +457,7 @@ export default function HIPAACompliancePage() {
                   Get a HIPAA Compliance Demo
                 </Link>
               </Button>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white" asChild>
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" asChild>
                 <Link href="/dashboard">
                   See Our Monitoring Platform
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -487,9 +487,9 @@ export default function HIPAACompliancePage() {
       {/* Supporting Information Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-lg">
+          <div className="bg-gray-50 border-l-4 border-gray-300 p-8 rounded-r-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <FileText className="h-6 w-6 text-blue-600" />
+              <FileText className="h-6 w-6 text-gray-700" />
               Understanding HIPAA Security Rule Requirements
             </h3>
             <div className="space-y-4 text-gray-700">

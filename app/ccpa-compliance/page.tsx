@@ -58,7 +58,7 @@ export default function CCPACompliancePage() {
       <SharedHeader />
 
       {/* Hero Section */}
-      <section className="bg-orange-50 border-b border-orange-100">
+      <section className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight leading-tight">
@@ -101,14 +101,14 @@ export default function CCPACompliancePage() {
                 This private right of action is triggered if your company failed <strong>"to implement and maintain 
                 reasonable security procedures and practices."</strong>
               </p>
-              <div className="bg-orange-50 p-4 rounded-lg">
+              <div className="bg-gray-50 p-4 rounded-lg">
                 <p className="text-xl font-bold text-gray-900 mb-2">
                   The Critical Question for Your Business:
                 </p>
                 <p className="text-lg text-gray-800">
                   In 2025, is failing to monitor for your users' leaked credentials considered "reasonable security?"
                 </p>
-                <p className="text-lg font-bold text-orange-600 mt-3">
+                <p className="text-lg font-bold text-red-600 mt-3">
                   For any court or regulator, the answer is a clear <strong>NO</strong>.
                 </p>
               </div>
@@ -150,7 +150,7 @@ export default function CCPACompliancePage() {
                       of leaked passwords to take over user accounts. The California Attorney General has explicitly 
                       called this out as a major threat.
                     </p>
-                    <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg mt-4">
+                    <div className="bg-white border-l-4 border-red-600 p-4 rounded-r-lg mt-4 shadow-sm">
                       <p className="text-gray-800 font-semibold leading-relaxed">
                         If your organization is breached using this method, and you have <strong>no system in place</strong> to 
                         detect or block compromised passwords, you will be unable to prove you took "reasonable" steps to 
@@ -269,11 +269,11 @@ export default function CCPACompliancePage() {
 
           <div className="space-y-6">
             {/* 1. Prevent Account Takeover */}
-            <Card className="border-l-4 border-l-blue-500 shadow-md hover:shadow-lg transition-shadow">
+            <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start gap-4">
-                  <div className="h-14 w-14 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Eye className="h-7 w-7 text-blue-600" />
+                  <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Eye className="h-7 w-7 text-gray-700" />
                   </div>
                   <div>
                     <CardTitle className="text-2xl mb-2">
@@ -286,9 +286,9 @@ export default function CCPACompliancePage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                   <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                    <CheckCircle2 className="h-5 w-5 text-green-600" />
                     How It Works
                   </h4>
                   <p className="text-gray-700 leading-relaxed mb-3">
@@ -340,11 +340,11 @@ export default function CCPACompliancePage() {
             </Card>
 
             {/* 3. Provide Legal Defense */}
-            <Card className="border-l-4 border-l-purple-500 shadow-md hover:shadow-lg transition-shadow">
+            <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start gap-4">
-                  <div className="h-14 w-14 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <FileCheck className="h-7 w-7 text-purple-600" />
+                  <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <FileCheck className="h-7 w-7 text-gray-700" />
                   </div>
                   <div>
                     <CardTitle className="text-2xl mb-2">
@@ -357,9 +357,9 @@ export default function CCPACompliancePage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                   <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-purple-600" />
+                    <CheckCircle2 className="h-5 w-5 text-green-600" />
                     How It Works
                   </h4>
                   <p className="text-gray-700 leading-relaxed mb-3">
@@ -392,10 +392,10 @@ export default function CCPACompliancePage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-8">
-              <Card className="border-l-4 border-l-orange-500 shadow-sm">
+              <Card className="border-l-4 border-l-gray-300 shadow-sm">
                 <CardHeader>
-                  <div className="h-12 w-12 bg-orange-50 rounded-lg flex items-center justify-center mb-4">
-                    <DollarSign className="h-7 w-7 text-orange-600" />
+                  <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <DollarSign className="h-7 w-7 text-gray-700" />
                   </div>
                   <CardTitle className="text-lg">Minimum Exposure</CardTitle>
                 </CardHeader>
@@ -438,11 +438,11 @@ export default function CCPACompliancePage() {
               </Card>
             </div>
 
-            <Card className="border-2 border-orange-200 shadow-lg">
-              <CardContent className="p-8">
-                <div className="flex items-start gap-4 mb-6">
-                  <div className="h-12 w-12 bg-orange-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <AlertTriangle className="h-7 w-7 text-orange-600" />
+          <Card className="border-2 border-gray-200 shadow-lg">
+            <CardContent className="p-8">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <AlertTriangle className="h-7 w-7 text-red-600" />
                   </div>
                   <div>
                     <h3 className="text-2xl font-bold mb-3 text-gray-900">
@@ -493,7 +493,7 @@ export default function CCPACompliancePage() {
       <section className="bg-gray-900 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 px-4 py-2 bg-orange-600 hover:bg-orange-700 text-white border-0">
+            <Badge className="mb-6 px-4 py-2 bg-gray-800 hover:bg-black text-white border-0">
               <Scale className="h-4 w-4 mr-2 inline" />
               Protect Your Business
             </Badge>
@@ -511,7 +511,7 @@ export default function CCPACompliancePage() {
                   Get a CCPA/CPRA Risk Demo
                 </Link>
               </Button>
-              <Button size="lg" className="bg-orange-600 hover:bg-orange-700 text-white" asChild>
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" asChild>
                 <Link href="/developer">
                   <FileText className="mr-2 h-5 w-5" />
                   See Our API Documentation
@@ -542,9 +542,9 @@ export default function CCPACompliancePage() {
       {/* Supporting Information Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-lg">
+          <div className="bg-gray-50 border-l-4 border-gray-300 p-8 rounded-r-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <FileText className="h-6 w-6 text-blue-600" />
+              <FileText className="h-6 w-6 text-gray-700" />
               Understanding CCPA/CPRA Private Right of Action
             </h3>
             <div className="space-y-4 text-gray-700">

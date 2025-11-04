@@ -58,7 +58,7 @@ export default function NISTAIRMFPage() {
       <SharedHeader />
 
       {/* Hero Section */}
-      <section className="bg-blue-50 border-b border-blue-100">
+      <section className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight leading-tight">
@@ -77,9 +77,9 @@ export default function NISTAIRMFPage() {
             </div>
 
             <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
-              <div className="bg-white border-l-4 border-orange-600 p-6 rounded-r-lg shadow-sm text-left">
+              <div className="bg-white border-l-4 border-red-600 p-6 rounded-r-lg shadow-sm text-left">
                 <div className="flex items-start gap-3 mb-2">
-                  <AlertTriangle className="h-6 w-6 text-orange-600 flex-shrink-0 mt-1" />
+                  <AlertTriangle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-lg text-gray-900 mb-2">Voluntary, But Essential</h3>
                     <p className="text-gray-700 leading-relaxed text-base">
@@ -90,9 +90,9 @@ export default function NISTAIRMFPage() {
                 </div>
               </div>
 
-              <div className="bg-white border-l-4 border-purple-600 p-6 rounded-r-lg shadow-sm text-left">
+              <div className="bg-white border-l-4 border-gray-300 p-6 rounded-r-lg shadow-sm text-left">
                 <div className="flex items-start gap-3 mb-2">
-                  <Eye className="h-6 w-6 text-purple-600 flex-shrink-0 mt-1" />
+                  <Eye className="h-6 w-6 text-gray-700 flex-shrink-0 mt-1" />
                   <div>
                     <h3 className="font-bold text-lg text-gray-900 mb-2">Continuous Monitoring Required</h3>
                     <p className="text-gray-700 leading-relaxed text-base">
@@ -112,7 +112,7 @@ export default function NISTAIRMFPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
-              <Brain className="h-4 w-4 mr-2 inline text-blue-600" />
+              <Brain className="h-4 w-4 mr-2 inline text-gray-700" />
               Implementation Platform
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
@@ -130,13 +130,13 @@ export default function NISTAIRMFPage() {
                 How Our Service Directly Implements the Framework's Core Functions:
               </h3>
               <div className="grid md:grid-cols-4 gap-4">
-                <div className="text-center p-4 bg-purple-50 rounded-lg">
-                  <Building2 className="h-10 w-10 text-purple-600 mx-auto mb-3" />
+                <div className="text-center p-4 bg-gray-100 rounded-lg">
+                  <Building2 className="h-10 w-10 text-gray-700 mx-auto mb-3" />
                   <h4 className="font-bold text-gray-900">GOVERN</h4>
                   <p className="text-sm text-gray-600 mt-2">Ground Truth for Oversight</p>
                 </div>
-                <div className="text-center p-4 bg-blue-50 rounded-lg">
-                  <Target className="h-10 w-10 text-blue-600 mx-auto mb-3" />
+                <div className="text-center p-4 bg-gray-100 rounded-lg">
+                  <Target className="h-10 w-10 text-gray-700 mx-auto mb-3" />
                   <h4 className="font-bold text-gray-900">MAP</h4>
                   <p className="text-sm text-gray-600 mt-2">True Risk Context</p>
                 </div>
@@ -145,8 +145,8 @@ export default function NISTAIRMFPage() {
                   <h4 className="font-bold text-gray-900">MEASURE</h4>
                   <p className="text-sm text-gray-600 mt-2">Quantification Engine</p>
                 </div>
-                <div className="text-center p-4 bg-orange-50 rounded-lg">
-                  <Shield className="h-10 w-10 text-orange-600 mx-auto mb-3" />
+                <div className="text-center p-4 bg-gray-100 rounded-lg">
+                  <Shield className="h-10 w-10 text-gray-700 mx-auto mb-3" />
                   <h4 className="font-bold text-gray-900">MANAGE</h4>
                   <p className="text-sm text-gray-600 mt-2">Real-Time Response</p>
                 </div>
@@ -162,11 +162,11 @@ export default function NISTAIRMFPage() {
           <div className="max-w-5xl mx-auto">
             <div className="space-y-6">
               {/* 1. GOVERN */}
-              <Card className="border-l-4 border-l-purple-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Building2 className="h-7 w-7 text-purple-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Building2 className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -181,7 +181,7 @@ export default function NISTAIRMFPage() {
                 <CardContent>
                   <div className="mb-6">
                     <div className="flex items-start gap-3 mb-4">
-                      <AlertTriangle className="h-5 w-5 text-orange-600 flex-shrink-0 mt-1" />
+                      <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0 mt-1" />
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-1">The RMF Challenge</h4>
                         <p className="text-gray-700 leading-relaxed">
@@ -192,9 +192,9 @@ export default function NISTAIRMFPage() {
                     </div>
                   </div>
 
-                  <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-purple-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       Our Solution
                     </h4>
                     <p className="text-gray-700 leading-relaxed mb-3">
@@ -210,11 +210,11 @@ export default function NISTAIRMFPage() {
               </Card>
 
               {/* 2. MAP */}
-              <Card className="border-l-4 border-l-blue-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Target className="h-7 w-7 text-blue-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Target className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -229,7 +229,7 @@ export default function NISTAIRMFPage() {
                 <CardContent>
                   <div className="mb-6">
                     <div className="flex items-start gap-3 mb-4">
-                      <AlertTriangle className="h-5 w-5 text-orange-600 flex-shrink-0 mt-1" />
+                      <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0 mt-1" />
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-1">The RMF Challenge</h4>
                         <p className="text-gray-700 leading-relaxed">
@@ -240,9 +240,9 @@ export default function NISTAIRMFPage() {
                     </div>
                   </div>
 
-                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       Our Solution
                     </h4>
                     <p className="text-gray-700 leading-relaxed mb-3">
@@ -277,7 +277,7 @@ export default function NISTAIRMFPage() {
                 <CardContent>
                   <div className="mb-6">
                     <div className="flex items-start gap-3 mb-4">
-                      <AlertTriangle className="h-5 w-5 text-orange-600 flex-shrink-0 mt-1" />
+                      <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0 mt-1" />
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-1">The RMF Challenge</h4>
                         <p className="text-gray-700 leading-relaxed">
@@ -333,11 +333,11 @@ export default function NISTAIRMFPage() {
               </Card>
 
               {/* 4. MANAGE */}
-              <Card className="border-l-4 border-l-orange-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-orange-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Shield className="h-7 w-7 text-orange-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Shield className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -352,7 +352,7 @@ export default function NISTAIRMFPage() {
                 <CardContent>
                   <div className="mb-6">
                     <div className="flex items-start gap-3 mb-4">
-                      <AlertTriangle className="h-5 w-5 text-orange-600 flex-shrink-0 mt-1" />
+                      <AlertTriangle className="h-5 w-5 text-red-600 flex-shrink-0 mt-1" />
                       <div>
                         <h4 className="font-semibold text-gray-900 mb-1">The RMF Challenge</h4>
                         <p className="text-gray-700 leading-relaxed">
@@ -363,9 +363,9 @@ export default function NISTAIRMFPage() {
                     </div>
                   </div>
 
-                  <div className="bg-orange-50 border-l-4 border-orange-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-orange-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       Our Solution: Your AI's "Security Operations Center" (SOC)
                     </h4>
                     <p className="text-gray-700 leading-relaxed mb-3">
@@ -389,7 +389,7 @@ export default function NISTAIRMFPage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
-              <Activity className="h-4 w-4 mr-2 inline text-purple-600" />
+              <Activity className="h-4 w-4 mr-2 inline text-gray-700" />
               Continuous Framework
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
@@ -416,7 +416,7 @@ export default function NISTAIRMFPage() {
                   </p>
                   <p className="text-lg text-gray-700 leading-relaxed">
                     Our platform provides the <strong>automated, continuous monitoring</strong> required to make the NIST AI RMF a 
-                    living, effective part of your organization—transforming <strong className="text-purple-600">"Trustworthy AI"</strong> from 
+                    living, effective part of your organization—transforming <strong>"Trustworthy AI"</strong> from 
                     a marketing promise into a provable, technical reality.
                   </p>
                 </div>
@@ -482,7 +482,7 @@ export default function NISTAIRMFPage() {
       <section className="bg-gray-900 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white border-0">
+            <Badge className="mb-6 px-4 py-2 bg-gray-800 hover:bg-black text-white border-0">
               <Brain className="h-4 w-4 mr-2 inline" />
               NIST AI RMF Implementation
             </Badge>
@@ -500,7 +500,7 @@ export default function NISTAIRMFPage() {
                   Get Your NIST AI RMF Implementation Demo
                 </Link>
               </Button>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white" asChild>
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" asChild>
                 <Link href="/dashboard">
                   <Activity className="mr-2 h-5 w-5" />
                   See Our Continuous Monitoring Platform
@@ -531,9 +531,9 @@ export default function NISTAIRMFPage() {
       {/* Supporting Information Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-lg">
+          <div className="bg-gray-50 border-l-4 border-gray-300 p-8 rounded-r-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <FileText className="h-6 w-6 text-blue-600" />
+              <FileText className="h-6 w-6 text-gray-700" />
               Understanding the NIST AI Risk Management Framework
             </h3>
             <div className="space-y-4 text-gray-700">

@@ -59,7 +59,7 @@ export default function GDPRCompliancePage() {
       <SharedHeader />
 
       {/* Hero Section */}
-      <section className="bg-blue-50 border-b border-blue-100">
+      <section className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight leading-tight">
@@ -87,7 +87,7 @@ export default function GDPRCompliancePage() {
               <p className="text-lg text-gray-800 leading-relaxed">
                 Recent enforcement actions by <strong>Data Protection Authorities (DPAs)</strong> have made one thing clear: 
                 failing to protect against known, foreseeable attack vectors like credential stuffing is a 
-                <strong className="text-orange-600"> direct violation</strong> of your duty to secure personal data.
+                <strong className="text-red-600"> direct violation</strong> of your duty to secure personal data.
               </p>
             </div>
           </div>
@@ -99,7 +99,7 @@ export default function GDPRCompliancePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
-              <Scale className="h-4 w-4 mr-2 inline text-blue-600" />
+              <Scale className="h-4 w-4 mr-2 inline text-gray-700" />
               Legal Requirement
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
@@ -113,7 +113,7 @@ export default function GDPRCompliancePage() {
           </div>
 
           <Card className="border-2 border-blue-200 shadow-lg mb-8">
-            <CardHeader className="bg-blue-50 border-b border-blue-100">
+            <CardHeader className="bg-gray-50 border-b border-gray-200">
               <CardTitle className="text-2xl">
                 In 2025, What Is the "State of the Art" for Password Security?
               </CardTitle>
@@ -151,9 +151,9 @@ export default function GDPRCompliancePage() {
               </div>
 
               <div className="mt-8 pt-6 border-t border-gray-200">
-                <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg">
+                <div className="bg-gray-50 border-l-4 border-gray-300 p-6 rounded-r-lg">
                   <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <Globe className="h-5 w-5 text-blue-600" />
+                    <Globe className="h-5 w-5 text-gray-700" />
                     ICO & EU DPA Official Guidance
                   </h4>
                   <p className="text-gray-800 leading-relaxed mb-3">
@@ -167,16 +167,16 @@ export default function GDPRCompliancePage() {
                     </p>
                   </div>
                   <p className="text-gray-800 font-semibold mt-4 leading-relaxed">
-                    This is not a suggestion; it is their definition of the <strong className="text-blue-600">minimum technical 
+                    This is not a suggestion; it is their definition of the <strong>minimum technical 
                     safeguard</strong> required to protect personal data.
                   </p>
                 </div>
               </div>
 
-              <div className="mt-6 bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
+              <div className="mt-6 bg-white border-l-4 border-red-600 p-6 rounded-r-lg shadow-sm">
                 <p className="text-gray-900 font-bold text-lg">
                   If you are not checking passwords against a database of known-leaked credentials, you are failing to 
-                  meet the "state of the art" and are <span className="text-orange-600">in breach of Article 32</span>.
+                  meet the "state of the art" and are <span className="text-red-600">in breach of Article 32</span>.
                 </p>
               </div>
             </CardContent>
@@ -231,25 +231,25 @@ export default function GDPRCompliancePage() {
                     </p>
                   </div>
 
-                  <div className="bg-orange-50 p-6 rounded-lg mt-6">
+                  <div className="bg-gray-50 p-6 rounded-lg mt-6">
                     <h4 className="font-bold text-xl text-gray-900 mb-3">
                       The Unmistakable Message from Regulators:
                     </h4>
                     <div className="space-y-3">
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="h-6 w-6 text-orange-600 flex-shrink-0 mt-1" />
+                        <CheckCircle2 className="h-6 w-6 text-gray-700 flex-shrink-0 mt-1" />
                         <p className="text-gray-800 leading-relaxed">
                           Credential stuffing is a <strong>known, foreseeable, and high-impact risk</strong>
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="h-6 w-6 text-orange-600 flex-shrink-0 mt-1" />
+                        <CheckCircle2 className="h-6 w-6 text-gray-700 flex-shrink-0 mt-1" />
                         <p className="text-gray-800 leading-relaxed">
                           You have a <strong>legal duty to defend against it</strong>
                         </p>
                       </div>
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="h-6 w-6 text-orange-600 flex-shrink-0 mt-1" />
+                        <CheckCircle2 className="h-6 w-6 text-gray-700 flex-shrink-0 mt-1" />
                         <p className="text-gray-800 leading-relaxed">
                           Failure to do so is <strong>non-compliance with Article 32</strong>
                         </p>
@@ -317,11 +317,11 @@ export default function GDPRCompliancePage() {
             </Card>
 
             {/* 2. Prevent a Breach */}
-            <Card className="border-l-4 border-l-blue-500 shadow-md hover:shadow-lg transition-shadow">
+            <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start gap-4">
-                  <div className="h-14 w-14 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Eye className="h-7 w-7 text-blue-600" />
+                  <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Eye className="h-7 w-7 text-gray-700" />
                   </div>
                   <div>
                     <CardTitle className="text-2xl mb-2">
@@ -334,9 +334,9 @@ export default function GDPRCompliancePage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                   <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                    <CheckCircle2 className="h-5 w-5 text-green-600" />
                     How It Works
                   </h4>
                   <p className="text-gray-700 leading-relaxed mb-3">
@@ -352,11 +352,11 @@ export default function GDPRCompliancePage() {
             </Card>
 
             {/* 3. Avoid Article 33 Notifications */}
-            <Card className="border-l-4 border-l-purple-500 shadow-md hover:shadow-lg transition-shadow">
+            <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="flex items-start gap-4">
-                  <div className="h-14 w-14 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Clock className="h-7 w-7 text-purple-600" />
+                  <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Clock className="h-7 w-7 text-gray-700" />
                   </div>
                   <div>
                     <CardTitle className="text-2xl mb-2">
@@ -369,9 +369,9 @@ export default function GDPRCompliancePage() {
                 </div>
               </CardHeader>
               <CardContent>
-                <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                   <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                    <CheckCircle2 className="h-5 w-5 text-purple-600" />
+                    <CheckCircle2 className="h-5 w-5 text-green-600" />
                     How It Works
                   </h4>
                   <p className="text-gray-700 leading-relaxed mb-3">
@@ -419,10 +419,10 @@ export default function GDPRCompliancePage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-l-4 border-l-orange-500 shadow-sm">
+              <Card className="border-l-4 border-l-gray-300 shadow-sm">
                 <CardHeader>
-                  <div className="h-12 w-12 bg-orange-50 rounded-lg flex items-center justify-center mb-4">
-                    <Clock className="h-7 w-7 text-orange-600" />
+                  <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <Clock className="h-7 w-7 text-gray-700" />
                   </div>
                   <CardTitle className="text-lg">Article 33 Deadline</CardTitle>
                 </CardHeader>
@@ -504,7 +504,7 @@ export default function GDPRCompliancePage() {
       <section className="bg-gray-900 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white border-0">
+            <Badge className="mb-6 px-4 py-2 bg-gray-800 hover:bg-black text-white border-0">
               <Shield className="h-4 w-4 mr-2 inline" />
               GDPR Article 32 Compliance
             </Badge>
@@ -522,7 +522,7 @@ export default function GDPRCompliancePage() {
                   Get a Demo
                 </Link>
               </Button>
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white" asChild>
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" asChild>
                 <Link href="/developer">
                   <FileText className="mr-2 h-5 w-5" />
                   See Our API Documentation
@@ -553,9 +553,9 @@ export default function GDPRCompliancePage() {
       {/* Supporting Information Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-lg">
+          <div className="bg-gray-50 border-l-4 border-gray-300 p-8 rounded-r-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <FileText className="h-6 w-6 text-blue-600" />
+              <FileText className="h-6 w-6 text-gray-700" />
               Understanding GDPR Article 32 Requirements
             </h3>
             <div className="space-y-4 text-gray-700">

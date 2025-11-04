@@ -59,7 +59,7 @@ export default function AIActCompliancePage() {
       <SharedHeader />
 
       {/* Hero Section */}
-      <section className="bg-purple-50 border-b border-purple-100">
+      <section className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight leading-tight">
@@ -74,9 +74,9 @@ export default function AIActCompliancePage() {
               or is it a <strong>€35 million liability</strong> waiting to be discovered?
             </p>
             
-            <div className="bg-white border-l-4 border-purple-600 p-6 rounded-r-lg shadow-sm max-w-3xl mx-auto mb-6">
+            <div className="bg-white border-l-4 border-gray-300 p-6 rounded-r-lg shadow-sm max-w-3xl mx-auto mb-6">
               <p className="text-lg text-gray-800 leading-relaxed">
-                The law's most significant technical mandate is found in <strong className="text-purple-600">Article 15</strong>, 
+                The law's most significant technical mandate is found in <strong>Article 15</strong>, 
                 which requires that high-risk AI systems be secure against known threats. It explicitly names 
                 <strong> "attacks trying to manipulate the training data set (data poisoning)"</strong> as a vulnerability 
                 you are required to prevent.
@@ -98,7 +98,7 @@ export default function AIActCompliancePage() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
             <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
-              <Brain className="h-4 w-4 mr-2 inline text-purple-600" />
+              <Brain className="h-4 w-4 mr-2 inline text-gray-700" />
               Attack Vector
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
@@ -132,8 +132,8 @@ export default function AIActCompliancePage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="h-10 w-10 bg-orange-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <AlertTriangle className="h-6 w-6 text-orange-600" />
+                  <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <AlertTriangle className="h-6 w-6 text-red-600" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-xl text-gray-900 mb-2">Bias Attack</h3>
@@ -145,8 +145,8 @@ export default function AIActCompliancePage() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="h-10 w-10 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <Database className="h-6 w-6 text-purple-600" />
+                  <div className="h-10 w-10 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <Database className="h-6 w-6 text-gray-700" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-xl text-gray-900 mb-2">Data Breach Attack</h3>
@@ -168,7 +168,7 @@ export default function AIActCompliancePage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
-                <Scale className="h-4 w-4 mr-2 inline text-blue-600" />
+                <Scale className="h-4 w-4 mr-2 inline text-gray-700" />
                 Legal Mandate
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
@@ -180,10 +180,10 @@ export default function AIActCompliancePage() {
             </div>
 
             {/* Article 15 */}
-            <Card className="border-l-4 border-l-blue-500 shadow-lg mb-6">
-              <CardHeader className="bg-blue-50 border-b border-blue-100">
+            <Card className="border-l-4 border-l-gray-300 shadow-lg mb-6">
+            <CardHeader className="bg-gray-50 border-b border-gray-200">
                 <CardTitle className="text-2xl flex items-center gap-3">
-                  <ShieldCheck className="h-7 w-7 text-blue-600" />
+                  <ShieldCheck className="h-7 w-7 text-gray-700" />
                   Article 15: Accuracy, Robustness and Cybersecurity
                 </CardTitle>
               </CardHeader>
@@ -193,18 +193,18 @@ export default function AIActCompliancePage() {
                   attempts by unauthorised third parties to alter their... performance by exploiting system vulnerabilities."
                 </p>
                 
-                <div className="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-lg mb-6">
+                <div className="bg-gray-50 border-l-4 border-gray-300 p-6 rounded-r-lg mb-6">
                   <p className="text-gray-800 italic leading-relaxed">
                     The law specifically lists <strong>"technical solutions... to prevent, detect, respond to... and control for 
                     attacks trying to manipulate the training data set (data poisoning)."</strong>
                   </p>
                 </div>
 
-                <div className="bg-orange-50 p-6 rounded-lg">
+                <div className="bg-white border-l-4 border-red-600 p-6 rounded-r-lg shadow-sm">
                   <h4 className="font-bold text-gray-900 mb-2">What this means:</h4>
                   <p className="text-gray-800 leading-relaxed">
                     If you <strong>cannot prove to an auditor</strong> that you have a technical solution to "prevent, detect, and 
-                    control" for data poisoning, you are <strong className="text-orange-600">non-compliant by default</strong>.
+                    control" for data poisoning, you are <strong className="text-red-600">non-compliant by default</strong>.
                   </p>
                 </div>
               </CardContent>
@@ -225,11 +225,11 @@ export default function AIActCompliancePage() {
                   extent possible, free of errors and complete."</strong>
                 </p>
 
-                <div className="bg-orange-50 p-6 rounded-lg">
+                <div className="bg-white border-l-4 border-red-600 p-6 rounded-r-lg shadow-sm">
                   <h4 className="font-bold text-gray-900 mb-2">What this means:</h4>
                   <p className="text-gray-800 leading-relaxed">
                     Maliciously injected data is the <strong>most severe type of "error."</strong> A failure in data governance 
-                    (Article 10) that enables a data poisoning attack (Article 15) creates a <strong className="text-orange-600">clear-cut 
+                    (Article 10) that enables a data poisoning attack (Article 15) creates a <strong className="text-red-600">clear-cut 
                     case of non-compliance</strong>.
                   </p>
                 </div>
@@ -275,10 +275,10 @@ export default function AIActCompliancePage() {
               </CardContent>
             </Card>
 
-            <Card className="border-l-4 border-l-orange-500 shadow-md">
+            <Card className="border-l-4 border-l-red-600 shadow-md">
               <CardHeader>
-                <div className="h-14 w-14 bg-orange-50 rounded-lg flex items-center justify-center mb-4">
-                  <TrendingUp className="h-8 w-8 text-orange-600" />
+                <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <TrendingUp className="h-8 w-8 text-red-600" />
                 </div>
                 <CardTitle className="text-xl mb-3">High-Risk Non-Compliance (Your Tier)</CardTitle>
               </CardHeader>
@@ -333,18 +333,18 @@ export default function AIActCompliancePage() {
               </p>
               <p className="text-lg text-gray-700 max-w-3xl mx-auto">
                 Our AI threat monitoring platform is the exact technical safeguard regulators are demanding. We provide the 
-                <strong className="text-purple-600"> "state-of-the-art"</strong> defense you need to prove your due diligence 
+                <strong>"state-of-the-art"</strong> defense you need to prove your due diligence 
                 under Article 15.
               </p>
             </div>
 
             <div className="space-y-6">
               {/* 1. We Detect Poison */}
-              <Card className="border-l-4 border-l-purple-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-purple-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Eye className="h-7 w-7 text-purple-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Eye className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -354,9 +354,9 @@ export default function AIActCompliancePage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-purple-50 border-l-4 border-purple-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-purple-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       How It Works
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -368,11 +368,11 @@ export default function AIActCompliancePage() {
               </Card>
 
               {/* 2. We Prove Compliance */}
-              <Card className="border-l-4 border-l-blue-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-green-500 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
                   <div className="flex items-start gap-4">
-                    <div className="h-14 w-14 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <FileText className="h-7 w-7 text-blue-600" />
+                    <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <FileText className="h-7 w-7 text-gray-700" />
                     </div>
                     <div>
                       <CardTitle className="text-2xl mb-2">
@@ -382,9 +382,9 @@ export default function AIActCompliancePage() {
                   </div>
                 </CardHeader>
                 <CardContent>
-                  <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded-r-lg">
+                  <div className="bg-gray-50 border-l-4 border-gray-300 p-4 rounded-r-lg">
                     <h4 className="font-semibold text-gray-900 mb-2 flex items-center gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-blue-600" />
+                      <CheckCircle2 className="h-5 w-5 text-green-600" />
                       How It Works
                     </h4>
                     <p className="text-gray-700 leading-relaxed">
@@ -424,10 +424,10 @@ export default function AIActCompliancePage() {
               </Card>
             </div>
 
-            <div className="mt-8 bg-white border-2 border-purple-200 p-8 rounded-lg shadow-lg">
+            <div className="mt-8 bg-white border-2 border-gray-200 p-8 rounded-lg shadow-lg">
               <p className="text-xl text-center text-gray-900 font-bold leading-relaxed">
                 The EU AI Act has turned AI robustness from a development goal into a 
-                <span className="text-purple-600"> legal imperative</span>. Don't be made an example of.
+                <strong>legal imperative</strong>. Don't be made an example of.
               </p>
             </div>
           </div>
@@ -438,7 +438,7 @@ export default function AIActCompliancePage() {
       <section className="bg-gray-900 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white border-0">
+            <Badge className="mb-6 px-4 py-2 bg-gray-800 hover:bg-black text-white border-0">
               <Brain className="h-4 w-4 mr-2 inline" />
               EU AI Act Article 15
             </Badge>
@@ -456,7 +456,7 @@ export default function AIActCompliancePage() {
                   Get Your EU AI Act Compliance Demo
                 </Link>
               </Button>
-              <Button size="lg" className="bg-purple-600 hover:bg-purple-700 text-white" asChild>
+              <Button size="lg" className="bg-green-600 hover:bg-green-700 text-white" asChild>
                 <Link href="/developer">
                   <FileText className="mr-2 h-5 w-5" />
                   See Our Data Poisoning Detection Platform
@@ -487,9 +487,9 @@ export default function AIActCompliancePage() {
       {/* Supporting Information Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-purple-50 border-l-4 border-purple-500 p-8 rounded-r-lg">
+          <div className="bg-gray-50 border-l-4 border-gray-300 p-8 rounded-r-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <FileText className="h-6 w-6 text-purple-600" />
+              <FileText className="h-6 w-6 text-gray-700" />
               Understanding EU AI Act Article 15 Requirements
             </h3>
             <div className="space-y-4 text-gray-700">
