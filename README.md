@@ -393,7 +393,7 @@ This project is proprietary software owned by SEW Inc. All rights reserved.
 ## 🆘 Support
 
 For support, please contact:
-- Email: support@leakjar.com
+- Email: help@leakjar.com
 - Documentation: [docs.leakjar.com](https://docs.leakjar.com)
 - Issues: [GitHub Issues](https://github.com/SEWORKSINC/leakjar_nextjs/issues)
 
