@@ -96,8 +96,8 @@ export default function LandingPage() {
                 <img src="https://www.leakjar.com/static/img/world_c.png" alt="leakjar.com cover image">
               </picture> */}
               <video className="hidden lg:block w-460 ml-10" muted autoPlay loop playsInline>
-                <source src="/world_c.webm" type="video/webm">
-                <source src="/world_c.mp4" type="video/mp4">
+                <source src="/world_c.webm" type="video/webm" />
+                <source src="/world_c.mp4" type="video/mp4" />
               </video>
             </div>
             <div className="flex-auto flex flex-col justify-center">
