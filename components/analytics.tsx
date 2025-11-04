@@ -2,7 +2,7 @@
 
 import Script from 'next/script';
 import { usePathname, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { useEffect, Suspense } from 'react';
 
 // Google Analytics 4 Measurement ID
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-E7LNSKYVTQ';
@@ -32,8 +32,8 @@ export function event({ action, category, label, value }: {
   }
 }
 
-// Google Analytics component
-export function Analytics() {
+// Analytics tracking component (uses useSearchParams)
+function AnalyticsTracking() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
@@ -44,6 +44,11 @@ export function Analytics() {
     }
   }, [pathname, searchParams]);
 
+  return null;
+}
+
+// Google Analytics component
+export function Analytics() {
   // Don't load analytics in development
   if (process.env.NODE_ENV === 'development') {
     return null;
@@ -51,6 +56,9 @@ export function Analytics() {
 
   return (
     <>
+      <Suspense fallback={null}>
+        <AnalyticsTracking />
+      </Suspense>
       <Script
         strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
