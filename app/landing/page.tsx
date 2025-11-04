@@ -7,9 +7,13 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Shield, Database, Globe, Search, AlertTriangle, TrendingUp, Lock, Users, BarChart3, Activity, Eye, Server, Mail } from 'lucide-react';
+import { SharedHeader } from '@/components/shared-header';
+import { SharedFooter } from '@/components/shared-footer';
+import { useToast } from '@/components/ui/toast';
 
 export default function LandingPage() {
   const router = useRouter();
+  const { addToast } = useToast();
   const [stats, setStats] = useState({
     totalRecords: 0,
     uniqueDomains: 0,
@@ -52,7 +56,7 @@ export default function LandingPage() {
 
   const handleSearch = async () => {
     if (!searchEmail || !searchEmail.includes('@')) {
-      alert('Please enter a valid email address');
+      addToast('Please enter a valid email address', 'error');
       return;
     }
 
@@ -64,28 +68,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Header */}
-      <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <Shield className="h-8 w-8 text-gray-700" />
-            <h1 className="text-2xl font-bold text-gray-900">LeakJar</h1>
-          </div>
-          <nav className="hidden md:flex space-x-6">
-            <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
-            <a href="#how-it-works" className="text-gray-600 hover:text-gray-900">How It Works</a>
-            <a href="#stats" className="text-gray-600 hover:text-gray-900">Statistics</a>
-            <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
-          </nav>
-          <div className="flex space-x-3">
-            <Link href="/auth/login">
-              <Button variant="outline" className="border-gray-300">Sign In</Button>
-            </Link>
-            <Link href="/auth/signup">
-              <Button className="bg-gray-700 hover:bg-gray-800">Get Started</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <SharedHeader />
 
       <section id="cover">
         <div className="container mx-auto">
@@ -95,9 +78,19 @@ export default function LandingPage() {
                 <source srcset="https://www.leakjar.com/static/img/world_c.webp" type="image/webp">
                 <img src="https://www.leakjar.com/static/img/world_c.png" alt="leakjar.com cover image">
               </picture> */}
-              <video className="hidden lg:block w-460 ml-10" muted autoPlay loop playsInline>
+              <video 
+                className="hidden lg:block w-460 ml-10" 
+                muted 
+                autoPlay 
+                loop 
+                playsInline
+                loading="lazy"
+                preload="metadata"
+                aria-label="LeakJar global network visualization"
+              >
                 <source src="/world_c.webm" type="video/webm" />
                 <source src="/world_c.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
               </video>
             </div>
             <div className="flex-auto flex flex-col justify-center">
@@ -321,27 +314,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Protocol Coverage */}
-      <section className="bg-gray-50 py-20">
-        <div className="container mx-auto px-4">
-          <h3 className="text-3xl font-bold text-center text-gray-900 mb-12">
-            Comprehensive Protocol Coverage
-          </h3>
-          <div className="max-w-4xl mx-auto">
-            <p className="text-center text-gray-600 mb-8">
-              Monitor credentials across 45+ protocols and platforms
-            </p>
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
-              {['HTTPS', 'HTTP', 'FTP', 'SSH', 'Android', 'iOS', 'SMTP', 'POP3', 'IMAP', 'Telnet', 'RDP', 'VNC', 'MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'LDAP', 'SMB'].map((protocol) => (
-                <div key={protocol} className="bg-white border border-gray-200 rounded-lg p-3 text-center">
-                  <span className="text-sm font-medium text-gray-700">{protocol}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-gray-700 to-gray-900">
         <div className="container mx-auto px-4 text-center">
@@ -359,50 +331,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Shield className="h-6 w-6 text-gray-500" />
-                <h4 className="text-lg font-semibold text-white">LeakJar</h4>
-              </div>
-              <p className="text-sm">Enterprise breach monitoring and credential intelligence platform</p>
-            </div>
-            <div>
-              <h5 className="text-white font-semibold mb-3">Product</h5>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/features" className="hover:text-white">Features</Link></li>
-                <li><Link href="/pricing" className="hover:text-white">Pricing</Link></li>
-                <li><Link href="/api" className="hover:text-white">API</Link></li>
-                <li><Link href="/integrations" className="hover:text-white">Integrations</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="text-white font-semibold mb-3">Company</h5>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/about" className="hover:text-white">About</Link></li>
-                <li><Link href="/blog" className="hover:text-white">Blog</Link></li>
-                <li><Link href="/careers" className="hover:text-white">Careers</Link></li>
-                <li><Link href="/contact" className="hover:text-white">Contact</Link></li>
-              </ul>
-            </div>
-            <div>
-              <h5 className="text-white font-semibold mb-3">Legal</h5>
-              <ul className="space-y-2 text-sm">
-                <li><Link href="/privacy" className="hover:text-white">Privacy Policy</Link></li>
-                <li><Link href="/terms" className="hover:text-white">Terms of Service</Link></li>
-                <li><Link href="/security" className="hover:text-white">Security</Link></li>
-                <li><Link href="/compliance" className="hover:text-white">Compliance</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-            <p>&copy; 2024 LeakJar. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <SharedFooter />
     </div>
   );
 }
