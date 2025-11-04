@@ -55,7 +55,7 @@ export default function PCICompliancePage() {
       <SharedHeader />
 
       {/* Hero Section - Urgent Alert */}
-      <section className="bg-red-50 border-b border-red-100">
+      <section className="bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-12 md:py-16">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900 tracking-tight leading-tight">
@@ -162,7 +162,7 @@ export default function PCICompliancePage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
-                <DollarSign className="h-4 w-4 mr-2 inline text-orange-600" />
+                <DollarSign className="h-4 w-4 mr-2 inline text-gray-700" />
                 Financial Impact
               </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
@@ -174,10 +174,10 @@ export default function PCICompliancePage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <Card className="border-l-4 border-l-orange-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-red-600 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="h-14 w-14 bg-orange-50 rounded-lg flex items-center justify-center mb-4">
-                    <DollarSign className="h-8 w-8 text-orange-600" />
+                  <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <DollarSign className="h-8 w-8 text-red-600" />
                   </div>
                   <CardTitle className="text-xl mb-3">Heavy Fines</CardTitle>
                 </CardHeader>
@@ -191,10 +191,10 @@ export default function PCICompliancePage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-l-4 border-l-orange-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="h-14 w-14 bg-orange-50 rounded-lg flex items-center justify-center mb-4">
-                    <ShieldAlert className="h-8 w-8 text-orange-600" />
+                  <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <ShieldAlert className="h-8 w-8 text-gray-700" />
                   </div>
                   <CardTitle className="text-xl mb-3">Increased Breach Risk</CardTitle>
                 </CardHeader>
@@ -209,10 +209,10 @@ export default function PCICompliancePage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-l-4 border-l-orange-500 shadow-md hover:shadow-lg transition-shadow">
+              <Card className="border-l-4 border-l-gray-300 shadow-md hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="h-14 w-14 bg-orange-50 rounded-lg flex items-center justify-center mb-4">
-                    <TrendingUp className="h-8 w-8 text-orange-600" />
+                  <div className="h-14 w-14 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                    <TrendingUp className="h-8 w-8 text-gray-700" />
                   </div>
                   <CardTitle className="text-xl mb-3">Reputational Damage</CardTitle>
                 </CardHeader>
@@ -229,9 +229,9 @@ export default function PCICompliancePage() {
             </div>
 
             {/* Warning Box */}
-            <div className="mt-10 bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-lg">
+            <div className="mt-10 bg-white border-l-4 border-red-600 p-6 rounded-r-lg shadow-sm">
               <div className="flex items-start gap-4">
-                <AlertCircle className="h-6 w-6 text-orange-600 flex-shrink-0 mt-1" />
+                <AlertCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
                 <div>
                   <h3 className="font-bold text-lg text-gray-900 mb-2">Every Day of Non-Compliance is a Risk</h3>
                   <p className="text-gray-700">
@@ -249,8 +249,8 @@ export default function PCICompliancePage() {
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <Badge className="mb-4 px-3 py-1 bg-green-50 text-green-700 border border-green-200">
-              <CheckCircle2 className="h-4 w-4 mr-2 inline" />
+            <Badge className="mb-4 px-3 py-1 bg-gray-100 text-gray-900 border border-gray-300">
+              <CheckCircle2 className="h-4 w-4 mr-2 inline text-green-600" />
               Immediate Solution
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
@@ -263,11 +263,11 @@ export default function PCICompliancePage() {
           </div>
 
           {/* Main Value Proposition */}
-          <Card className="border-2 border-blue-200 shadow-lg mb-8">
+          <Card className="border-2 border-gray-200 shadow-lg mb-8">
             <CardContent className="p-8">
               <div className="flex items-start gap-4 mb-6">
-                <div className="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Shield className="h-7 w-7 text-blue-600" />
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Shield className="h-7 w-7 text-gray-700" />
                 </div>
                 <div>
                   <h3 className="text-2xl font-bold mb-3 text-gray-900">Billions of Compromised Credentials, Real-Time Access</h3>
@@ -351,10 +351,10 @@ export default function PCICompliancePage() {
             </Card>
 
             {/* Part 2: Exceed Compliance */}
-            <Card className="border-l-4 border-l-blue-500 shadow-md">
+            <Card className="border-l-4 border-l-gray-300 shadow-md">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 bg-blue-50 rounded-lg flex items-center justify-center mb-4">
-                  <Zap className="h-7 w-7 text-blue-600" />
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <Zap className="h-7 w-7 text-gray-700" />
                 </div>
                 <CardTitle className="text-xl mb-2">
                   Exceed Compliance<br />
@@ -369,19 +369,19 @@ export default function PCICompliancePage() {
                 </p>
                 <ul className="space-y-2">
                   <li className="flex items-start gap-2 text-sm text-gray-700">
-                    <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
                     <span>24/7 domain monitoring</span>
                   </li>
                   <li className="flex items-start gap-2 text-sm text-gray-700">
-                    <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
                     <span>Instant breach alerts</span>
                   </li>
                   <li className="flex items-start gap-2 text-sm text-gray-700">
-                    <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
                     <span>Proactive threat detection</span>
                   </li>
                   <li className="flex items-start gap-2 text-sm text-gray-700">
-                    <CheckCircle2 className="h-4 w-4 text-blue-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0 mt-0.5" />
                     <span>Prevents account takeovers</span>
                   </li>
                 </ul>
@@ -504,9 +504,9 @@ export default function PCICompliancePage() {
       {/* Supporting Information Section */}
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-blue-50 border-l-4 border-blue-500 p-8 rounded-r-lg">
+          <div className="bg-gray-50 border-l-4 border-gray-300 p-8 rounded-r-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 flex items-center gap-3">
-              <FileText className="h-6 w-6 text-blue-600" />
+              <FileText className="h-6 w-6 text-gray-700" />
               Understanding PCI DSS 4.0 Requirement 8.3.10
             </h3>
             <div className="space-y-4 text-gray-700">
