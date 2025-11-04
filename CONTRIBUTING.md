@@ -40,7 +40,7 @@ This project and everyone participating in it is governed by our Code of Conduct
 1. Fork the repository
 2. Clone your fork:
    ```bash
-   git clone https://github.com/your-username/leakjar_nextjs.git
+   git clone https://github.com/SEWORKSINC/leakjar_nextjs.git
    cd leakjar_nextjs
    ```
 

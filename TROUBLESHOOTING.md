@@ -624,7 +624,7 @@ When requesting help, please provide:
 
 **Support Channels:**
 - 📧 Email: support@leakjar.com
-- 💬 GitHub Issues: [Create Issue](https://github.com/yourusername/leakjar_nextjs/issues)
+- 💬 GitHub Issues: [Create Issue](https://github.com/SEWORKSINC/leakjar_nextjs/issues)
 - 📚 Documentation: https://docs.leakjar.com
 
 ## Common Error Messages

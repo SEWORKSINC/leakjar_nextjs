@@ -106,7 +106,7 @@ You'll also need accounts for:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/leakjar_nextjs.git
+git clone https://github.com/SEWORKSINC/leakjar_nextjs.git
 cd leakjar_nextjs
 ```
 
@@ -395,7 +395,7 @@ This project is proprietary software owned by SEW Inc. All rights reserved.
 For support, please contact:
 - Email: support@leakjar.com
 - Documentation: [docs.leakjar.com](https://docs.leakjar.com)
-- Issues: [GitHub Issues](https://github.com/yourusername/leakjar_nextjs/issues)
+- Issues: [GitHub Issues](https://github.com/SEWORKSINC/leakjar_nextjs/issues)
 
 ## 🙏 Acknowledgments
 
