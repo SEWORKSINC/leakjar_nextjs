@@ -91,13 +91,13 @@ export default function LandingPage() {
         <div className="container mx-auto">
           <div className="flex flex-row-reverse">
             <div className="relative -z-1 aspect-square">
-              <picture className="hidden lg:hidden w-460 ml-10">
+              {/* <picture className="hidden lg:hidden w-460 ml-10">
                 <source srcset="https://www.leakjar.com/static/img/world_c.webp" type="image/webp">
                 <img src="https://www.leakjar.com/static/img/world_c.png" alt="leakjar.com cover image">
-              </picture>
-              <video className="hidden lg:block w-460 ml-10" poster="https://www.leakjar.com/static/img/world_c.webp" preload="none" muted autoplay loop playsinline>
-                <source src="https://www.leakjar.com/static/mov/world_c.webm" type="video/webm">
-                <source src="https://www.leakjar.com/static/mov/world_c.mp4" type="video/mp4">
+              </picture> */}
+              <video className="hidden lg:block w-460 ml-10" muted autoplay loop playsinline>
+                <source src="/world_c.webm" type="video/webm">
+                <source src="/world_c.mp4" type="video/mp4">
               </video>
             </div>
             <div className="flex-auto flex flex-col justify-center">
