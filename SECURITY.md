@@ -142,8 +142,13 @@ We would like to thank the following security researchers:
 
 ## Security Contacts
 
+### For Security Issues
 - **Security Team Email**: security@leakjar.com
 - **General Support**: support@leakjar.com
+
+### Project Leads
+- **Ryan Lee**: Slack DM or [ryan.lee@se.works](mailto:ryan.lee@se.works)
+- **Min Hong**: [min.hong@se.works](mailto:min.hong@se.works)
 
 ## Security Tools We Use
 

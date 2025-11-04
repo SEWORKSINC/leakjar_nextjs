@@ -470,10 +470,17 @@ pm2 start ecosystem.config.js --max-memory-restart 1G
 
 ## Support
 
-For deployment issues:
+For deployment issues and questions:
+
+### General Support
 - 📧 Email: support@leakjar.com
 - 📚 Documentation: https://docs.leakjar.com
-- 🐛 Issues: https://github.com/yourusername/leakjar_nextjs/issues
+- 🐛 Issues: https://github.com/SEWORKSINC/leakjar_nextjs/issues
+
+### Project Leads
+For deployment assistance and technical guidance:
+- **Ryan Lee**: Slack DM or [ryan.lee@se.works](mailto:ryan.lee@se.works)
+- **Min Hong**: [min.hong@se.works](mailto:min.hong@se.works)
 
 ---
 

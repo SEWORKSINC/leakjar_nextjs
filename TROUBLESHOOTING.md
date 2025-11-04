@@ -627,6 +627,10 @@ When requesting help, please provide:
 - 💬 GitHub Issues: [Create Issue](https://github.com/SEWORKSINC/leakjar_nextjs/issues)
 - 📚 Documentation: https://docs.leakjar.com
 
+**Project Leads:**
+- 👤 Ryan Lee: Slack DM or [ryan.lee@se.works](mailto:ryan.lee@se.works)
+- 👤 Min Hong: [min.hong@se.works](mailto:min.hong@se.works)
+
 ## Common Error Messages
 
 ### ECONNREFUSED

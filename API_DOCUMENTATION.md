@@ -677,8 +677,15 @@ results = api.search_leaks('example.com')
 
 ## Support
 
-For API support:
+For API support and questions:
+
+### General API Support
 - Email: api-support@leakjar.com
 - Documentation: https://docs.leakjar.com/api
 - Status Page: https://status.leakjar.com
+
+### Project Leads
+For technical questions and API guidance:
+- **Ryan Lee**: Slack DM or [ryan.lee@se.works](mailto:ryan.lee@se.works)
+- **Min Hong**: [min.hong@se.works](mailto:min.hong@se.works)
 

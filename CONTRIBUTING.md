@@ -383,10 +383,20 @@ export function formatDate(date: string, locale = 'en-US'): string {
 
 ## Questions?
 
-Feel free to:
-- Open an issue for bugs
-- Start a discussion for questions
-- Reach out to maintainers
+If you have questions about contributing or the project:
+
+### For Bugs and Feature Requests
+- Open an issue on [GitHub Issues](https://github.com/SEWORKSINC/leakjar_nextjs/issues)
+- Start a discussion for general questions
+
+### For Project-Related Questions
+Contact the project leads:
+- **Ryan Lee**: Slack DM or [ryan.lee@se.works](mailto:ryan.lee@se.works)
+- **Min Hong**: [min.hong@se.works](mailto:min.hong@se.works)
+
+### For General Support
+- Email: support@leakjar.com
+- Documentation: https://docs.leakjar.com
 
 Thank you for contributing to LeakJar! 🎉
 
