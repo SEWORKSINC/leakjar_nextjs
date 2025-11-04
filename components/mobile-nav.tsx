@@ -74,6 +74,13 @@ export function MobileNav() {
                 Features
               </Link>
               <Link
+                href="/solutions"
+                className="px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors font-medium"
+                onClick={closeMenu}
+              >
+                Solutions
+              </Link>
+              <Link
                 href="/about"
                 className="px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors font-medium"
                 onClick={closeMenu}

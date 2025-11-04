@@ -39,6 +39,16 @@ export function SharedHeader() {
             Features
           </Link>
           <Link 
+            href="/solutions" 
+            className={`transition-colors ${
+              isActive('/solutions') 
+                ? 'text-gray-900 font-semibold' 
+                : 'text-gray-600 hover:text-gray-900'
+            }`}
+          >
+            Solutions
+          </Link>
+          <Link 
             href="/about" 
             className={`transition-colors ${
               isActive('/about') 
