@@ -5,7 +5,8 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Shield, Code, Key, Search, AlertCircle, CheckCircle, Copy, Check } from 'lucide-react';
+import { Code, Key, Search, AlertCircle, CheckCircle, Copy, Check } from 'lucide-react';
+import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
 
 export default function DeveloperPage() {
@@ -100,28 +101,7 @@ export default function DeveloperPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Navigation */}
-      <header className="border-b bg-white sticky top-0 z-50 shadow-sm">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer">
-            <Shield className="h-8 w-8 text-gray-700" />
-            <h1 className="text-2xl font-bold text-gray-900">LeakJar</h1>
-          </Link>
-          <nav className="hidden md:flex space-x-6">
-            <Link href="/features" className="text-gray-600 hover:text-gray-900 transition-colors">Features</Link>
-            <Link href="/about" className="text-gray-600 hover:text-gray-900 transition-colors">About Us</Link>
-            <Link href="/developer" className="text-gray-900 font-semibold">Developer</Link>
-            <Link href="/pricing" className="text-gray-600 hover:text-gray-900 transition-colors">Pricing</Link>
-          </nav>
-          <div className="flex space-x-3">
-            <Link href="/auth/login">
-              <Button variant="outline" className="border-gray-300">Sign In</Button>
-            </Link>
-            <Link href="/auth/signup">
-              <Button className="bg-gray-700 hover:bg-gray-800">Get Started</Button>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <SharedHeader />
 
       {/* Hero Section */}
       <section className="bg-gray-900 text-white py-16">
