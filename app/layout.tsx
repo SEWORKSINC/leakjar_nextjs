@@ -3,7 +3,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/providers/auth-provider";
 import { ToastProvider } from "@/components/ui/toast";
-import { Analytics } from "@vercel/analytics/next";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
+import { Analytics as GA4Analytics } from "@/components/analytics";
 import { SkipToContent } from "@/components/skip-to-content";
 
 const inter = Inter({
@@ -92,7 +93,8 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <SkipToContent />
-        <Analytics />
+        <GA4Analytics />
+        <VercelAnalytics />
         <ToastProvider>
           <AuthProvider>
             {children}
