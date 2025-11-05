@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { AuthProvider } from "@/components/providers/auth-provider";
 import { ToastProvider } from "@/components/ui/toast";
-import { Analytics } from "@/components/analytics";
+import { Analytics } from "@vercel/analytics/next";
 import { SkipToContent } from "@/components/skip-to-content";
 
 const inter = Inter({
