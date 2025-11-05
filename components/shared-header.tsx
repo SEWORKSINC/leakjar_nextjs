@@ -17,13 +17,29 @@ export function SharedHeader() {
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <Link 
+        {/* <Link 
           href="/" 
           className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer"
           aria-label="LeakJar Home"
         >
           <Shield className="h-8 w-8 text-gray-700" aria-hidden="true" />
           <h1 className="text-2xl font-bold text-gray-900">LeakJar</h1>
+        </Link> */}
+
+        <Link 
+          href="/" 
+          className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer md:hidden"
+          aria-label="LeakJar Home"
+        >
+          <div className="w-6 h-6 svg-lgs"></div>
+        </Link>
+
+        <Link 
+          href="/" 
+          className="flex items-center space-x-2 hover:opacity-80 transition-opacity cursor-pointer hidden md:block"
+          aria-label="LeakJar Home"
+        >
+          <div className="w-30 h-6 svg-lg"></div>
         </Link>
 
         {/* Desktop Navigation */}

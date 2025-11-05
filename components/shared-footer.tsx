@@ -8,8 +8,9 @@ export function SharedFooter() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Shield className="h-6 w-6 text-gray-500" />
-              <h4 className="text-lg font-semibold text-white">LeakJar</h4>
+              {/* <Shield className="h-6 w-6 text-gray-500" /> */}
+              {/* <h4 className="text-lg font-semibold text-white">LeakJar</h4> */}
+              <div className="inline-block mb-3 w-10 h-10 svg-lgs invert"></div>
             </div>
             <p className="text-sm">Enterprise breach monitoring and credential intelligence platform</p>
           </div>
