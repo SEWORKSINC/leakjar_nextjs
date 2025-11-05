@@ -227,8 +227,8 @@ export default function Home() {
             {/* Left Column - Content */}
             <div className="max-w-2xl">
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-[1.1] tracking-tight">
-                Stop Breaches.<br />
-                Save $4.45M.
+                Stop Breaches,<br />
+                Save $4.45M
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-300 mb-8 leading-relaxed">
