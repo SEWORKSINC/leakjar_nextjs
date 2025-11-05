@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Shield, Award, Users, TrendingUp } from 'lucide-react';
+import { Shield, Award, Users, TrendingUp, MapPin, Calendar, Zap } from 'lucide-react';
 import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
 
@@ -52,6 +52,30 @@ export default function AboutPage() {
             Takeovers (ATOs) from attackers. Our other businesses offer separate services for automated and manual penetration 
             testing, vulnerability assessment, and zero-day (0-day) vulnerability hunting.
           </p>
+        </div>
+      </section>
+
+      {/* Statistics Section */}
+      <section className="bg-slate-900 text-white py-16">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold mb-2">12+</div>
+              <p className="text-lg text-gray-300">Years of Excellence</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold mb-2">$12m</div>
+              <p className="text-lg text-gray-300">Funding</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold mb-2">3</div>
+              <p className="text-lg text-gray-300">Core Products</p>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl md:text-5xl font-bold mb-2">100+</div>
+              <p className="text-lg text-gray-300">Clients</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -207,6 +231,103 @@ export default function AboutPage() {
               <div className="bg-white rounded-lg p-8 shadow-sm border">
                 <p className="text-2xl font-bold text-gray-800">Fast Investment</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Headquarters Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            Headquarters
+          </h2>
+          
+          <div className="flex justify-center">
+            <Card className="max-w-md w-full">
+              <CardContent className="pt-8 pb-8">
+                <div className="flex items-center justify-center gap-4">
+                  <div className="h-16 w-16 bg-primary/10 rounded-full flex items-center justify-center flex-shrink-0">
+                    <MapPin className="h-8 w-8 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <p className="text-2xl font-bold text-foreground mb-1">San Francisco</p>
+                    <p className="text-xl text-muted-foreground">California</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story Section */}
+      <section className="bg-slate-900 text-white py-16 md:py-20">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12">
+            {/* Left side - Story Text */}
+            <div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-8">Our Story</h2>
+              
+              <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+                <p>
+                  Founded in 2013 by a team of ethical white-hat hackers in San Francisco, SEWORKS emerged from a simple yet powerful vision: to 
+                  make enterprise cybersecurity more intelligent, accessible, and effective.
+                </p>
+                
+                <p>
+                  Our founders, with decades of combined experience in cybersecurity and penetration testing, recognized the need for AI-powered 
+                  solutions that could keep pace with evolving cyber threats.
+                </p>
+                
+                <p>
+                  In 2018, we made history by launching Pentoma®, the world's first AI-powered penetration testing service, powered by our proprietary 
+                  GAMAN® technology.
+                </p>
+              </div>
+            </div>
+
+            {/* Right side - Achievement Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <Card className="bg-slate-800 border-slate-700 text-white">
+                <CardContent className="pt-6 pb-6">
+                  <Calendar className="h-12 w-12 mb-4 text-white" />
+                  <h3 className="text-xl font-bold mb-2">Founded 2013</h3>
+                  <p className="text-sm text-gray-300">
+                    Established by white-hat hackers with a vision for intelligent cybersecurity
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-slate-800 border-slate-700 text-white">
+                <CardContent className="pt-6 pb-6">
+                  <MapPin className="h-12 w-12 mb-4 text-white" />
+                  <h3 className="text-xl font-bold mb-2">San Francisco</h3>
+                  <p className="text-sm text-gray-300">
+                    Headquartered in the heart of tech innovation
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-slate-800 border-slate-700 text-white">
+                <CardContent className="pt-6 pb-6">
+                  <Zap className="h-12 w-12 mb-4 text-white" />
+                  <h3 className="text-xl font-bold mb-2">AI Pioneer</h3>
+                  <p className="text-sm text-gray-300">
+                    First AI-powered penetration testing service (2018)
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-slate-800 border-slate-700 text-white">
+                <CardContent className="pt-6 pb-6">
+                  <Award className="h-12 w-12 mb-4 text-white" />
+                  <h3 className="text-xl font-bold mb-2">Industry Leader</h3>
+                  <p className="text-sm text-gray-300">
+                    Trusted by enterprise clients worldwide
+                  </p>
+                </CardContent>
+              </Card>
             </div>
           </div>
         </div>
