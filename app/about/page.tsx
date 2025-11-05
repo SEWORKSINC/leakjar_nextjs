@@ -116,7 +116,7 @@ export default function AboutPage() {
       </section>
 
       {/* Leadership Section */}
-      <section className="container mx-auto px-4 py-16 bg-muted/30">
+      {/* <section className="container mx-auto px-4 py-16 bg-muted/30 hidden">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             Leadership
@@ -164,10 +164,38 @@ export default function AboutPage() {
             </Card>
           </div>
         </div>
+      </section> */}
+      <section className="hidden9">
+        <div className="container mx-auto my-24">
+          {/* <h3 className="text-2xl mb-5 text-center">Leadership</h3> */}
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            Leadership
+          </h2>
+          <div className="mx-auto mt-8 flex flex-wrap max-w-220">
+            <div className="mr-6">
+              <div className="w-40 h-40 rounded-xl bg-black bg-[url('/c1.png')] bg-cover grayscale bg-position-[center_top_16%]"></div>
+            </div>
+            <div className="flex-1 flex flex-col">
+              <strong className="mb-1 text-xl">Min Pyo Hong</strong>
+              <span className="mb-2">Founder & CEO</span>
+              <p>Min is the founder and CEO of SEWORKS. He has worked as a white hat hacker for over 25 years, helping enterprises and governments strengthen their security. He is a serial entrepreneur as he previously founded and made an exit of SHIFTWORKS, a mobile anti-virus and MDM company. He also served as part of the review board of Hack In The Box.</p>
+            </div>
+          </div>
+          <div className="mx-auto mt-8 flex flex-wrap max-w-220">
+            <div className="mr-6">
+              <div className="w-40 h-40 rounded-xl bg-black bg-[url(/c5.png)] bg-cover grayscale"></div>
+            </div>
+            <div className="flex-1 flex flex-col">
+              <strong className="mb-1 text-xl">Songyee Yoon</strong>
+              <span className="mb-2">Board Member</span>
+              <p>Songyee is an investor, start up advisor and a gaming industry veteran. She is a trustee of the Carnegie Endowment for International Peace, and a member of the MIT Corporation. As a member of the advisory council at Stanford University's Institute for Human-Centered Artificial Intelligence, she studies the social impacts of AI and the ethics of technology.</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Advisory Board Section */}
-      <section className="container mx-auto px-4 py-16">
+      {/* <section className="container mx-auto px-4 py-16 hidden">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             Advisory Board
@@ -212,6 +240,43 @@ export default function AboutPage() {
             </Card>
           </div>
         </div>
+      </section> */}
+      <section className="hidden9">
+        <div className="container mx-auto my-24">
+          {/* <h3 className="text-2xl mb-5 text-center">Advisory Board</h3> */}
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            Advisory Board
+          </h2>
+          <div className="mx-auto flex flex-wrap justify-between max-w-220 text-center">
+            <div className="mt-5 w-40">
+              <div className="w-40 h-40 rounded-xl bg-black bg-[url(/c2.png)] bg-cover grayscale"></div>
+              <div className="mt-5">
+                <div className="flex flex-col justify-center">
+                  <strong className="mb-1 text-xl">Andrew Kim</strong>
+                  <p className="-mx-12">Former Sr. Intelligence Officer, CIA Director of the CIA for K-Mission Center Presidential Rank Award</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-5 w-40">
+              <div className="w-40 h-40 rounded-xl bg-black bg-[url(/c3.png)] bg-cover grayscale"></div>
+              <div className="mt-5">
+                <div className="flex flex-col justify-center">
+                  <strong className="mb-1 text-xl">Zuk Avraham</strong>
+                  <p className="-mx-12">Former Founder & Co-Founder of ZecOps Former Founder & Founder & Chairman of Zimperium</p>
+                </div>
+              </div>
+            </div>
+            <div className="mt-5 w-40">
+              <div className="w-40 h-40 rounded-xl bg-black bg-[url(/c4.png)] bg-cover grayscale"></div>
+              <div className="mt-5">
+                <div className="flex flex-col justify-center">
+                  <strong className="mb-1 text-xl">Perry Ha</strong>
+                  <p className="-mx-12">Founder & Managing Director, Draper Athena Board of Trustees & Leadership Board, MIT</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Investors Section */}
@@ -224,17 +289,28 @@ export default function AboutPage() {
           <div className="flex flex-wrap justify-center items-center gap-12">
             <div className="text-center">
               <div className="bg-white rounded-lg p-8 shadow-sm border">
-                <p className="text-2xl font-bold text-gray-800">Qualcomm Ventures</p>
+                {/* <p className="text-2xl font-bold text-gray-800">Qualcomm Ventures</p> */}
+                <div className="inline-block mx-5 w-60 h-16 bg-[url(/i2.png)] bg-contain bg-center bg-no-repeat grayscale"></div>
               </div>
             </div>
             <div className="text-center">
               <div className="bg-white rounded-lg p-8 shadow-sm border">
-                <p className="text-2xl font-bold text-gray-800">Fast Investment</p>
+                {/* <p className="text-2xl font-bold text-gray-800">Fast Investment</p> */}
+                <div className="inline-block mx-5 w-60 h-16 bg-[url(/i1.png)] bg-contain bg-center bg-no-repeat grayscale"></div>
               </div>
             </div>
           </div>
         </div>
       </section>
+      {/* <section className="hidden">
+        <div className="container mx-auto my-24">
+          <h3 className="text-2xl text-center">Investors</h3>
+          <div className="mt-10 text-center">
+            <div className="inline-block mx-5 w-60 h-16 bg-[url(/i2.png)] bg-contain bg-center bg-no-repeat grayscale"></div>
+            <div className="inline-block mx-5 w-60 h-16 bg-[url(/i1.png)] bg-contain bg-center bg-no-repeat grayscale"></div>
+          </div>
+        </div>
+      </section> */}
 
       {/* Headquarters Section */}
       <section className="container mx-auto px-4 py-16">
