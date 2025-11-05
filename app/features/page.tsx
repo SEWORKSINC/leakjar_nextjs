@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Shield, Zap, TrendingDown, Lock, Activity, Eye, AlertTriangle, CheckCircle2, ArrowRight } from 'lucide-react';
+import { Shield, Zap, TrendingDown, Lock, Activity, Eye, AlertTriangle, CheckCircle2, ArrowRight, FileText, Heart, Scale, Globe, Brain } from 'lucide-react';
 import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
 
@@ -40,13 +40,9 @@ export default function FeaturesPage() {
       <SharedHeader />
 
       {/* Hero Section with Modern Design */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+      <section className="relative overflow-hidden bg-slate-950">
         {/* Background pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        
-        {/* Gradient orbs */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[128px]"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[128px]"></div>
 
         <div className="container relative mx-auto px-4 py-20 md:py-28">
           <div className="text-center max-w-5xl mx-auto">
@@ -244,10 +240,6 @@ export default function FeaturesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4" variant="outline">
-                <Zap className="h-3.5 w-3.5 mr-1.5 inline text-purple-600" />
-                Actionable Intelligence
-              </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 Complete Visibility into Every Breach
               </h2>
@@ -257,10 +249,10 @@ export default function FeaturesPage() {
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <Card className="border-t-4 border-t-purple-500 hover:shadow-lg transition-shadow">
+              <Card className="border-t-4 border-t-blue-500 hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
-                    <Activity className="h-6 w-6 text-purple-600" />
+                  <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                    <Activity className="h-6 w-6 text-blue-600" />
                   </div>
                   <CardTitle className="text-lg">Attack Source IP</CardTitle>
                 </CardHeader>
@@ -271,10 +263,10 @@ export default function FeaturesPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-t-4 border-t-purple-500 hover:shadow-lg transition-shadow">
+              <Card className="border-t-4 border-t-blue-500 hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
-                    <Eye className="h-6 w-6 text-purple-600" />
+                  <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                    <Eye className="h-6 w-6 text-blue-600" />
                   </div>
                   <CardTitle className="text-lg">Geolocation Data</CardTitle>
                 </CardHeader>
@@ -285,10 +277,10 @@ export default function FeaturesPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-t-4 border-t-purple-500 hover:shadow-lg transition-shadow">
+              <Card className="border-t-4 border-t-blue-500 hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
-                    <Lock className="h-6 w-6 text-purple-600" />
+                  <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                    <Lock className="h-6 w-6 text-blue-600" />
                   </div>
                   <CardTitle className="text-lg">Compromised URLs</CardTitle>
                 </CardHeader>
@@ -299,10 +291,10 @@ export default function FeaturesPage() {
                 </CardContent>
               </Card>
 
-              <Card className="border-t-4 border-t-purple-500 hover:shadow-lg transition-shadow">
+              <Card className="border-t-4 border-t-blue-500 hover:shadow-lg transition-shadow">
                 <CardHeader>
-                  <div className="h-12 w-12 bg-purple-100 rounded-lg flex items-center justify-center mb-3">
-                    <Shield className="h-6 w-6 text-purple-600" />
+                  <div className="h-12 w-12 bg-blue-100 rounded-lg flex items-center justify-center mb-3">
+                    <Shield className="h-6 w-6 text-blue-600" />
                   </div>
                   <CardTitle className="text-lg">Plaintext Credentials</CardTitle>
                 </CardHeader>
@@ -322,10 +314,6 @@ export default function FeaturesPage() {
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <Badge className="mb-4" variant="outline">
-              <TrendingDown className="h-3.5 w-3.5 mr-1.5 inline text-green-600" />
-              Measurable Business Impact
-            </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Reduce Risk, Accelerate Response, Protect Revenue
             </h2>
@@ -445,10 +433,6 @@ export default function FeaturesPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4" variant="outline">
-                <AlertTriangle className="h-3.5 w-3.5 mr-1.5 inline text-red-600" />
-                Real-World Threat Scenarios
-              </Badge>
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
                 The Cost of Undetected Credential Compromise
               </h2>
@@ -559,10 +543,6 @@ export default function FeaturesPage() {
       <section className="container mx-auto px-4 py-16">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <Badge className="mb-4" variant="outline">
-              <CheckCircle2 className="h-3.5 w-3.5 mr-1.5 inline text-blue-600" />
-              Who Uses LeakJar
-            </Badge>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
               Trusted by Security Teams Worldwide
             </h2>
@@ -572,7 +552,7 @@ export default function FeaturesPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Card className="bg-gradient-to-br from-gray-50 to-white">
               <CardHeader>
                 <Shield className="h-10 w-10 text-blue-600 mb-3" />
@@ -608,6 +588,125 @@ export default function FeaturesPage() {
                 <p className="text-sm text-muted-foreground">
                   Meet compliance requirements and protect sensitive data with real-time breach detection and 
                   audit-ready reporting.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-200 shadow-sm hover:shadow-lg transition-all hover:border-gray-300">
+              <CardHeader>
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <Shield className="h-6 w-6 text-gray-700" />
+                </div>
+                <Badge variant="outline" className="mb-3 w-fit">
+                  Payment Card Industry
+                </Badge>
+                <CardTitle className="text-lg">PCI DSS 4.0 Compliance</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Meet Requirement 8.3.10 and avoid heavy fines. Block compromised passwords and pass your audit.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-200 shadow-sm hover:shadow-lg transition-all hover:border-gray-300">
+              <CardHeader>
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <FileText className="h-6 w-6 text-gray-700" />
+                </div>
+                <Badge variant="outline" className="mb-3 w-fit">
+                  Federal Standard
+                </Badge>
+                <CardTitle className="text-lg">NIST SP 800-63B Compliance</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Implement mandatory credential monitoring controls and align with NIST Cybersecurity Framework 2.0.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-200 shadow-sm hover:shadow-lg transition-all hover:border-gray-300">
+              <CardHeader>
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <Heart className="h-6 w-6 text-gray-700" />
+                </div>
+                <Badge variant="outline" className="mb-3 w-fit">
+                  Healthcare
+                </Badge>
+                <CardTitle className="text-lg">HIPAA Compliance</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Protect ePHI and complete your Risk Analysis. Avoid willful neglect penalties and secure patient data.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-200 shadow-sm hover:shadow-lg transition-all hover:border-gray-300">
+              <CardHeader>
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <Scale className="h-6 w-6 text-gray-700" />
+                </div>
+                <Badge variant="outline" className="mb-3 w-fit">
+                  California Privacy Law
+                </Badge>
+                <CardTitle className="text-lg">CCPA/CPRA Compliance</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Demonstrate "reasonable security" and protect against class-action lawsuits from California consumers.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-200 shadow-sm hover:shadow-lg transition-all hover:border-gray-300">
+              <CardHeader>
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <Globe className="h-6 w-6 text-gray-700" />
+                </div>
+                <Badge variant="outline" className="mb-3 w-fit">
+                  EU Data Protection
+                </Badge>
+                <CardTitle className="text-lg">GDPR Compliance</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Meet Article 32 "state of the art" requirements and avoid up to 4% revenue fines from EU regulators.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-200 shadow-sm hover:shadow-lg transition-all hover:border-gray-300">
+              <CardHeader>
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <Brain className="h-6 w-6 text-gray-700" />
+                </div>
+                <Badge variant="outline" className="mb-3 w-fit">
+                  AI Regulation
+                </Badge>
+                <CardTitle className="text-lg">EU AI Act Compliance</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Prevent data poisoning attacks and meet Article 15 robustness requirements for high-risk AI systems.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-gray-200 shadow-sm hover:shadow-lg transition-all hover:border-gray-300">
+              <CardHeader>
+                <div className="h-12 w-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+                  <Shield className="h-6 w-6 text-gray-700" />
+                </div>
+                <Badge variant="outline" className="mb-3 w-fit">
+                  AI Framework
+                </Badge>
+                <CardTitle className="text-lg">NIST AI Risk Management Framework</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-muted-foreground">
+                  Operationalize the NIST AI RMF with continuous monitoring. Govern, Map, Measure, and Manage AI risks.
                 </p>
               </CardContent>
             </Card>
