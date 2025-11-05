@@ -78,6 +78,16 @@ export function SharedHeader() {
           >
             Pricing
           </Link>
+          <Link 
+            href="/contact" 
+            className={`transition-colors ${
+              isActive('/contact') 
+                ? 'text-gray-900 font-semibold' 
+                : 'text-gray-600 hover:text-gray-900'
+            }`}
+          >
+            Contact
+          </Link>
         </nav>
 
         {/* Desktop Auth Buttons */}

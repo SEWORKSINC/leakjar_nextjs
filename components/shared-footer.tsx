@@ -27,6 +27,7 @@ export function SharedFooter() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
               <li><Link href="/about" className="hover:text-white transition-colors">About Us</Link></li>
+              <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
               <li><Link href="/auth/signup" className="hover:text-white transition-colors">Get Started</Link></li>
             </ul>
           </div>

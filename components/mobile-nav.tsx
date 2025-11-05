@@ -101,6 +101,13 @@ export function MobileNav() {
               >
                 Pricing
               </Link>
+              <Link
+                href="/contact"
+                className="px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors font-medium"
+                onClick={closeMenu}
+              >
+                Contact
+              </Link>
             </div>
 
             {/* Divider */}

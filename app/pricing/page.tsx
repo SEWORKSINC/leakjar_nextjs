@@ -101,12 +101,11 @@ export default function PricingPage() {
         '1 monitored domain',
         'Full feature access',
         'Full breach data (unlimited)',
-        'Real-time email & SMS alerts',
-        'Advanced dashboard & analytics',
+        'Real-time email alerts',
+        'Dashboard & analytics',
         'Detailed forensic reports',
-        '<1 hour alert delivery',
         'API access (10,000 calls/month)',
-        'Priority email support',
+        'Email, ticket, and AI support',
         'Custom integrations',
       ],
       cta: 'Start Protection Now',
@@ -123,15 +122,13 @@ export default function PricingPage() {
       features: [
         'Unlimited monitored domains',
         'Unlimited credential checks',
-        'Multi-channel alerts (Email, SMS, Webhook)',
-        'White-label dashboard',
-        'Advanced threat intelligence reports',
+        'Multi-channel alerts (Email, Webhook)',
+        'Dashboard & analytics',
         'Instant alert delivery',
         'Unlimited API access',
-        'Dedicated account manager',
         'Custom HUMINT investigations',
         'SLA guarantees',
-        '24/7 priority support',
+        '24/7 priority support (e-mail, ticket, and AI support)',
       ],
       cta: 'Contact Sales',
       ctaVariant: 'outline' as const,
@@ -154,10 +151,6 @@ export default function PricingPage() {
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-16 md:py-20">
         <div className="max-w-4xl mx-auto text-center">
-          <Badge className="mb-6 px-4 py-2" variant="secondary">
-            <Shield className="h-4 w-4 mr-2 inline" />
-            Start Free — No Credit Card Required
-          </Badge>
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight leading-[1.1]">
             Start Free,<br />
             Scale When Ready
