@@ -31,6 +31,7 @@
     "@tanstack/react-table": "^8.21.3",
     "@types/bcryptjs": "^2.4.6",
     "@types/jsonwebtoken": "^9.0.10",
+    "@vercel/analytics": "^1.5.0",
     "bcryptjs": "^3.0.2",
     "chart.js": "^4.5.0",
     "chartjs-plugin-zoom": "^2.2.0",
