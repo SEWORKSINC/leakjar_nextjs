@@ -13,7 +13,10 @@ import {
   Scale,
   Globe,
   Brain,
-  Lock
+  Lock,
+  Code,
+  GitBranch,
+  AlertTriangle
 } from 'lucide-react';
 import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
@@ -278,6 +281,141 @@ export default function SolutionsPage() {
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Developer Security Section */}
+      <section className="container mx-auto px-4 py-16">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <Badge className="mb-4" variant="outline">
+              <Code className="h-3.5 w-3.5 mr-1.5 inline text-blue-600" />
+              Developer Protection
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+              Protecting SaaS & Technology Companies from Developer Credential Theft
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Software developers are high-value targets for attackers. Compromised developer credentials provide access to critical business assets, 
+              source code repositories, production environments, and internal networks. LeakJar helps you detect and prevent these targeted attacks before 
+              they lead to devastating breaches.
+            </p>
+          </div>
+
+          {/* Threat Scenarios */}
+          <div className="grid md:grid-cols-2 gap-6 mb-12">
+            <Card className="border-2 border-red-200 bg-gradient-to-br from-red-50 to-white">
+              <CardHeader>
+                <div className="flex items-start gap-3">
+                  <div className="h-12 w-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <GitBranch className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-xl mb-2 text-gray-900">Source Code Repository Attacks</CardTitle>
+                    <CardDescription className="text-sm text-gray-700 leading-relaxed">
+                      Attackers target developer credentials to gain access to GitHub, GitLab, Bitbucket, and private repositories. 
+                      Once inside, they can steal proprietary source code, inject malicious code, or deploy backdoors into your software supply chain. 
+                      LeakJar detects compromised developer credentials before attackers can access your repositories.
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-2 border-red-200 bg-gradient-to-br from-red-50 to-white">
+              <CardHeader>
+                <div className="flex items-start gap-3">
+                  <div className="h-12 w-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Lock className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-xl mb-2 text-gray-900">VPN & Internal Network Compromise</CardTitle>
+                    <CardDescription className="text-sm text-gray-700 leading-relaxed">
+                      Stolen VPN credentials allow attackers to bypass perimeter security and access your internal network as a trusted employee. 
+                      This lateral movement enables data exfiltration, ransomware deployment, and unauthorized access to databases and production systems. 
+                      Detect breached VPN credentials in real-time to block unauthorized network access.
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-2 border-red-200 bg-gradient-to-br from-red-50 to-white">
+              <CardHeader>
+                <div className="flex items-start gap-3">
+                  <div className="h-12 w-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <AlertTriangle className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-xl mb-2 text-gray-900">Targeted Phishing Against Insiders</CardTitle>
+                    <CardDescription className="text-sm text-gray-700 leading-relaxed">
+                      Sophisticated phishing campaigns specifically target your employees with spoofed login pages and credential-harvesting attacks. 
+                      These attacks capture usernames and passwords for corporate systems, cloud platforms, and internal tools. 
+                      LeakJar identifies when employee credentials appear in phishing kits and credential dumps, enabling immediate password resets.
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+
+            <Card className="border-2 border-red-200 bg-gradient-to-br from-red-50 to-white">
+              <CardHeader>
+                <div className="flex items-start gap-3">
+                  <div className="h-12 w-12 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Shield className="h-6 w-6 text-red-600" />
+                  </div>
+                  <div>
+                    <CardTitle className="text-xl mb-2 text-gray-900">Production Environment Access</CardTitle>
+                    <CardDescription className="text-sm text-gray-700 leading-relaxed">
+                      Compromised credentials for AWS, Azure, GCP, and other cloud platforms give attackers control over your production infrastructure. 
+                      They can modify configurations, access customer data, deploy crypto miners, or destroy critical resources. 
+                      Monitor developer and DevOps credentials to prevent cloud account takeovers and unauthorized infrastructure changes.
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+            </Card>
+          </div>
+
+          {/* Protection Benefits */}
+          <Card className="bg-gradient-to-br from-blue-50 via-white to-blue-50 border-2 border-blue-200">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold mb-6 text-gray-900 text-center">
+                How LeakJar Protects Your Development Team
+              </h3>
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center">
+                  <div className="h-16 w-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <CheckCircle2 className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <h4 className="font-semibold text-lg mb-2 text-gray-900">Real-Time Alerts</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Get immediate notifications when developer credentials appear in data breaches, allowing you to force password resets 
+                    before attackers can exploit them.
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="h-16 w-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Shield className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <h4 className="font-semibold text-lg mb-2 text-gray-900">Comprehensive Monitoring</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Monitor corporate email domains, VPN credentials, cloud platform access, and repository accounts across 60B+ leaked credential records.
+                  </p>
+                </div>
+                <div className="text-center">
+                  <div className="h-16 w-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Lock className="h-8 w-8 text-blue-600" />
+                  </div>
+                  <h4 className="font-semibold text-lg mb-2 text-gray-900">Prevent Insider Threats</h4>
+                  <p className="text-sm text-gray-600 leading-relaxed">
+                    Detect when phishing campaigns successfully harvest employee credentials and stop insider attacks before they escalate 
+                    into full breaches.
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
