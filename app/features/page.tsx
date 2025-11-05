@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Shield, Zap, TrendingDown, Lock, Activity, Eye, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { Shield, Zap, TrendingDown, Lock, Activity, Eye, AlertTriangle, CheckCircle2, ArrowRight } from 'lucide-react';
 import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
 
@@ -39,36 +39,53 @@ export default function FeaturesPage() {
       {/* Header Navigation */}
       <SharedHeader />
 
-      {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="text-center max-w-4xl mx-auto">
-          <Badge className="mb-6 px-4 py-1.5 text-sm" variant="secondary">
-            <Activity className="h-3.5 w-3.5 mr-1.5 inline" />
-            Advanced Threat Intelligence Platform
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">
-            Stop Credential-Based Attacks Before They Start
-          </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 leading-relaxed max-w-3xl mx-auto">
-            LeakJar detects compromised employee and customer credentials in real-time, 
-            protecting your organization from account takeovers, data breaches, and ransomware attacks.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" asChild className="bg-gray-700 hover:bg-gray-800">
-              <Link href="/auth/signup">Start Free Trial</Link>
-            </Button>
-          </div>
-          
-          {/* Trust Indicators */}
-          <div className="mt-12 pt-8 border-t border-gray-200">
-            <div className="grid grid-cols-2 gap-8 max-w-xl mx-auto">
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">50B+</div>
-                <div className="text-sm text-muted-foreground mt-1">Credential Records</div>
-              </div>
-              <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900">24/7</div>
-                <div className="text-sm text-muted-foreground mt-1">Real-Time Monitoring</div>
+      {/* Hero Section with Modern Design */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+        {/* Background pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+        
+        {/* Gradient orbs */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[128px]"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[128px]"></div>
+
+        <div className="container relative mx-auto px-4 py-20 md:py-28">
+          <div className="text-center max-w-5xl mx-auto">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-[1.1] text-white">
+              Stop Credential-Based Attacks<br />
+              Before They Start
+            </h1>
+            <p className="text-xl md:text-2xl text-gray-300 mb-10 leading-relaxed max-w-3xl mx-auto">
+              LeakJar detects <strong className="text-white">compromised employee and customer credentials</strong> in real-time, 
+              protecting your organization from account takeovers, data breaches, and ransomware attacks.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Link href="/auth/signup" className="group">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg transition-all px-8">
+                  Start Free Trial
+                  <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
+            
+            {/* Trust Indicators */}
+            <div className="mt-12 pt-8">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto">
+                <div className="text-center p-6 rounded-lg bg-gray-800 border border-gray-700">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">60B+</div>
+                  <div className="text-sm text-gray-300 font-medium">Credential Records</div>
+                </div>
+                <div className="text-center p-6 rounded-lg bg-gray-800 border border-gray-700">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">24/7</div>
+                  <div className="text-sm text-gray-300 font-medium">Real-Time Monitoring</div>
+                </div>
+                <div className="text-center p-6 rounded-lg bg-gray-800 border border-gray-700">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">&lt;1hr</div>
+                  <div className="text-sm text-gray-300 font-medium">Alert Time</div>
+                </div>
+                <div className="text-center p-6 rounded-lg bg-gray-800 border border-gray-700">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2">80%</div>
+                  <div className="text-sm text-gray-300 font-medium">Breaches Prevented</div>
+                </div>
               </div>
             </div>
           </div>
@@ -602,10 +619,6 @@ export default function FeaturesPage() {
       <section className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <Badge className="mb-6 px-4 py-1.5 bg-white/10 text-white border-white/20">
-              <Zap className="h-3.5 w-3.5 mr-1.5 inline" />
-              Start Protecting Your Organization Today
-            </Badge>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
               Don't Wait for a Breach to Take Action
             </h2>

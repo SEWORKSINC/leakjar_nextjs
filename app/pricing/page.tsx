@@ -70,11 +70,11 @@ export default function PricingPage() {
 
   const pricingTiers = [
     {
-      name: 'Start',
-      description: 'Full features with limited results — perfect for evaluation',
+      name: 'Free Trial',
+      description: 'Experience full platform capabilities with sample data',
       monthlyPrice: 0,
       annualPrice: 0,
-      badge: 'Recommended Start',
+      badge: 'Start Here',
       icon: Shield,
       features: [
         '1 monitored domain',
@@ -109,7 +109,7 @@ export default function PricingPage() {
         'Priority email support',
         'Custom integrations',
       ],
-      cta: 'Get Started',
+      cta: 'Start Protection Now',
       ctaVariant: 'outline' as const,
       popular: false,
     },
@@ -158,12 +158,13 @@ export default function PricingPage() {
             <Shield className="h-4 w-4 mr-2 inline" />
             Start Free — No Credit Card Required
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
-            Start Free, Upgrade When You Need More
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight leading-[1.1]">
+            Start Free,<br />
+            Scale When Ready
           </h1>
-          <p className="text-xl text-gray-600 mb-12">
-            Get full-featured credential monitoring with limited results. Perfect for evaluation 
-            or small organizations. Upgrade anytime for unlimited historical data.
+          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
+            Begin with <strong>full-featured monitoring</strong> at no cost. 
+            Upgrade anytime for <strong>unlimited breach intelligence</strong> and enterprise features.
           </p>
 
           {/* Billing Toggle */}
