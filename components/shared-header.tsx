@@ -15,7 +15,7 @@ export function SharedHeader() {
   return (
     <>
       <header className="border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
         {/* Logo */}
         {/* <Link 
           href="/" 
@@ -43,7 +43,7 @@ export function SharedHeader() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex space-x-6" aria-label="Main navigation">
+        <nav className="hidden lg:flex space-x-6" aria-label="Main navigation">
           <Link 
             href="/features" 
             className={`transition-colors ${
@@ -107,7 +107,7 @@ export function SharedHeader() {
         </nav>
 
         {/* Desktop Auth Buttons */}
-        <div className="hidden md:flex space-x-3">
+        <div className="hidden lg:flex space-x-3">
           <Link href="/auth/login">
             <Button variant="outline" className="border-gray-300">
               Sign In
