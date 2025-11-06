@@ -292,11 +292,12 @@ export default function Home() {
             {/* Right Column - Video/Visual with Glassmorphism */}
             <div className="relative hidden lg:block">
               {/* Glow effect behind video */}
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 blur-3xl"></div>
+              {/* <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 blur-3xl"></div> */}
               
-              <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl shadow-cyan-500/20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
+              {/* <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl shadow-cyan-500/20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900"> */}
+              <div className="relative rounded-full overflow-hidden mix-blend-plus-lighter">
                 <video 
-                  className="w-full h-auto" 
+                  className="w-full h-auto invert hue-rotate-180 contrast-[1.1] brightness-[1]" 
                   muted 
                   autoPlay 
                   loop 
@@ -305,8 +306,7 @@ export default function Home() {
                   preload="metadata"
                   aria-label="LeakJar credential monitoring visualization"
                   style={{ 
-                    mixBlendMode: 'multiply',
-                    filter: 'brightness(1.2) contrast(1.1)'
+                    // filter: 'brightness(1.2) contrast(1.1)'
                   }}
                 >
                   <source src="/world_c.webm" type="video/webm" />
