@@ -222,7 +222,7 @@ export default function Home() {
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/20 rounded-full blur-[128px]"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-cyan-500/20 rounded-full blur-[128px]"></div>
         
-        <div className="container relative mx-auto px-4 py-16 md:py-24">
+        <div className="container relative mx-auto px-4 py-16 2xl:py-24">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Column - Content */}
             <div className="max-w-2xl">
@@ -265,7 +265,7 @@ export default function Home() {
               </div>
 
               {/* Compliance Badges with Glassmorphism */}
-              <div className="mb-10 p-5 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 hidden hidden-tmp">
+              <div className="mb-10 p-5 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 xl:hidden 2xl:block hidden-tmp">
                 <p className="text-sm font-semibold text-gray-300 mb-3">Compliance Frameworks Supported:</p>
                 <div className="flex flex-wrap gap-2">
                   <Badge variant="outline" className="text-xs bg-white/10 border-white/20 text-gray-200 hover:bg-white/20 transition-colors">PCI DSS 4.0</Badge>
@@ -279,7 +279,7 @@ export default function Home() {
               </div>
 
               {/* CTA */}
-              <div className="flex flex-col sm:flex-row gap-4 hidden hidden-tmp">
+              <div className="flex flex-col sm:flex-row gap-4 xl:hidden 2xl:block hidden-tmp">
                 <Link href="/auth/freetier" className="group">
                   <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg w-full sm:w-auto transition-all hover:scale-105">
                     See Your Exposure Now
@@ -322,7 +322,7 @@ export default function Home() {
       {/* Free Email Search - Critical Hook Feature */}
       <section className="container mx-auto px-4 py-20">
         <ScrollReveal className="max-w-4xl mx-auto">
-          <Card className="border-2 border-gray-200 shadow-xl bg-white">
+          <Card className="border-2 border-gray-200 shadow-xl bg-white xl:-mt-40 2xl:mt-0">
             <CardHeader className="text-center pb-6">
               {/* <div className="mx-auto mb-4 h-14 w-14 bg-blue-100 rounded-full flex items-center justify-center">
                 <Search className="h-7 w-7 text-blue-600" />
