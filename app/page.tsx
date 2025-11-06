@@ -297,7 +297,7 @@ export default function Home() {
               {/* <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl shadow-cyan-500/20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900"> */}
               <div className="relative rounded-full overflow-hidden mix-blend-plus-lighter">
                 <video 
-                  className="w-full h-auto invert hue-rotate-180 contrast-[1.1] brightness-[1]" 
+                  className="w-full h-auto invert hue-rotate-180 contrast-[1.02]" 
                   muted 
                   autoPlay 
                   loop 

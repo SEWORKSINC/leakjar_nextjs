@@ -31,6 +31,72 @@ export function MobileNav() {
       {/* Mobile Menu Overlay */}
       {isOpen && (
         <>
+        <div className="tetetest fixed right-0 top-16 bg-white backdrop-blur-sm">
+          {/* Navigation Links */}
+          <div className="flex flex-col p-4 space-y-1">
+            <Link
+              href="/features"
+              className="px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors font-medium"
+              onClick={closeMenu}
+            >
+              Features
+            </Link>
+            <Link
+              href="/solutions"
+              className="px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors font-medium"
+              onClick={closeMenu}
+            >
+              Solutions
+            </Link>
+            <Link
+              href="/about"
+              className="px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors font-medium"
+              onClick={closeMenu}
+            >
+              About Us
+            </Link>
+            <Link
+              href="/developer"
+              className="px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors font-medium"
+              onClick={closeMenu}
+            >
+              Developer
+            </Link>
+            <Link
+              href="/pricing"
+              className="px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors font-medium"
+              onClick={closeMenu}
+            >
+              Pricing
+            </Link>
+            <Link
+              href="/contact"
+              className="px-4 py-3 text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg transition-colors font-medium"
+              onClick={closeMenu}
+            >
+              Contact
+            </Link>
+          </div>
+
+          {/* Auth Buttons */}
+          <div className="flex flex-col p-4 space-y-3">
+            <Link href="/auth/login" onClick={closeMenu}>
+              <Button 
+                variant="outline" 
+                className="w-full border-gray-300"
+              >
+                Sign In
+              </Button>
+            </Link>
+            <Link href="/auth/signup" onClick={closeMenu}>
+              <Button className="w-full bg-gray-700 hover:bg-gray-800">
+                Get Started
+              </Button>
+            </Link>
+          </div>
+        </div>
+
+        <div className="hidden">
           {/* Backdrop */}
           <div
             className="fixed inset-0 bg-black/50 z-40 backdrop-blur-sm"
@@ -137,6 +203,7 @@ export function MobileNav() {
               </p>
             </div>
           </nav>
+        </div>
         </>
       )}
     </div>
