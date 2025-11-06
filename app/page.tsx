@@ -322,7 +322,7 @@ export default function Home() {
       {/* Free Email Search - Critical Hook Feature */}
       <section className="container mx-auto px-4 py-20">
         <ScrollReveal className="max-w-4xl mx-auto">
-          <Card className="border-2 border-gray-200 shadow-xl bg-white xl:-mt-40 2xl:mt-0">
+          <Card className="border-2 border-gray-200 shadow-xl bg-white xl:-mt-40 2xl:mt-48">
             <CardHeader className="text-center pb-6">
               {/* <div className="mx-auto mb-4 h-14 w-14 bg-blue-100 rounded-full flex items-center justify-center">
                 <Search className="h-7 w-7 text-blue-600" />
