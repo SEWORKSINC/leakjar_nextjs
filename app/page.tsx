@@ -294,7 +294,7 @@ export default function Home() {
               {/* Glow effect behind video */}
               <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/30 to-blue-500/30 blur-3xl"></div>
               
-              <div className="relative rounded-2xl overflow-hidden border border-white/20 bg-white/5 backdrop-blur-sm shadow-2xl shadow-cyan-500/20">
+              <div className="relative rounded-2xl overflow-hidden border border-white/20 shadow-2xl shadow-cyan-500/20 bg-gradient-to-br from-slate-900 via-blue-950 to-slate-900">
                 <video 
                   className="w-full h-auto" 
                   muted 
@@ -304,6 +304,10 @@ export default function Home() {
                   loading="lazy"
                   preload="metadata"
                   aria-label="LeakJar credential monitoring visualization"
+                  style={{ 
+                    mixBlendMode: 'multiply',
+                    filter: 'brightness(1.2) contrast(1.1)'
+                  }}
                 >
                   <source src="/world_c.webm" type="video/webm" />
                   <source src="/world_c.mp4" type="video/mp4" />
