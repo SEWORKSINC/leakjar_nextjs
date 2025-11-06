@@ -5,7 +5,6 @@ import { AuthProvider } from "@/components/providers/auth-provider";
 import { ToastProvider } from "@/components/ui/toast";
 import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { Analytics as GA4Analytics } from "@/components/analytics";
-import { SkipToContent } from "@/components/skip-to-content";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -92,7 +91,6 @@ export default function RootLayout({
         className={`${inter.variable} font-sans antialiased`}
         suppressHydrationWarning
       >
-        <SkipToContent />
         <GA4Analytics />
         <VercelAnalytics />
         <ToastProvider>
