@@ -505,7 +505,7 @@ func main() {
           </aside>
 
           {/* Main Content */}
-          <main className="flex-1 max-w-4xl">
+          <main className="flex-1 w-full max-w-4xl">
             {/* Introduction Section */}
             <section id="introduction" className="mb-16 scroll-mt-24">
               <div className="grid md:grid-cols-3 gap-6 mb-8">
@@ -1123,10 +1123,10 @@ X-RateLimit-Reset: 1640995200`}
               Sign up now and get your API key to start accessing leaked credential data
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild className="bg-white text-gray-900 hover:bg-gray-100">
+              <Button size="lg" asChild className="bg-white text-gray-900 hover:bg-gray-300">
                 <Link href="/auth/signup">Get Your API Key →</Link>
               </Button>
-              <Button size="lg" variant="outline" asChild className="border-gray-600 text-white hover:bg-gray-800 hover:text-white">
+              <Button size="lg" asChild className="bg-white text-gray-900 hover:bg-gray-300">
                 <Link href="/contact">Contact Sales</Link>
               </Button>
             </div>

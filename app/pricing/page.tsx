@@ -394,13 +394,13 @@ export default function PricingPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
-                <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-100">
+                <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-300">
                   Contact Sales
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link href="/auth/signup">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button size="lg" className="bg-white text-gray-900 hover:bg-gray-300">
                   Start Free Tier
                 </Button>
               </Link>

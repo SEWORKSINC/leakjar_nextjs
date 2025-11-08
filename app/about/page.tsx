@@ -247,7 +247,7 @@ export default function AboutPage() {
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             Advisory Board
           </h2>
-          <div className="mx-auto flex flex-col lg:flex-row flex-wrap items-center lg:justify-between max-w-220 text-center">
+          <div className="mx-auto flex flex-col lg:flex-row flex-wrap items-center lg:items-start lg:justify-between max-w-220 text-center">
             <div className="mt-5 w-40">
               <div className="w-40 h-40 rounded-xl bg-black bg-[url(/c2.png)] bg-cover grayscale"></div>
               <div className="mt-5">
