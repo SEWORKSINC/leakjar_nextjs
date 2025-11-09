@@ -305,9 +305,6 @@ export default function Home() {
                   loading="lazy"
                   preload="metadata"
                   aria-label="LeakJar credential monitoring visualization"
-                  style={{ 
-                    // filter: 'brightness(1.2) contrast(1.1)'
-                  }}
                 >
                   <source src="/world_c.webm" type="video/webm" />
                   <source src="/world_c.mp4" type="video/mp4" />
