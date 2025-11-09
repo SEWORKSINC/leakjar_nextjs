@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Shield, Award, Users, TrendingUp, MapPin, Calendar, Zap } from 'lucide-react';
+import { Shield, Award, Users, TrendingUp, MapPin, Calendar, Zap, Linkedin } from 'lucide-react';
 import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
 
@@ -176,7 +176,18 @@ export default function AboutPage() {
               <div className="w-40 h-40 rounded-xl bg-black bg-[url('/c1.png')] bg-cover grayscale bg-position-[center_top_16%]"></div>
             </div>
             <div className="flex-1 flex flex-col">
-              <strong className="mb-1 text-xl">Min Pyo Hong</strong>
+              <div className="flex items-center gap-2 mb-1">
+                <strong className="text-xl">Min Pyo Hong</strong>
+                <a 
+                  href="https://www.linkedin.com/in/silverdel/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-blue-600 hover:text-blue-800 transition-colors"
+                  aria-label="Min Pyo Hong's LinkedIn profile"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+              </div>
               <span className="mb-2">Founder & CEO</span>
               <p>Min is the founder and CEO of SEWORKS. He has worked as a white hat hacker for over 25 years, helping enterprises and governments strengthen their security. He is a serial entrepreneur as he previously founded and made an exit of SHIFTWORKS, a mobile anti-virus and MDM company. He also served as part of the review board of Hack In The Box.</p>
             </div>
