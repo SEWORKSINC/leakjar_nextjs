@@ -181,7 +181,7 @@ export default function AboutPage() {
               <p>Min is the founder and CEO of SEWORKS. He has worked as a white hat hacker for over 25 years, helping enterprises and governments strengthen their security. He is a serial entrepreneur as he previously founded and made an exit of SHIFTWORKS, a mobile anti-virus and MDM company. He also served as part of the review board of Hack In The Box.</p>
             </div>
           </div>
-          <div className="mx-auto mt-8 flex flex-wrap max-w-220">
+          <div className="mx-auto mt-8 flex flex-wrap max-w-220 hidden">
             <div className="mr-6">
               <div className="w-40 h-40 rounded-xl bg-black bg-[url(/c5.png)] bg-cover grayscale"></div>
             </div>
