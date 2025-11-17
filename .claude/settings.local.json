@@ -1,0 +1,23 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tasklist:*)",
+      "Bash(taskkill:*)",
+      "Bash(npx kill-port:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm install:*)",
+      "Bash(curl:*)",
+      "Bash(pip install:*)",
+      "Bash(psql:*)",
+      "Bash(node:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "Bash(npx @supabase/mcp-server-supabase --version:*)",
+      "WebFetch(domain:supabase.com)",
+      "WebFetch(domain:stackoverflow.com)",
+      "WebFetch(domain:dev.to)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

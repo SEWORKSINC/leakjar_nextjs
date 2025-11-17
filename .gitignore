@@ -86,3 +86,10 @@ out/
 
 # Snyk Security Extension - AI Rules (auto-generated)
 .cursor/rules/snyk_rules.mdc
+
+
+clickhouse-setup-commands.md
+generate-db-schema-markdown.js
+LeakJar-프로젝트-심층-분석-보고서.md
+leakjar.code-workspace
+Supabase-데이터베이스-구조-분석.md

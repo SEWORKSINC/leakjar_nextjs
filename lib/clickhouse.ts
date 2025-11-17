@@ -8,7 +8,7 @@ export const clickhouse = createClient({
   username: process.env.CLICKHOUSE_USER || 'default',
   password: process.env.CLICKHOUSE_PASSWORD || '',
   database: process.env.CLICKHOUSE_DB || 'default',
-  request_timeout: 60000, // 60 seconds timeout
+  request_timeout: 180000, // 3 minutes timeout
   max_open_connections: 10,
   compression: {
     request: false,
