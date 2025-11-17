@@ -1,13 +1,13 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/components/providers/auth-provider';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckCircle, XCircle, Loader2, Users } from 'lucide-react';
 
-export default function AcceptInvitationPage() {
+function AcceptInvitationContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { session } = useAuth();
@@ -195,5 +195,17 @@ export default function AcceptInvitationPage() {
         </CardContent>
       </Card>
     </div>
+  );
+}
+
+export default function AcceptInvitationPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen flex items-center justify-center">
+        <Loader2 className="h-8 w-8 animate-spin text-gray-400" />
+      </div>
+    }>
+      <AcceptInvitationContent />
+    </Suspense>
   );
 }
