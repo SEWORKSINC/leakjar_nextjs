@@ -36,7 +36,7 @@ export async function middleware(request: NextRequest) {
   const path = request.nextUrl.pathname;
 
   // 공개 경로 정의
-  const publicPaths = ['/', '/landing', '/auth/login', '/auth/signup'];
+  const publicPaths = ['/', '/landing', '/auth/login', '/auth/signup', '/features', '/solutions', '/about', '/developer', '/pricing', '/contact', '/hello', '/pci-compliance', '/nist-compliance', '/hipaa-compliance', '/ccpa-compliance', '/gdpr-compliance', '/ai-act-compliance', '/nist-ai-rmf'];
   const isPublicPath = publicPaths.some(publicPath => path === publicPath) ||
     path.startsWith('/auth/') ||
     path.startsWith('/open-search/');
@@ -59,6 +59,6 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp|webm|mp4)$).*)',
   ],
 };

@@ -1,0 +1,55 @@
+# robots.txt for LeakJar
+# https://www.leakjar.com/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /account/
+Disallow: /settings/
+Disallow: /admin/
+Disallow: /auth/callback/
+Disallow: /monitoring/
+
+# Allow important pages
+Allow: /
+Allow: /features
+Allow: /about
+Allow: /pricing
+Allow: /developer
+Allow: /auth/login
+Allow: /auth/signup
+
+# Sitemap location
+Sitemap: https://www.leakjar.com/sitemap.xml
+
+# Crawl delay for polite crawlers
+Crawl-delay: 1
+
+# Specific bot rules
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /account/
+Disallow: /settings/
+Disallow: /admin/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /account/
+Disallow: /settings/
+Disallow: /admin/
+
+# Block bad bots
+User-agent: SemrushBot
+Crawl-delay: 10
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: DotBot
+Disallow: /
+
