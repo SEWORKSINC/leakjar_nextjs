@@ -101,13 +101,22 @@ export default function AccountPage() {
 
   const handleLogout = async () => {
     try {
-      await fetch('/api/auth/logout', {
-        method: 'POST',
-        credentials: 'include'
-      });
-      router.push('/auth/login');
+      // Supabase 클라이언트 직접 사용하여 로그아웃
+      const { supabase } = await import('@/lib/supabase');
+      const { error } = await supabase.auth.signOut();
+
+      if (error) {
+        console.error('Supabase logout error:', error);
+      }
+
+      // window.location.href를 사용하여 페이지를 완전히 새로고침하며 이동
+      // 이렇게 하면 미들웨어가 새로운 세션을 확인할 때 로그인 페이지로 정상적으로 이동
+      window.location.href = '/auth/login';
+
     } catch (error) {
       console.error('Logout error:', error);
+      // 에러가 발생해도 로그인 페이지로 이동
+      window.location.href = '/auth/login';
     }
   };
 

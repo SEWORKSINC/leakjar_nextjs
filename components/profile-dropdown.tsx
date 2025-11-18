@@ -37,9 +37,12 @@ export function ProfileDropdown() {
   const handleSignOut = async () => {
     try {
       await supabase.auth.signOut();
-      router.push('/auth/login');
+      // window.location.href를 사용하여 페이지를 완전히 새로고침하며 이동
+      window.location.href = '/auth/login';
     } catch (error) {
       console.error('Logout error:', error);
+      // 에러가 발생해도 로그인 페이지로 이동
+      window.location.href = '/auth/login';
     }
   };
 
