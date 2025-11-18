@@ -32,6 +32,32 @@ export async function GET(request: NextRequest) {
       );
     }
 
+    // Ensure user exists in users table (for foreign key constraint)
+    const { data: existingUser } = await supabase
+      .from('users')
+      .select('id')
+      .eq('id', user.id)
+      .single();
+
+    if (!existingUser) {
+      // Create user record in users table
+      const { error: userInsertError } = await supabase
+        .from('users')
+        .insert({
+          id: user.id,
+          email: user.email || '',
+          name: user.user_metadata?.name || user.email?.split('@')[0] || 'User',
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        });
+
+      if (userInsertError) {
+        console.error('Error creating user record:', userInsertError);
+        // Even if user sync fails, continue with empty domains result
+        return NextResponse.json({ domains: [] });
+      }
+    }
+
     // Fetch ONLY the authenticated user's domains from Supabase database
     const { data: domains, error: fetchError } = await supabase
       .from('domains')
@@ -74,7 +100,7 @@ export async function POST(request: NextRequest) {
   try {
     // Get the authorization header
     const authHeader = request.headers.get('authorization');
-    
+
     if (!authHeader || !authHeader.startsWith('Bearer ')) {
       return NextResponse.json(
         { error: 'Unauthorized' },
@@ -83,15 +109,43 @@ export async function POST(request: NextRequest) {
     }
 
     const token = authHeader.replace('Bearer ', '');
-    
+
     // Verify the token with Supabase
     const { data: { user }, error } = await supabase.auth.getUser(token);
-    
+
     if (error || !user) {
       return NextResponse.json(
         { error: 'Invalid session' },
         { status: 401 }
       );
+    }
+
+    // Ensure user exists in users table (for foreign key constraint)
+    const { data: existingUser } = await supabase
+      .from('users')
+      .select('id')
+      .eq('id', user.id)
+      .single();
+
+    if (!existingUser) {
+      // Create user record in users table
+      const { error: userInsertError } = await supabase
+        .from('users')
+        .insert({
+          id: user.id,
+          email: user.email || '',
+          name: user.user_metadata?.name || user.email?.split('@')[0] || 'User',
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        });
+
+      if (userInsertError) {
+        console.error('Error creating user record:', userInsertError);
+        return NextResponse.json(
+          { error: 'Failed to sync user account' },
+          { status: 500 }
+        );
+      }
     }
 
     const { domain, type, description, companyName } = await request.json();

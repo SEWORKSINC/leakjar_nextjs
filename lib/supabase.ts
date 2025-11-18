@@ -2,9 +2,15 @@ import { createBrowserClient } from '@supabase/ssr'
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL
 
 // SSR을 사용한 브라우저 클라이언트
-export const supabase = createBrowserClient(supabaseUrl, supabaseAnonKey)
+export const supabase = createBrowserClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    flowType: 'pkce',
+    redirectTo: siteUrl || 'http://localhost:3000'
+  }
+})
 
 // Database types (will be updated based on your schema)
 export interface User {

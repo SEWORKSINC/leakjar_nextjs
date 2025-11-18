@@ -3,6 +3,7 @@ import { cookies } from 'next/headers'
 
 export async function createClient() {
   const cookieStore = await cookies()
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || process.env.SITE_URL
 
   return createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -24,6 +25,10 @@ export async function createClient() {
           }
         },
       },
+      auth: {
+        flowType: 'pkce',
+        redirectTo: siteUrl || 'http://localhost:3000'
+      }
     }
   )
 }

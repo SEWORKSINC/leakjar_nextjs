@@ -74,7 +74,28 @@ export function useUserRole() {
 
         if (profileError) {
           console.error('Error fetching user profile:', profileError);
-          // If no profile exists, default to USER role
+
+          // If profile doesn't exist, try to create it
+          if (profileError.code === 'PGRST116') {
+            try {
+              const response = await fetch('/api/user-profile', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              });
+
+              if (response.ok) {
+                // Profile created successfully, set USER role
+                setPermissions(getPermissionsForRole('USER'));
+                return;
+              }
+            } catch (createError) {
+              console.error('Failed to create profile:', createError);
+            }
+          }
+
+          // Default to USER role if all else fails
           setPermissions(getPermissionsForRole('USER'));
           return;
         }
