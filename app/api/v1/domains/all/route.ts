@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { authenticateApiRequestWrapper, logApiCall } from '@/lib/api-auth';
 import { createClient } from '@/lib/supabase-server';
+import { clickhouse } from '@/lib/clickhouse';
 
 /**
  * GET /api/v1/domains/all - Get all user's domains with verification status
@@ -106,6 +107,51 @@ export async function GET(request: NextRequest) {
       }))
     ];
 
+    // Get data counts for verified domains only (API accessible)
+    const domainsWithCounts = await Promise.all(
+      allDomains.map(async (domain) => {
+        // Only get count for verified and API accessible domains
+        if (!domain.api_accessible) {
+          return {
+            ...domain,
+            total_records: 0
+          };
+        }
+
+        try {
+          const isUrlDomain = domain.type === 'URL';
+          const countQuery = `
+            SELECT count(*) as total
+            FROM leaked_data
+            WHERE ${isUrlDomain ? 'main_domain' : 'main_email'} = {domain:String}
+          `;
+
+          const result = await clickhouse.query({
+            query: countQuery,
+            format: 'JSONEachRow',
+            query_params: {
+              domain: domain.domain
+            }
+          });
+
+          const countData = await result.json();
+          const totalRecords = countData[0]?.total || 0;
+
+          return {
+            ...domain,
+            total_records: totalRecords
+          };
+        } catch (error) {
+          console.error(`Failed to get count for domain ${domain.domain}:`, error);
+          return {
+            ...domain,
+            total_records: 0,
+            count_error: true
+          };
+        }
+      })
+    );
+
     // Group by status
     const domainStats = {
       total: allDomains.length,
@@ -134,13 +180,17 @@ export async function GET(request: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      data: allDomains,
-      stats: domainStats,
+      data: domainsWithCounts,
+      stats: {
+        ...domainStats,
+        total_records: domainsWithCounts.reduce((sum, domain) => sum + (domain.total_records || 0), 0)
+      },
       meta: {
         total_domains: allDomains.length,
         verified_domains: domainStats.verified,
         pending_verification: domainStats.pending,
         api_accessible_domains: domainStats.api_accessible,
+        total_records: domainsWithCounts.reduce((sum, domain) => sum + (domain.total_records || 0), 0),
         response_time_ms: responseTime,
         api_key_id: apiKey.id.substring(0, 8) + '...',
         user_id: user.id.substring(0, 8) + '...'

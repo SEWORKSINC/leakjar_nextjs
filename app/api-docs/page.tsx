@@ -634,13 +634,39 @@ function EndpointsSection({
       "id": "123e4567-e89b-12d3-a456-426614174000",
       "domain": "gmail.com",
       "type": "EMAIL",
+      "company_name": "Google LLC",
+      "description": "Email service domain",
+      "is_verified": true,
       "verified_at": "2025-09-16T15:13:39.262+00:00",
-      "api_accessible": true,
-      "verification_status": "verified"
+      "visibility": "public",
+      "created_at": "2025-09-16T15:13:39.262+00:00",
+      "updated_at": "2025-09-16T15:13:39.262+00:00",
+      "total_records": 1250,
+      "ownership_type": "direct",
+      "access_level": "owner",
+      "api_accessible": true
     }
   ],
+  "stats": {
+    "total": 1,
+    "verified": 1,
+    "pending": 0,
+    "api_accessible": 1,
+    "by_type": {
+      "URL": 0,
+      "EMAIL": 1
+    },
+    "by_ownership": {
+      "direct": 1,
+      "organization": 0
+    }
+  },
   "meta": {
     "total_domains": 1,
+    "verified_domains": 1,
+    "pending_verification": 0,
+    "api_accessible_domains": 1,
+    "total_records": 1250,
     "response_time_ms": 2037,
     "api_key_id": "c0ef44ee...",
     "user_id": "ff0425af..."
@@ -950,26 +976,71 @@ Write-Host "Found $($response.data.Count) verified domains"`}
       "id": "123e4567-e89b-12d3-a456-426614174000",
       "domain": "gmail.com",
       "type": "EMAIL",
+      "company_name": "Google LLC",
+      "description": "Email service domain",
       "is_verified": true,
       "verified_at": "2025-09-16T15:13:39.262+00:00",
-      "api_accessible": true,
-      "visibility": "organization"
+      "visibility": "public",
+      "organization_id": null,
+      "added_by": "ff0425af-...",
+      "created_at": "2025-09-16T15:13:39.262+00:00",
+      "updated_at": "2025-09-16T15:13:39.262+00:00",
+      "total_records": 1250,
+      "ownership_type": "direct",
+      "access_level": "owner",
+      "api_accessible": true
     },
     {
       "id": "456e7890-f12c-23d4-b567-537725285111",
       "domain": "example.com",
       "type": "URL",
+      "company_name": "Example Company",
+      "description": "Company website",
       "is_verified": false,
       "verified_at": null,
-      "api_accessible": false,
-      "visibility": "private"
+      "visibility": "private",
+      "organization_id": "789e0123-abc4-23d4-b567-537725285111",
+      "added_by": "ff0425af-...",
+      "created_at": "2025-09-17T10:30:00.000+00:00",
+      "updated_at": "2025-09-17T10:30:00.000+00:00",
+      "total_records": 0,
+      "ownership_type": "organization",
+      "access_level": "member",
+      "api_accessible": false
     }
   ],
+  "stats": {
+    "total": 2,
+    "verified": 1,
+    "pending": 1,
+    "api_accessible": 1,
+    "by_type": {
+      "URL": 1,
+      "EMAIL": 1
+    },
+    "by_ownership": {
+      "direct": 1,
+      "organization": 1
+    }
+  },
   "meta": {
     "total_domains": 2,
+    "verified_domains": 1,
+    "pending_verification": 1,
+    "api_accessible_domains": 1,
+    "total_records": 1250,
     "response_time_ms": 2150,
     "api_key_id": "c0ef44ee...",
     "user_id": "ff0425af..."
+  },
+  "note": "Only verified domains are accessible via API.",
+  "help": {
+    "verification_info": "Domains must be verified by administrators before API access is granted.",
+    "contact_support": "Contact your administrator to verify pending domains.",
+    "api_access_requirements": [
+      "Domain must be verified (is_verified = true)",
+      "User must have access permissions based on ownership and visibility settings"
+    ]
   }
 }`}
                 </pre>

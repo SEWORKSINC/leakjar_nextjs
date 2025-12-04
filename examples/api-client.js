@@ -218,6 +218,36 @@ class LeakJarClient {
   }
 
   /**
+   * Get total count of leaked data for a domain
+   * @param {Object} params - Query parameters
+   * @param {string} params.domain - Domain to search (required)
+   * @param {string} params.dateFrom - Start date filter (YYYY-MM-DD)
+   * @param {string} params.dateTo - End date filter (YYYY-MM-DD)
+   * @param {string} params.type - Data type filter (email, username, password)
+   */
+  async getDataCount(params) {
+    if (!params.domain) {
+      throw new Error('Domain parameter is required');
+    }
+
+    const queryParams = new URLSearchParams();
+    queryParams.append('domain', params.domain);
+
+    if (params.dateFrom) {
+      queryParams.append('date_from', params.dateFrom);
+    }
+    if (params.dateTo) {
+      queryParams.append('date_to', params.dateTo);
+    }
+    if (params.type) {
+      queryParams.append('type', params.type);
+    }
+
+    const endpoint = `/leaked-data/count?${queryParams.toString()}`;
+    return this.request(endpoint);
+  }
+
+  /**
    * Check if domain is accessible before making data request
    */
   async checkDomainAccess(domain) {
