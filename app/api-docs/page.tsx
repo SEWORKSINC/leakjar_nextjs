@@ -56,7 +56,7 @@ function CodeExampleSelector({
 }) {
   return (
     <div className="flex items-center gap-2">
-      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">언어 선택:</span>
+      <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Language:</span>
       <select
         value={selectedLanguage}
         onChange={(e) => onLanguageChange(e.target.value)}
