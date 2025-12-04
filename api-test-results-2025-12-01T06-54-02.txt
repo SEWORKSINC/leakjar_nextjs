@@ -1,0 +1,227 @@
+🚀 LeakJar API Client - Comprehensive Test Suite
+==================================================
+Test started at: 2025-12-01T06:54:02.993Z
+Results file: api-test-results-2025-12-01T06-54-02.txt
+API Client Version: v1.0
+API Key: lj_live_UodzH0gWpmkhUtYRdEr1HEsTwMPaIy1C
+
+🔍 Testing API Connection...
+✅ API Connection successful
+
+🔍 Testing 1: Basic Query
+========================
+✅ Success: 3 records retrieved
+📊 Total records: Unknown
+🔑 Domain verified: true
+⏱️ Response time: 43623ms
+
+📋 Retrieved Records:
+  1. Email: nikomas07yolo@gmail.com
+     Username: Usuario 1
+     Password: [HIDDEN]
+     Domain: com.spotify.music
+     Source: android://2Q82TiAojrruN4q56Ttwb9pRQAkZ73TAEh2r0iatwKG7k2pb9_aRB1c9XJKShM5Dyc-tFk3cdk7gxb7FTpaKrw==@com.spotify.music/
+     Date: 2025-09-16
+     Browser: android
+     IP: 181.142.208.131
+     Has Password: Yes
+
+  2. Email: Kmenuboox@gmail.com
+     Username: user
+     Password: [HIDDEN]
+     Domain: com.olserapratama.office
+     Source: android://3-zg5HoVnOLbzy8wPsdCWNWq95o0jhc9SGB--ZVc-PlniNQvoJbe7q1mvRjuJNsJmaJoCOm95PTX1AYcxkOaoA==@com.olserapratama.office/
+     Date: 2025-09-16
+     Browser: android
+     IP: 110.137.208.189
+     Has Password: Yes
+
+  3. Email: wwn0478@gmail.com
+     Username: user
+     Password: [HIDDEN]
+     Domain: com.zsmart.zmoofit
+     Source: android://7BPgzsd1kshS69KyWw_AiomlgB8nRTVn3qwOa0tEl3h17xgdsztHXzklovrQJDdoohAlThnxPw3zEweBzSEwcg==@com.zsmart.zmoofit/
+     Date: 2025-09-16
+     Browser: android
+     IP: 110.137.208.189
+     Has Password: Yes
+
+
+🔍 Testing 2: Verified Domains
+===============================
+✅ Success: 2 verified domains found
+⏱️ Response time: 2044ms
+
+📋 Verified Domain Details:
+  1. Domain: gmail.com
+     Type: EMAIL
+     Verified: No
+     API Accessible: Yes
+     Created: Unknown
+     Verified At: 2025-09-16T15:13:39.262+00:00
+
+  2. Domain: google.com
+     Type: URL
+     Verified: No
+     API Accessible: Yes
+     Created: Unknown
+     Verified At: 2025-09-16T15:13:44.694+00:00
+
+
+🔍 Testing 3: All Domains Status
+=================================
+✅ Success: 4 total domains found
+⏱️ Response time: 2439ms
+
+📋 All Domain Details:
+  1. Domain: roblox.com
+     Type: EMAIL
+     Status: ⏳ Pending
+     Monitoring: 🟢 Enabled
+     API Access: 🚫 Not Available
+     Ownership: Unknown
+     Company: Roblox
+     Created: 2025-09-14T09:54:29.586916+00:00
+
+  2. Domain: roblox.com
+     Type: URL
+     Status: ⏳ Pending
+     Monitoring: 🟢 Enabled
+     API Access: 🚫 Not Available
+     Ownership: Unknown
+     Company: Roblox
+     Created: 2025-09-14T09:54:18.948297+00:00
+
+  3. Domain: gmail.com
+     Type: EMAIL
+     Status: ✅ Verified
+     Monitoring: 🟢 Enabled
+     API Access: 🔑 Available
+     Ownership: Unknown
+     Company: gmail.com
+     Created: 2025-09-14T07:22:25.75059+00:00
+     Verified: 2025-09-16T15:13:39.262+00:00
+
+  4. Domain: google.com
+     Type: URL
+     Status: ✅ Verified
+     Monitoring: 🟢 Enabled
+     API Access: 🔑 Available
+     Ownership: Unknown
+     Company: Google
+     Created: 2025-09-14T07:21:40.970974+00:00
+     Verified: 2025-09-16T15:13:44.694+00:00
+
+📊 Complete Statistics:
+{
+  "total": 4,
+  "verified": 2,
+  "pending": 2,
+  "monitoring_enabled": 4,
+  "api_accessible": 2,
+  "by_type": {
+    "URL": 2,
+    "EMAIL": 2
+  },
+  "by_ownership": {
+    "direct": 4,
+    "organization": 0
+  }
+}
+
+🔍 Testing 4: Date Range Query
+==============================
+✅ Success: 5 records from 2024
+📊 Total in range: Unknown
+⏱️ Response time: 12343ms
+📅 Date range: 2025-09-12 to 2025-09-12
+
+📋 Sample Records from Date Range:
+  1. gabrielsilva@gmail.com - 2025-09-12
+  2. kvasquez@gmail.com - 2025-09-12
+  3. ceboliveira88@gmail.com - 2025-09-12
+  4. caio.oliveira@antaresinnovate.com.br - 2025-09-12
+  5. MEoEEPgAAAAAAAAAAAAAAAAAAAEwFAYIKoZIhvcNAwcECOU1J3nUDfQ9BCBtgQGyGqc8jd840smcDHtjMuM6qzkN8c6vPbx5YjBwJA== - 2025-09-12
+
+🔍 Testing 5: Pagination
+==========================
+📄 Page 1 Results:
+✅ Success: 3 records
+📊 Total records: Unknown
+🔄 Has more: No
+⏱️ Response time: 9167ms
+  1. nikomas07yolo@gmail.com
+  2. Kmenuboox@gmail.com
+  3. wwn0478@gmail.com
+
+📄 Page 2 Results:
+✅ Success: 3 records
+📊 Total records: Unknown
+🔄 Has more: No
+⏱️ Response time: 9229ms
+  1. wwn.fb01@gmail.com
+  2. wwn0478@gmail.com
+  3. aireenramadhani@gmail.com
+
+📊 Pagination Summary:
+Different records between pages: ✅ Yes
+
+🔍 Testing 6: Data Type Filters
+=================================
+
+📋 Testing email filter:
+✅ Success: 5 records with email data
+  1. wwn.fb01@gmail.com - Has email
+  2. nikomas07yolo@gmail.com - Has email
+  3. dynamickfoodindonesia@gmail.com - Has email
+  4. greatchef2016@gmail.com - Has email
+  5. aireenramadhani@gmail.com - Has email
+
+📋 Testing username filter:
+✅ Success: 5 records with username data
+  1. wwn.fb01@gmail.com - Has username
+  2. nikomas07yolo@gmail.com - Has username
+  3. dynamickfoodindonesia@gmail.com - Has username
+  4. greatchef2016@gmail.com - Has username
+  5. aireenramadhani@gmail.com - Has username
+
+📋 Testing password filter:
+✅ Success: 5 records with password data
+  1. wwn.fb01@gmail.com - Has password
+  2. nikomas07yolo@gmail.com - Has password
+  3. dynamickfoodindonesia@gmail.com - Has password
+  4. greatchef2016@gmail.com - Has password
+  5. aireenramadhani@gmail.com - Has password
+
+🔍 Testing 7: Large Query (100 records)
+=======================================
+✅ Success: 100 records retrieved
+📊 Total available: Unknown
+⏱️ Response time: 55453ms
+🔄 Has more: No
+
+📋 First 5 records:
+  1. eldepexx579@gmail.com - 2025-09-16
+  2. muinjected@gmail.com - 2025-09-16
+  3. danysena101@gmail.com - 2025-09-16
+  4. santiagoveron023@gmail.com - 2025-09-16
+  5. nicola.dagostina@gmail.com - 2025-09-16
+  ...
+📋 Last 5 records:
+  96. mecappussi@gmail.com - 2025-09-16
+  97. melinasilva127@gmail.com - 2025-09-16
+  98. santiagoveron72@gmail.com - 2025-09-16
+  99. estudiojuridicoveron@gmail.com - 2025-09-16
+  100. cccposmajoo@gmail.com - 2025-09-16
+
+🔍 Testing 8: Invalid Domain (Error Handling)
+==============================================
+✅ Expected exception: API Error: Domain not found or access denied
+
+📊 Test Summary
+================
+Total test duration: 235.88 seconds
+Test completed at: 2025-12-01T06:57:58.867Z
+Results saved to: api-test-results-2025-12-01T06-54-02.txt
+
+✅ All tests completed successfully!
