@@ -40,7 +40,6 @@ export interface Domain {
   id: string;
   user_id: string;
   domain: string;
-  monitoring_enabled: boolean;
   created_at: string;
   updated_at: string;
 }

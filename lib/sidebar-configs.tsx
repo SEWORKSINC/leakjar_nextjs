@@ -1,7 +1,7 @@
-import { 
-  Home, Database, Search, Shield, Activity, Settings, Users, FileText, 
+import {
+  Home, Database, Search, Shield, Activity, Settings, Users, FileText,
   BarChart, Lock, Globe, Terminal, Cloud, Server, HardDrive, Cpu,
-  User, Bell, CreditCard, Key, Download 
+  User, Bell, CreditCard, Key, Download, Book
 } from 'lucide-react';
 import { MenuItem } from '@/components/sidebar-layout';
 
