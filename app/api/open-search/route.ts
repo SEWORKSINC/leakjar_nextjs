@@ -20,7 +20,7 @@ export async function GET(request: NextRequest) {
     const clickhouseUser = process.env.CLICKHOUSE_USER || 'default';
     const clickhousePassword = process.env.CLICKHOUSE_PASSWORD || '';
 
-    // Query for URL monitoring (main_domain matches)
+      // Query for URL monitoring (main_domain matches)
     const urlQuery = `
       SELECT
         date_collected,
@@ -29,8 +29,8 @@ export async function GET(request: NextRequest) {
         protocol,
         country,
         ip
-      FROM credentials_ultimate
-      WHERE main_domain = '${cleanDomain}'
+      FROM leaked_data
+      WHERE main_domain = {domain:String}
       ORDER BY date_collected DESC
       LIMIT 5
     `;
@@ -44,8 +44,8 @@ export async function GET(request: NextRequest) {
         protocol,
         country,
         ip
-      FROM credentials_ultimate
-      WHERE main_email = '${cleanDomain}'
+      FROM leaked_data
+      WHERE main_email = {domain:String}
       ORDER BY date_collected DESC
       LIMIT 5
     `;
@@ -53,28 +53,40 @@ export async function GET(request: NextRequest) {
     // Query for total counts
     const urlCountQuery = `
       SELECT count() as total
-      FROM credentials_ultimate
-      WHERE main_domain = '${cleanDomain}'
+      FROM leaked_data
+      WHERE main_domain = {domain:String}
     `;
 
     const emailCountQuery = `
       SELECT count() as total
-      FROM credentials_ultimate
-      WHERE main_email = '${cleanDomain}'
+      FROM leaked_data
+      WHERE main_email = {domain:String}
     `;
 
     // Query for last breach date
     const lastBreachQuery = `
       SELECT max(date_collected) as last_date
-      FROM credentials_ultimate
-      WHERE main_domain = '${cleanDomain}' OR main_email = '${cleanDomain}'
+      FROM leaked_data
+      WHERE main_domain = {domain:String} OR main_email = {domain:String}
     `;
 
     // Execute queries
     const auth = Buffer.from(`${clickhouseUser}:${clickhousePassword}`).toString('base64');
 
-    const executeQuery = async (query: string) => {
-      const response = await fetch(`${clickhouseUrl}/?query=${encodeURIComponent(query)}`, {
+    const executeQuery = async (query: string, params: Record<string, string> = {}) => {
+      // Build URL with parameters
+      let url = `${clickhouseUrl}/?query=${encodeURIComponent(query)}`;
+
+      // Add query parameters
+      const paramEntries = Object.entries(params);
+      if (paramEntries.length > 0) {
+        const paramString = paramEntries
+          .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+          .join('&');
+        url += `&${paramString}`;
+      }
+
+      const response = await fetch(url, {
         method: 'GET',
         headers: {
           'Accept': 'application/json',
@@ -91,13 +103,13 @@ export async function GET(request: NextRequest) {
       return result;
     };
 
-    // Execute all queries
+    // Execute all queries with parameters
     const [urlData, emailData, urlCount, emailCount, lastBreach] = await Promise.all([
-      executeQuery(urlQuery),
-      executeQuery(emailQuery),
-      executeQuery(urlCountQuery),
-      executeQuery(emailCountQuery),
-      executeQuery(lastBreachQuery)
+      executeQuery(urlQuery, { domain: cleanDomain }),
+      executeQuery(emailQuery, { domain: cleanDomain }),
+      executeQuery(urlCountQuery, { domain: cleanDomain }),
+      executeQuery(emailCountQuery, { domain: cleanDomain }),
+      executeQuery(lastBreachQuery, { domain: cleanDomain })
     ]);
 
     // Format response

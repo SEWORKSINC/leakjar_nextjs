@@ -16,10 +16,11 @@ export async function GET(request: Request) {
     let whereClause = '';
     if (search) {
       whereClause = `WHERE (
-        email ILIKE {search:String} OR
-        username ILIKE {search:String} OR
-        domain ILIKE {search:String} OR
-        source ILIKE {search:String}
+        id ILIKE {search:String} OR
+        user_name ILIKE {search:String} OR
+        main_domain ILIKE {search:String} OR
+        main_email ILIKE {search:String} OR
+        url ILIKE {search:String}
       )`;
     }
 
@@ -41,22 +42,19 @@ export async function GET(request: Request) {
 
     // Get paginated data
     const dataQuery = `
-      SELECT 
-        id,
-        email,
-        username,
-        password,
-        domain,
-        source,
+      SELECT
         date_collected,
-        ip_address,
-        phone,
-        full_name,
-        address,
-        credit_card,
-        social_security,
-        api_key,
-        private_key
+        ip,
+        country,
+        pc_name,
+        user_name,
+        url,
+        id,
+        pw,
+        browser,
+        main_domain,
+        main_email,
+        protocol
       FROM leaked_data
       ${whereClause}
       ORDER BY ${sortField} ${sortOrder.toUpperCase()}
@@ -80,11 +78,7 @@ export async function GET(request: Request) {
     const formattedData = data.map((row: any) => ({
       ...row,
       date_collected: row.date_collected ? new Date(row.date_collected).toLocaleDateString() : '',
-      password: row.password ? '••••••••' : '',
-      credit_card: row.credit_card ? '•••• •••• •••• ' + (row.credit_card.slice(-4) || '••••') : '',
-      social_security: row.social_security ? '•••-••-' + (row.social_security.slice(-4) || '••••') : '',
-      api_key: row.api_key ? row.api_key.slice(0, 8) + '...' : '',
-      private_key: row.private_key ? row.private_key.slice(0, 8) + '...' : '',
+      pw: row.pw ? '••••••••' : '',
     }));
 
     return NextResponse.json({

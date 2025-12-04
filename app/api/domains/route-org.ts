@@ -65,7 +65,6 @@ export async function GET(request: NextRequest) {
       type: domain.type,
       description: domain.description,
       companyName: domain.company_name,
-      monitoringEnabled: domain.monitoring_enabled,
       isVerified: domain.is_verified || false,
       verifiedAt: domain.verified_at,
       visibility: domain.visibility,
@@ -178,7 +177,6 @@ export async function POST(request: NextRequest) {
         type,
         description,
         company_name: companyName,
-        monitoring_enabled: true,
         is_verified: false,
         visibility: 'organization'
       })

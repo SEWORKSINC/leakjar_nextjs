@@ -74,19 +74,28 @@ export async function GET(
 
     const clickhouseUrl = `${clickhouseProtocol}://${clickhouseHost}:${clickhousePort}`;
 
-    // Helper function to execute ClickHouse queries
-    const executeQuery = async (query: string) => {
-      const url = `${clickhouseUrl}/?database=${clickhouseDb}&default_format=JSONCompact`;
+    // Helper function to execute ClickHouse queries with parameters
+    const executeQuery = async (query: string, params: Record<string, string> = {}) => {
+      // Build URL with parameters
+      let url = `${clickhouseUrl}/?database=${clickhouseDb}&default_format=JSONCompact&query=${encodeURIComponent(query)}`;
+
+      // Add query parameters
+      const paramEntries = Object.entries(params);
+      if (paramEntries.length > 0) {
+        const paramString = paramEntries
+          .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+          .join('&');
+        url += `&${paramString}`;
+      }
 
       try {
         const auth = Buffer.from(`${clickhouseUser}:${clickhousePassword}`).toString('base64');
         const response = await fetch(url, {
-          method: 'POST',
+          method: 'GET',
           headers: {
-            'Content-Type': 'text/plain',
+            'Accept': 'application/json',
             'Authorization': `Basic ${auth}`,
           },
-          body: query
         });
 
         if (!response.ok) {
@@ -116,7 +125,7 @@ export async function GET(
         pc_name,
         user_name
       FROM leaked_data
-      WHERE main_domain = '${cleanDomain}'
+      WHERE main_domain = {domain:String}
       ORDER BY date_collected DESC
       LIMIT 5
       FORMAT JSONCompact
@@ -135,7 +144,7 @@ export async function GET(
         pc_name,
         user_name
       FROM leaked_data
-      WHERE main_email = '${cleanDomain}'
+      WHERE main_email = {domain:String}
       ORDER BY date_collected DESC
       LIMIT 5
       FORMAT JSONCompact
@@ -145,7 +154,7 @@ export async function GET(
     const urlCountQuery = `
       SELECT count() as total
       FROM leaked_data
-      WHERE main_domain = '${cleanDomain}'
+      WHERE main_domain = {domain:String}
       FORMAT JSONCompact
     `;
 
@@ -153,7 +162,7 @@ export async function GET(
     const emailCountQuery = `
       SELECT count() as total
       FROM leaked_data
-      WHERE main_email = '${cleanDomain}'
+      WHERE main_email = {domain:String}
       FORMAT JSONCompact
     `;
 
@@ -161,7 +170,7 @@ export async function GET(
     const lastBreachQuery = `
       SELECT max(date_collected) as last_date
       FROM leaked_data
-      WHERE (main_domain = '${cleanDomain}' OR main_email = '${cleanDomain}')
+      WHERE (main_domain = {domain:String} OR main_email = {domain:String})
         AND pw != ''
         AND pw != '[NOT_SAVED]'
       FORMAT JSONCompact
@@ -179,13 +188,13 @@ export async function GET(
         throw new Error('ClickHouse not available');
       }
 
-      // Execute all queries in parallel
+      // Execute all queries in parallel with parameters
       [urlResult, emailResult, urlCountResult, emailCountResult, lastBreachResult] = await Promise.all([
-        executeQuery(urlQuery),
-        executeQuery(emailQuery),
-        executeQuery(urlCountQuery),
-        executeQuery(emailCountQuery),
-        executeQuery(lastBreachQuery)
+        executeQuery(urlQuery, { domain: cleanDomain }),
+        executeQuery(emailQuery, { domain: cleanDomain }),
+        executeQuery(urlCountQuery, { domain: cleanDomain }),
+        executeQuery(emailCountQuery, { domain: cleanDomain }),
+        executeQuery(lastBreachQuery, { domain: cleanDomain })
       ]);
     } catch (error) {
       console.log('ClickHouse not available, using sample data');
