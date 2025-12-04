@@ -1,0 +1,56 @@
+🚀 LeakJar API Client - Comprehensive Test Suite
+==================================================
+Test started at: 2025-12-01T05:55:41.306Z
+Results file: api-test-results-2025-12-01T05-55-41.txt
+API Client Version: v1.0
+
+🔍 Testing API Connection...
+✅ API Connection successful
+
+🔍 Testing 1: Basic Query
+========================
+❌ Exception: client is not defined
+
+🔍 Testing 2: Verified Domains
+===============================
+❌ Exception: client is not defined
+
+🔍 Testing 3: All Domains Status
+=================================
+❌ Exception: client is not defined
+
+🔍 Testing 4: Date Range Query
+==============================
+❌ Exception: client is not defined
+
+🔍 Testing 5: Pagination
+==========================
+❌ Exception: client is not defined
+
+🔍 Testing 6: Data Type Filters
+=================================
+
+📋 Testing email filter:
+❌ Exception for email filter: client is not defined
+
+📋 Testing username filter:
+❌ Exception for username filter: client is not defined
+
+📋 Testing password filter:
+❌ Exception for password filter: client is not defined
+
+🔍 Testing 7: Large Query (100 records)
+=======================================
+❌ Exception: client is not defined
+
+🔍 Testing 8: Invalid Domain (Error Handling)
+==============================================
+✅ Expected exception: client is not defined
+
+📊 Test Summary
+================
+Total test duration: 2.90 seconds
+Test completed at: 2025-12-01T05:55:44.201Z
+Results saved to: api-test-results-2025-12-01T05-55-41.txt
+
+✅ All tests completed successfully!
