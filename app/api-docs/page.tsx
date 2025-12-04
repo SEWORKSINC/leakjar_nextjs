@@ -60,7 +60,7 @@ function CodeExampleSelector({
       <select
         value={selectedLanguage}
         onChange={(e) => onLanguageChange(e.target.value)}
-        className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+        className="px-3 py-1 border border-gray-300 dark:border-gray-600 rounded bg-white dark:bg-gray-900 text-gray-900 dark:text-white text-sm focus:ring-2 focus:ring-gray-500 focus:border-transparent"
         aria-label={`프로그래밍 언어 선택 - ${section} 섹션`}
         title={`프로그래밍 언어 선택 - ${section} 섹션`}
       >
@@ -294,17 +294,17 @@ function OverviewSection({
       </section>
 
       <section id="quick-start-section">
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-8">
-          <h3 className="text-xl font-bold text-blue-900 dark:text-blue-100 mb-4">🚀 Quick Start</h3>
+        <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6 mb-8">
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4">Quick Start</h3>
           <div className="space-y-4">
             <div>
-              <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">1. Get Your API Key</h4>
-              <p className="text-blue-700 dark:text-blue-300 text-sm">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">1. Get Your API Key</h4>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Visit your dashboard settings to generate a new API key for your application.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">2. Make Your First Request</h4>
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">2. Make Your First Request</h4>
               <div className="bg-gray-900 rounded p-3">
                 <pre className="text-green-400 text-xs font-mono">
 {`curl -H "Authorization: Bearer YOUR_API_KEY" \\
@@ -313,8 +313,8 @@ function OverviewSection({
               </div>
             </div>
             <div>
-              <h4 className="font-semibold text-blue-800 dark:text-blue-200 mb-2">3. Explore the Data</h4>
-              <p className="text-blue-700 dark:text-blue-300 text-sm">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-2">3. Explore the Data</h4>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">
                 Use our endpoints to access breach data, domain information, and detailed analytics.
               </p>
             </div>
@@ -550,8 +550,8 @@ function EndpointsSection({
       </section>
 
       {/* API Key Setup */}
-      <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-6 mb-8">
-        <h3 className="text-lg font-semibold text-blue-900 dark:text-blue-100 mb-4">API Configuration</h3>
+      <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-8">
+        <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">API Configuration</h3>
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -562,7 +562,7 @@ function EndpointsSection({
               value={apiKey}
               onChange={(e) => handleApiKeyChange(e.target.value)}
               placeholder="your_api_key_here"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-500 focus:border-transparent"
             />
           </div>
           <div>
@@ -575,7 +575,7 @@ function EndpointsSection({
               disabled={!apiKey || availableDomains.length === 0}
               aria-label="Test domain selection"
               title="Select a domain for API testing"
-              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-100 dark:disabled:bg-gray-700 disabled:text-gray-500"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white focus:ring-2 focus:ring-gray-500 focus:border-transparent disabled:bg-gray-100 dark:disabled:bg-gray-700 disabled:text-gray-500"
             >
               <option value="">Select domain</option>
               {availableDomains.length > 0 ? (
@@ -589,8 +589,8 @@ function EndpointsSection({
           </div>
         </div>
         {availableDomains.length > 0 && (
-          <div className="mb-4 p-3 bg-blue-100 dark:bg-blue-800/30 border border-blue-200 dark:border-blue-700 rounded-lg">
-            <p className="text-sm text-blue-700 dark:text-blue-300">
+          <div className="mb-4 p-3 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg">
+            <p className="text-sm text-gray-700 dark:text-gray-300">
               Found {availableDomains.length} domain entries (including EMAIL/URL types)
             </p>
           </div>
@@ -977,8 +977,8 @@ Write-Host "Found $($response.data.Count) verified domains"`}
             </div>
           </div>
 
-          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg p-4 mb-6">
-            <p className="text-sm text-blue-700 dark:text-blue-300">
+          <div className="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 mb-6">
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               <strong>Note:</strong> Unlike <code>/api/v1/domains</code>, this endpoint returns all domains including those that are not yet verified. Unverified domains cannot be used for data queries.
             </p>
           </div>
@@ -1308,8 +1308,8 @@ Write-Host "Verified domains: $($verified.Count)"`}
             )}
           </div>
 
-          <div className="mt-4 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-            <p className="text-sm text-blue-800 dark:text-blue-200">
+          <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+            <p className="text-sm text-gray-600 dark:text-gray-300">
               <strong>Note:</strong> Use this endpoint when you need a complete list of all domains in the system, regardless of ownership.
               This is useful for administrative purposes or for building comprehensive domain management interfaces.
             </p>
@@ -1391,7 +1391,7 @@ curl -H "Authorization: Bearer your_api_key" \\
               <div className="space-y-4">
                 <div className="border-l-4 border-gray-500 pl-3">
                   <code className="bg-gray-100 dark:bg-gray-800 text-gray-800 dark:text-gray-300 px-2 py-1 rounded">domain</code>
-                  <span className="text-red-500 ml-1 font-bold">*</span>
+                  <span className="text-gray-500 ml-1 font-bold">*</span>
                   <p className="text-gray-600 dark:text-gray-400 ml-0 mt-1">Target domain to search (required)</p>
                 </div>
                 <div>
@@ -1416,7 +1416,7 @@ curl -H "Authorization: Bearer your_api_key" \\
           <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-6">
             <h4 className="font-semibold text-gray-900 dark:text-white mb-4">How to Use This Endpoint</h4>
             <div className="space-y-4 text-sm">
-              <div className="border-l-4 border-blue-500 pl-4">
+              <div className="border-l-4 border-gray-500 pl-4">
                 <h5 className="font-medium text-gray-900 dark:text-white mb-2">1. Start with a Domain</h5>
                 <p className="text-gray-600 dark:text-gray-300">
                   The <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">domain</code> parameter is required.
@@ -1424,7 +1424,7 @@ curl -H "Authorization: Bearer your_api_key" \\
                 </p>
               </div>
 
-              <div className="border-l-4 border-green-500 pl-4">
+              <div className="border-l-4 border-gray-500 pl-4">
                 <h5 className="font-medium text-gray-900 dark:text-white mb-2">2. Add Optional Filters</h5>
                 <p className="text-gray-600 dark:text-gray-300">
                   Enhance your query with optional parameters:
@@ -1437,7 +1437,7 @@ curl -H "Authorization: Bearer your_api_key" \\
                 </ul>
               </div>
 
-              <div className="border-l-4 border-purple-500 pl-4">
+              <div className="border-l-4 border-gray-500 pl-4">
                 <h5 className="font-medium text-gray-900 dark:text-white mb-2">3. Make the Request</h5>
                 <p className="text-gray-600 dark:text-gray-300">
                   Always include your API key in the Authorization header:
@@ -1449,7 +1449,7 @@ curl -H "Authorization: Bearer your_api_key" \\
                 </div>
               </div>
 
-              <div className="border-l-4 border-orange-500 pl-4">
+              <div className="border-l-4 border-gray-500 pl-4">
                 <h5 className="font-medium text-gray-900 dark:text-white mb-2">4. Handle the Response</h5>
                 <p className="text-gray-600 dark:text-gray-300">
                   The API returns structured JSON with:
