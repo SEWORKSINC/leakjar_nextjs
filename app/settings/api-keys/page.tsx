@@ -83,12 +83,29 @@ export default function ApiKeysPage() {
 
   const loadUsageStats = async () => {
     try {
-      const response = await fetch('/api/v1/usage');
-      if (!response.ok) {
-        throw new Error('Failed to load usage stats');
-      }
-      const data = await response.json();
-      setUsageStats(data);
+      // Generate mock usage stats for the web UI
+      // In a real implementation, this would come from a usage tracking database
+      const mockUsageStats: UsageStats = {
+        daily: {
+          requests: Math.floor(Math.random() * 100) + 20,
+          limit: 500,
+          percentage: 0
+        },
+        monthly: {
+          requests: Math.floor(Math.random() * 2000) + 1000,
+          limit: 10000,
+          percentage: 0
+        },
+        rate_limit: {
+          per_minute: 100
+        }
+      };
+
+      // Calculate percentages
+      mockUsageStats.daily.percentage = Math.round((mockUsageStats.daily.requests / mockUsageStats.daily.limit) * 100);
+      mockUsageStats.monthly.percentage = Math.round((mockUsageStats.monthly.requests / mockUsageStats.monthly.limit) * 100);
+
+      setUsageStats(mockUsageStats);
     } catch (error) {
       console.error('Load usage stats error:', error);
     }
@@ -497,6 +514,7 @@ export default function ApiKeysPage() {
           </CardContent>
         </Card>
 
+        {/* TODO: Uncomment when usage tracking is implemented
         <Card className="rounded-none">
           <CardHeader>
             <CardTitle>Usage & Limits</CardTitle>
@@ -542,6 +560,7 @@ export default function ApiKeysPage() {
             )}
           </CardContent>
         </Card>
+        */}
       </div>
     </SidebarLayout>
   );
