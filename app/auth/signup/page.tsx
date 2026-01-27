@@ -10,6 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Mail, Lock, User, CheckCircle2, Shield, ArrowRight, Activity, Database, AlertTriangle } from 'lucide-react';
+import { trackSignupStarted, trackSignupSuccess, trackSignupError } from '@/lib/vercel-analytics';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -26,15 +27,20 @@ export default function SignupPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
+    // Track signup form submission started
+    trackSignupStarted('signup-page');
+    
     if (formData.password !== formData.confirmPassword) {
       setMessage('Passwords do not match');
       setIsSuccess(false);
+      trackSignupError('passwords_mismatch');
       return;
     }
 
     if (formData.password.length < 6) {
       setMessage('Password must be at least 6 characters long');
       setIsSuccess(false);
+      trackSignupError('password_too_short');
       return;
     }
 
@@ -55,9 +61,11 @@ export default function SignupPage() {
       if (error) {
         setMessage(error.message);
         setIsSuccess(false);
+        trackSignupError(error.message);
       } else {
         setMessage('Please check your email for the verification link!');
         setIsSuccess(true);
+        trackSignupSuccess();
         setFormData({ name: '', email: '', password: '', confirmPassword: '' });
         
         // Redirect to login page after 3 seconds
@@ -69,6 +77,7 @@ export default function SignupPage() {
       console.error('Sign up error:', error);
       setMessage('An unexpected error occurred. Please try again.');
       setIsSuccess(false);
+      trackSignupError('unexpected_error');
     } finally {
       setIsLoading(false);
     }

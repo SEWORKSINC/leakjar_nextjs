@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { Copy, Eye, EyeOff, Trash2, Plus, Loader2 } from 'lucide-react';
+import { trackApiKeyCreated, trackApiKeyDeleted, trackApiKeyCopied } from '@/lib/vercel-analytics';
 
 interface ApiKey {
   id: string;
@@ -136,6 +137,9 @@ export default function ApiKeysPage() {
       const data: CreateKeyResponse = await response.json();
       setNewlyCreatedKey(data.key);
 
+      // Track API key creation event
+      trackApiKeyCreated();
+
       // Store the actual key for future display
       setStoredKeys(prev => ({
         ...prev,
@@ -176,6 +180,9 @@ export default function ApiKeysPage() {
         throw new Error(errorData.error || 'Failed to delete API key');
       }
 
+      // Track API key deletion event
+      trackApiKeyDeleted();
+
       // Remove stored key and reload API keys
       setStoredKeys(prev => {
         const newKeys = { ...prev };
@@ -211,9 +218,13 @@ export default function ApiKeysPage() {
     }
   };
 
-  const copyToClipboard = async (text: string) => {
+  const copyToClipboard = async (text: string, isApiKey: boolean = false) => {
     try {
       await navigator.clipboard.writeText(text);
+      // Track API key copy event if it's an API key
+      if (isApiKey) {
+        trackApiKeyCopied();
+      }
       // You could add a toast notification here
     } catch (error) {
       console.error('Failed to copy to clipboard:', error);
@@ -231,21 +242,21 @@ export default function ApiKeysPage() {
           // Cache the key temporarily
           setStoredKeys(prev => ({ ...prev, [keyId]: data.key }));
           // Copy the actual key
-          await copyToClipboard(data.key);
+          await copyToClipboard(data.key, true);
         } else {
           // Fallback to displaying current state
-          await copyToClipboard(getDisplayedKey(keyId));
+          await copyToClipboard(getDisplayedKey(keyId), true);
         }
       } catch (error) {
         console.error('Failed to decrypt API key for copy:', error);
-        await copyToClipboard(getDisplayedKey(keyId));
+        await copyToClipboard(getDisplayedKey(keyId), true);
       } finally {
         setLoadingKeys(prev => ({ ...prev, [keyId]: false }));
       }
     } else {
       // Key is already available or cached
       const actualKey = storedKeys[keyId] || getDisplayedKey(keyId);
-      await copyToClipboard(actualKey);
+      await copyToClipboard(actualKey, true);
     }
   };
 
@@ -325,7 +336,7 @@ export default function ApiKeysPage() {
                   </div>
                   <div className="flex justify-end">
                     <Button
-                      onClick={() => copyToClipboard(newlyCreatedKey.key)}
+                      onClick={() => copyToClipboard(newlyCreatedKey.key, true)}
                       className="flex items-center gap-2"
                     >
                       <Copy className="h-4 w-4" />

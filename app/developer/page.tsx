@@ -9,19 +9,26 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Code, Key, Search, AlertCircle, CheckCircle, Copy, Check, Book, Zap, Shield, Terminal } from 'lucide-react';
 import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
+import { trackDocSectionViewed, trackCodeSampleCopied } from '@/lib/vercel-analytics';
 
 export default function DeveloperPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string>('introduction');
 
-  const copyToClipboard = (code: string, id: string) => {
+  const copyToClipboard = (code: string, id: string, language?: string) => {
     navigator.clipboard.writeText(code);
     setCopiedCode(id);
+    // Track code sample copy event
+    if (language) {
+      trackCodeSampleCopied(language);
+    }
     setTimeout(() => setCopiedCode(null), 2000);
   };
 
   // Handle smooth scrolling and active section tracking
   useEffect(() => {
+    let previousSection = activeSection;
+    
     const handleScroll = () => {
       const sections = [
         'introduction', 'quick-start', 'authentication', 'endpoints',
@@ -35,7 +42,12 @@ export default function DeveloperPage() {
         if (element) {
           const { offsetTop, offsetHeight } = element;
           if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(sectionId);
+            if (sectionId !== previousSection) {
+              setActiveSection(sectionId);
+              // Track section viewed event
+              trackDocSectionViewed(sectionId);
+              previousSection = sectionId;
+            }
             break;
           }
         }
@@ -44,7 +56,7 @@ export default function DeveloperPage() {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [activeSection]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -417,7 +429,7 @@ func main() {
             size="sm"
             variant="ghost"
             className="h-8 px-2 text-gray-400 hover:text-gray-300 bg-gray-800/50 hover:bg-gray-800"
-            onClick={() => copyToClipboard(code, id)}
+            onClick={() => copyToClipboard(code, id, language)}
           >
             {copiedCode === id ? (
               <>

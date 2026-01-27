@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ResizableDataGrid } from '@/components/resizable-data-grid';
 import { DomainFilteredGrid } from '@/components/domain-filtered-grid';
 import { DynamicSidebarLayout } from '@/components/dynamic-sidebar-layout';
@@ -11,6 +11,7 @@ import { BrowserChart } from '@/components/browser-chart';
 import { CountryFlag, countryNameMap } from '@/components/country-flag';
 import { getSession, refreshSession } from '@/lib/session';
 import { useRouter } from 'next/navigation';
+import { trackDashboardViewed, trackBreachDataViewed } from '@/lib/vercel-analytics';
 
 export default function DashboardPage() {
   const router = useRouter();
@@ -27,6 +28,7 @@ export default function DashboardPage() {
   const [countryStats, setCountryStats] = useState<any[]>([]);
   const [loadingCountryStats, setLoadingCountryStats] = useState(false);
   const [domainsLoaded, setDomainsLoaded] = useState(false);
+  const dashboardTrackedRef = useRef(false);
 
   // Check and refresh session on mount
   useEffect(() => {
@@ -57,6 +59,14 @@ export default function DashboardPage() {
       fetchTotalRecords();
     }
   }, [domainStats, selectedMenu]);
+
+  // Track dashboard view once when data is loaded
+  useEffect(() => {
+    if (selectedMenu === 'dashboard' && domainsLoaded && !loadingStats && !dashboardTrackedRef.current) {
+      dashboardTrackedRef.current = true;
+      trackDashboardViewed(domains.length, totalRecords);
+    }
+  }, [selectedMenu, domainsLoaded, loadingStats, domains.length, totalRecords]);
 
   const fetchCountryStats = async () => {
     setLoadingCountryStats(true);
@@ -224,6 +234,14 @@ export default function DashboardPage() {
       // Find the domain type from the stored domains
       const selectedDomain = domains.find(d => d.domain === domainName);
       const domainType = selectedDomain?.type;
+      
+      // Get breach count for this domain from stats
+      const statsKey = `${domainName}-${domainType}`;
+      const stats = domainStats[statsKey];
+      const breachCount = stats?.total || 0;
+      
+      // Track breach data viewed
+      trackBreachDataViewed(domainName, breachCount);
 
       return (
         <>

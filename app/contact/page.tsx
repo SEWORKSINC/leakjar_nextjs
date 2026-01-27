@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Mail, Send } from 'lucide-react';
 import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
+import { trackContactFormSubmitted, trackContactFormError } from '@/lib/vercel-analytics';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -36,6 +37,9 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+
+    // Track contact form submission
+    trackContactFormSubmitted(formData.category);
 
     // Simulate form submission - replace with actual API call
     setTimeout(() => {

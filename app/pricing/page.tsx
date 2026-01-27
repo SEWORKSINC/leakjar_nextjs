@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Shield, Check, ArrowRight, Zap, Building2 } from 'lucide-react';
 import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
+import { trackPricingPageViewed, trackBillingCycleToggled, trackPlanCtaClicked } from '@/lib/vercel-analytics';
 
 // FAQ Structured Data for SEO
 const faqStructuredData = {
@@ -67,6 +68,20 @@ const faqStructuredData = {
 
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'annual'>('monthly');
+
+  // Track pricing page view on mount
+  useEffect(() => {
+    trackPricingPageViewed();
+  }, []);
+
+  const handleBillingToggle = (cycle: 'monthly' | 'annual') => {
+    setBillingCycle(cycle);
+    trackBillingCycleToggled(cycle);
+  };
+
+  const handlePlanClick = (planName: string) => {
+    trackPlanCtaClicked(planName, billingCycle);
+  };
 
   const pricingTiers = [
     {
@@ -163,7 +178,7 @@ export default function PricingPage() {
           {/* Billing Toggle */}
           <div className="inline-flex items-center bg-gray-100 rounded-full p-1 mb-12">
             <button
-              onClick={() => setBillingCycle('monthly')}
+              onClick={() => handleBillingToggle('monthly')}
               className={`px-6 py-2 rounded-full font-medium transition-all ${
                 billingCycle === 'monthly'
                   ? 'bg-white text-gray-900 shadow-sm'
@@ -173,7 +188,7 @@ export default function PricingPage() {
               Monthly
             </button>
             <button
-              onClick={() => setBillingCycle('annual')}
+              onClick={() => handleBillingToggle('annual')}
               className={`px-6 py-2 rounded-full font-medium transition-all ${
                 billingCycle === 'annual'
                   ? 'bg-white text-gray-900 shadow-sm'
@@ -249,6 +264,7 @@ export default function PricingPage() {
                     }`}
                     variant={tier.ctaVariant}
                     asChild
+                    onClick={() => handlePlanClick(tier.name)}
                   >
                     <Link href={tier.name === 'Enterprise' ? '/contact' : '/auth/signup'}>
                       {tier.cta}

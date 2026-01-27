@@ -20,6 +20,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog';
+import { trackDomainAdded, trackDomainDeleted } from '@/lib/vercel-analytics';
 
 interface Domain {
   id: string;
@@ -87,6 +88,8 @@ export default function DomainSettingsPage() {
 
       if (response.ok) {
         const data = await response.json();
+        // Track domain added event
+        trackDomainAdded(data.domain.type);
         if (data.domain.type === 'URL') {
           setUrlDomains([data.domain, ...urlDomains]);
         } else {
@@ -119,6 +122,8 @@ export default function DomainSettingsPage() {
       });
 
       if (response.ok) {
+        // Track domain deleted event
+        trackDomainDeleted(type);
         if (type === 'URL') {
           setUrlDomains(urlDomains.filter(d => d.id !== domainId));
         } else {
