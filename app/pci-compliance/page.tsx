@@ -696,7 +696,6 @@ export default function PCICompliancePage() {
       <SharedFooter />
     </div>
     </>
-  )
   );
 }
 
