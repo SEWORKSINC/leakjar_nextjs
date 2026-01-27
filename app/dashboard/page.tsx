@@ -7,7 +7,6 @@ import { DynamicSidebarLayout } from '@/components/dynamic-sidebar-layout';
 import { mainSidebarConfig } from '@/lib/sidebar-configs';
 import { DomainChart } from '@/components/domain-chart';
 import { BrowserChart } from '@/components/browser-chart';
-// import { WorldHeatmap } from '@/components/world-heatmap';
 import { CountryFlag, countryNameMap } from '@/components/country-flag';
 import { getSession, refreshSession } from '@/lib/session';
 import { useRouter } from 'next/navigation';
@@ -576,7 +575,6 @@ export default function DashboardPage() {
                       </div>
                     </div>
                   ) : countryStats.length > 0 ? (
-                    // <WorldHeatmap countryStats={countryStats} />
                     <div className="grid grid-cols-6 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-14 xl:grid-cols-16 gap-1">
                       {countryStats.map((stat) => (
                         <div
