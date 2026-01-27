@@ -37,14 +37,29 @@ export interface ApiKeyUsage {
 }
 
 // Encryption key from environment - ensure it's exactly 32 characters for AES-256
-const ENCRYPTION_KEY = process.env.API_KEY_ENCRYPTION_KEY || 'default-key-32-chars-long-pad!!';
+// SECURITY: Never use a hardcoded fallback for encryption keys in production
+const ENCRYPTION_KEY = process.env.API_KEY_ENCRYPTION_KEY;
 const ENCRYPTION_ALGORITHM = 'aes-256-gcm';
+
+// Validate encryption key is set (will be checked when encryption functions are called)
+function validateEncryptionKey(): void {
+  if (!ENCRYPTION_KEY) {
+    throw new Error(
+      'SECURITY ERROR: API_KEY_ENCRYPTION_KEY environment variable is not set. ' +
+      'Please set a secure 32-character encryption key in your environment variables.'
+    );
+  }
+}
 
 /**
  * Get 32-byte encryption key
+ * @throws Error if API_KEY_ENCRYPTION_KEY environment variable is not set
  */
 function getEncryptionKey(): Buffer {
-  const key = Buffer.from(ENCRYPTION_KEY, 'utf8');
+  // Validate that encryption key is set before using
+  validateEncryptionKey();
+  
+  const key = Buffer.from(ENCRYPTION_KEY!, 'utf8');
 
   // Ensure key is exactly 32 bytes
   if (key.length < 32) {

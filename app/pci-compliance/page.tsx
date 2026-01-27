@@ -20,36 +20,174 @@ import {
 import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
 
+/**
+ * PCI DSS 4.0 Compliance Page
+ * 
+ * SEO Target Keywords:
+ * - PCI DSS 4.0 compliance
+ * - PCI requirement 8.3.10
+ * - compromised password blocking
+ * - payment card security compliance
+ * 
+ * AEO Optimization:
+ * - FAQ schema for featured snippets
+ * - Direct answers to common questions
+ * - Voice search optimized content
+ * 
+ * GEO Optimization:
+ * - Comprehensive structured data
+ * - Factual, citation-ready content
+ */
 export const metadata: Metadata = {
-  title: "PCI DSS 4.0 Compliance - The Deadline Has Passed. Are You Non-Compliant?",
-  description: "The March 31, 2025 PCI DSS 4.0 deadline has passed. Full enforcement is active. Learn how to meet Requirement 8.3.10 and avoid heavy fines with our leaked credential monitoring API.",
+  title: "PCI DSS 4.0 Compliance - Meet Requirement 8.3.10 | Credential Monitoring",
+  description: "Meet PCI DSS 4.0 Requirement 8.3.10 compliance with LeakJar's credential monitoring API. Block compromised passwords, pass QSA audits, and avoid $5K-$100K monthly fines. Implementation in under 1 hour.",
   keywords: [
-    "PCI DSS 4.0",
     "PCI DSS 4.0 compliance",
     "PCI requirement 8.3.10",
-    "compromised credentials",
-    "password breach detection",
-    "PCI compliance deadline",
-    "payment card security",
-    "credential monitoring API",
-    "PCI audit requirements",
-    "data breach prevention"
+    "compromised password blocking",
+    "PCI DSS credential monitoring",
+    "payment card security compliance",
+    "PCI audit preparation",
+    "breached password detection",
+    "password breach database",
+    "PCI DSS best practices",
+    "cardholder data protection",
+    "QSA audit requirements",
+    "credential screening API",
   ],
+  alternates: {
+    canonical: "https://www.leakjar.com/pci-compliance",
+  },
   openGraph: {
-    title: "PCI DSS 4.0 Deadline Passed - Fix Compliance Now",
-    description: "Full PCI DSS 4.0 enforcement is active. Meet Requirement 8.3.10 with our leaked credential monitoring service and avoid severe penalties.",
+    title: "PCI DSS 4.0 Requirement 8.3.10 Compliance | LeakJar",
+    description: "Block compromised passwords and meet PCI DSS 4.0 compliance. 60B+ credential database. Implementation in under 1 hour. Avoid $5K-$100K monthly fines.",
     url: "https://www.leakjar.com/pci-compliance",
     type: "article",
+    images: [
+      {
+        url: "https://www.leakjar.com/og-pci-compliance.png",
+        width: 1200,
+        height: 630,
+        alt: "PCI DSS 4.0 Compliance with LeakJar",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "PCI DSS 4.0 Compliance - Are You Non-Compliant?",
-    description: "The March 31, 2025 deadline has passed. Get compliant with Requirement 8.3.10 in minutes.",
+    title: "PCI DSS 4.0 Requirement 8.3.10 Compliance",
+    description: "Meet PCI DSS 4.0 compliance in under 1 hour. Block compromised passwords with 60B+ credential database.",
+    images: ["https://www.leakjar.com/twitter-pci.png"],
   },
+};
+
+// FAQ Schema data for AEO (Answer Engine Optimization)
+const pciFAQs = [
+  {
+    question: "What is PCI DSS 4.0 Requirement 8.3.10?",
+    answer: "PCI DSS 4.0 Requirement 8.3.10 mandates that organizations block users from creating passwords that appear in known data breaches. This requires checking new or changed passwords against a database of compromised credentials at the time of password creation or change. This became mandatory on March 31, 2025."
+  },
+  {
+    question: "What are the penalties for PCI DSS 4.0 non-compliance?",
+    answer: "Payment card brands can levy penalties from $5,000 to $100,000 per month for PCI DSS non-compliance. Additional consequences include increased transaction fees, potential loss of payment processing capabilities, liability for fraud losses, and reputational damage from security breaches."
+  },
+  {
+    question: "How quickly can I become PCI DSS 4.0 compliant with LeakJar?",
+    answer: "You can integrate LeakJar's credential monitoring API and become compliant with Requirement 8.3.10 in under 1 hour. Our RESTful API includes comprehensive documentation and can be integrated into your password creation and change workflows immediately."
+  },
+  {
+    question: "How does credential monitoring help with PCI compliance?",
+    answer: "Credential monitoring checks passwords against a database of 60+ billion compromised credentials from data breaches and dark web sources. When a user tries to create or change a password, the system instantly verifies it hasn't been compromised, blocking breached passwords and satisfying Requirement 8.3.10."
+  },
+  {
+    question: "Is password complexity still required under PCI DSS 4.0?",
+    answer: "Password complexity rules alone are no longer sufficient under PCI DSS 4.0. While complexity requirements remain, organizations must also implement credential screening against compromised password databases. A complex password like 'P@ssword1!' would still fail compliance if it appears in breach databases."
+  },
+  {
+    question: "What evidence do I need for a PCI DSS audit?",
+    answer: "For Requirement 8.3.10, auditors require evidence of: 1) Integration with a compromised credential database, 2) Real-time password checking at creation/change, 3) Blocking of compromised passwords, and 4) Audit logs demonstrating the control is operational. LeakJar provides all necessary documentation for QSA audits."
+  },
+];
+
+// Structured data for SEO
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "headline": "PCI DSS 4.0 Requirement 8.3.10 Compliance Guide",
+      "description": "Complete guide to meeting PCI DSS 4.0 Requirement 8.3.10 for compromised password blocking and credential monitoring.",
+      "author": {
+        "@type": "Organization",
+        "name": "LeakJar Security Team"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LeakJar",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://www.leakjar.com/logo.png"
+        }
+      },
+      "datePublished": "2024-01-15",
+      "dateModified": "2026-01-26"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": pciFAQs.map(faq => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    },
+    {
+      "@type": "Service",
+      "name": "PCI DSS 4.0 Compliance Solution",
+      "description": "Credential monitoring service for PCI DSS 4.0 Requirement 8.3.10 compliance",
+      "provider": {
+        "@type": "Organization",
+        "name": "LeakJar"
+      },
+      "serviceType": "Compliance Monitoring",
+      "areaServed": "Worldwide"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.leakjar.com"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Solutions",
+          "item": "https://www.leakjar.com/solutions"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "PCI DSS 4.0 Compliance",
+          "item": "https://www.leakjar.com/pci-compliance"
+        }
+      ]
+    }
+  ]
 };
 
 export default function PCICompliancePage() {
   return (
+    <>
+      {/* Structured Data for SEO, AEO, and GEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      
     <div className="min-h-screen bg-background">
       {/* Header Navigation */}
       <SharedHeader />
@@ -531,8 +669,34 @@ export default function PCICompliancePage() {
         </div>
       </section>
 
+      {/* FAQ Section - AEO Optimized */}
+      <section className="bg-gray-50 py-16 border-t border-gray-200" id="faq">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
+              Frequently Asked Questions About PCI DSS 4.0
+            </h2>
+            
+            <div className="space-y-6">
+              {pciFAQs.map((faq, index) => (
+                <Card key={index} className="border border-gray-200">
+                  <CardHeader>
+                    <CardTitle className="text-lg text-gray-900">{faq.question}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       <SharedFooter />
     </div>
+    </>
+  )
   );
 }
 

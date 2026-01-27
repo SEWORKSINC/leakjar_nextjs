@@ -14,69 +14,240 @@ import { SharedFooter } from '@/components/shared-footer';
 import { PageHeaderSkeleton, CardSkeleton, StatsSkeleton } from '@/components/ui/skeleton';
 import { ScrollReveal } from '@/components/scroll-reveal';
 
-// Structured Data for SEO
+/**
+ * Enhanced Structured Data for SEO, AEO, and GEO
+ * 
+ * This comprehensive schema includes:
+ * - Organization schema with full contact info
+ * - Website schema with search action
+ * - SoftwareApplication schema with features
+ * - FAQ schema for AEO (Answer Engine Optimization)
+ * - HowTo schema for process explanation
+ * - Speakable schema for voice search
+ */
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
+    // Organization Schema
     {
       "@type": "Organization",
       "@id": "https://www.leakjar.com/#organization",
       "name": "LeakJar",
-      "alternateName": "SEW Inc.",
+      "alternateName": ["SEW Inc.", "SEWORKS"],
       "url": "https://www.leakjar.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.leakjar.com/logo.png"
+        "url": "https://www.leakjar.com/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://www.leakjar.com/og-image.png",
+      "description": "Enterprise credential leak monitoring and breach detection platform with 60B+ leaked credential records",
+      "foundingDate": "2013",
+      "founder": {
+        "@type": "Person",
+        "name": "Min Pyo Hong",
+        "jobTitle": "Founder & CEO"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "San Francisco",
+        "addressRegion": "CA",
+        "addressCountry": "USA"
       },
       "sameAs": [
         "https://twitter.com/leakjar",
-        "https://linkedin.com/company/leakjar"
+        "https://linkedin.com/company/leakjar",
+        "https://github.com/SEWORKSINC"
       ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "contactType": "Customer Service",
-        "email": "support@leakjar.com"
-      }
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "Customer Support",
+          "email": "support@leakjar.com",
+          "availableLanguage": ["English"]
+        },
+        {
+          "@type": "ContactPoint",
+          "contactType": "Sales",
+          "email": "sales@leakjar.com",
+          "availableLanguage": ["English"]
+        }
+      ],
+      "slogan": "Stop Breaches, Save $4.45M"
     },
+    // Website Schema with Search Action
     {
       "@type": "WebSite",
       "@id": "https://www.leakjar.com/#website",
       "url": "https://www.leakjar.com",
       "name": "LeakJar",
+      "description": "Proactive Credential Leak Monitoring & Breach Detection Platform",
       "publisher": {
         "@id": "https://www.leakjar.com/#organization"
       },
       "potentialAction": {
         "@type": "SearchAction",
-        "target": "https://www.leakjar.com/open-search/{search_term_string}",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.leakjar.com/open-search/{search_term_string}"
+        },
         "query-input": "required name=search_term_string"
-      }
+      },
+      "inLanguage": "en-US"
     },
+    // WebPage Schema
     {
       "@type": "WebPage",
       "@id": "https://www.leakjar.com/#webpage",
       "url": "https://www.leakjar.com",
       "name": "LeakJar - Proactive Credential Leak Monitoring & Breach Detection",
-      "description": "Monitor 60B+ leaked credentials in real-time. Detect compromised accounts before attackers exploit them.",
+      "description": "Monitor 60B+ leaked credentials in real-time. Detect compromised accounts 287 days faster than industry average.",
       "isPartOf": {
         "@id": "https://www.leakjar.com/#website"
+      },
+      "about": {
+        "@id": "https://www.leakjar.com/#organization"
+      },
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": ["h1", ".hero-description", ".key-stats"]
       }
     },
+    // Software Application Schema
     {
       "@type": "SoftwareApplication",
       "name": "LeakJar",
       "applicationCategory": "SecurityApplication",
+      "applicationSubCategory": "Threat Intelligence",
       "operatingSystem": "Web",
+      "description": "Enterprise credential monitoring platform that detects compromised credentials from 60B+ leaked records in real-time",
       "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
+        "@type": "AggregateOffer",
+        "lowPrice": "0",
+        "highPrice": "4990",
+        "priceCurrency": "USD",
+        "offerCount": "3",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Free Tier",
+            "price": "0",
+            "priceCurrency": "USD",
+            "description": "1 monitored domain, limited to latest 5 breach records"
+          },
+          {
+            "@type": "Offer",
+            "name": "Pro Plan",
+            "price": "499",
+            "priceCurrency": "USD",
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "499",
+              "priceCurrency": "USD",
+              "billingDuration": "P1M"
+            },
+            "description": "Unlimited breach data, 10,000 API calls/month"
+          }
+        ]
       },
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": "4.9",
-        "ratingCount": "150"
-      }
+        "ratingCount": "150",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "featureList": [
+        "60B+ credential records monitored",
+        "Real-time breach alerts in under 1 hour",
+        "Human Intelligence (HUMINT) network",
+        "PCI DSS 4.0 compliance support",
+        "NIST SP 800-63B compliance",
+        "HIPAA compliance support",
+        "GDPR Article 32 compliance",
+        "RESTful API access",
+        "24/7 continuous monitoring",
+        "Webhook integrations"
+      ]
+    },
+    // FAQ Schema for AEO (Answer Engine Optimization)
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is credential monitoring?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Credential monitoring is a cybersecurity service that continuously scans for leaked usernames and passwords associated with your organization. When compromised credentials are detected in data breaches, dark web marketplaces, or threat actor networks, security teams are alerted so they can force password resets before attackers exploit the exposure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many leaked credentials does LeakJar monitor?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LeakJar monitors over 60 billion leaked credential records, with approximately 11 million new records added daily. Our database includes credentials from data breaches, stealer malware, phishing campaigns, and targeted attacks that never appear in public breach databases."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast does LeakJar detect breached credentials?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LeakJar delivers alerts within 1 hour of detecting compromised credentials—287 days faster than the industry average breach detection time of 287 days according to the IBM Security Report. Real-time monitoring and immediate notifications enable rapid incident response."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What compliance frameworks does LeakJar support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LeakJar supports multiple compliance frameworks including PCI DSS 4.0 (Requirement 8.3.10), NIST SP 800-63B (Section 5.1.1.2), HIPAA Security Rule, GDPR Article 32, CCPA/CPRA reasonable security requirements, EU AI Act Article 15, and NIST AI Risk Management Framework."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does LeakJar offer a free tier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, LeakJar offers a free tier with 1 monitored domain and access to the latest 5 breach records. No credit card is required. The free tier includes full feature access, email search functionality, dashboard access, and email alerts—perfect for small organizations or evaluation purposes."
+          }
+        }
+      ]
+    },
+    // HowTo Schema for Process Explanation
+    {
+      "@type": "HowTo",
+      "name": "How LeakJar Credential Monitoring Works",
+      "description": "A four-step intelligence pipeline that protects your organization from credential-based attacks 24/7",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "position": 1,
+          "name": "Collect Intelligence",
+          "text": "Our global HUMINT network gathers leaked credential data from underground forums, dark web marketplaces, and exclusive threat intelligence sources—data you won't find through traditional channels."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 2,
+          "name": "Process & Analyze",
+          "text": "Advanced algorithms process hundreds of gigabytes daily, extracting critical data points including credentials, IP addresses, timestamps, and breach context using hybrid AI and human expert analysis."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 3,
+          "name": "Match & Identify",
+          "text": "Intelligent matching compares credentials against your organization's registered domains and email addresses, instantly flagging potential security threats requiring immediate attention."
+        },
+        {
+          "@type": "HowToStep",
+          "position": 4,
+          "name": "Alert & Respond",
+          "text": "Instant notifications via dashboard, email, or RESTful API with detailed forensic information and actionable security recommendations. Sub-1-hour average alert delivery."
+        }
+      ]
     }
   ]
 };

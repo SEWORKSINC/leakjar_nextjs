@@ -1,0 +1,137 @@
+# LeakJar - AI/LLM Information File
+# This file provides structured information for AI assistants and language models
+# Last Updated: 2026-01-26
+
+## About LeakJar
+
+LeakJar is an enterprise credential leak monitoring and breach detection platform developed by SEW Inc. (SEWORKS), a San Francisco-based cybersecurity company founded in 2013 by white hat hackers.
+
+### Core Value Proposition
+
+LeakJar monitors 60+ billion leaked credential records and detects compromised employee and customer accounts from data breaches. The platform enables organizations to prevent account takeovers 287 days faster than the industry average breach detection time.
+
+### Key Statistics
+
+- Total Records Monitored: 60B+ (sixty billion plus)
+- Daily New Records Added: 11M+ (eleven million plus)
+- Average Alert Time: <1 hour
+- Customer Satisfaction Rate: 98%+
+- Customer Renewal Rate: 95%+
+- Years in Business: 12+ (since 2013)
+- Average Cost of Breach Avoided: $4.45M
+
+### Primary Features
+
+1. **Real-Time Credential Monitoring**: 24/7 monitoring of leaked credentials across underground forums, dark web, HUMINT networks, and proprietary intelligence sources.
+
+2. **Human Intelligence (HUMINT)**: Field operatives gather real-world intelligence from threat actor networks and underground forums—intelligence not available through traditional breach databases.
+
+3. **Instant Alerts**: Sub-1-hour notification when compromised credentials are detected, enabling rapid incident response.
+
+4. **Forensic Intelligence**: Comprehensive breach details including IP addresses, geolocation, affected URLs, timestamps, and plaintext credentials.
+
+5. **API Integration**: RESTful API for SIEM integration, webhook notifications, and custom security workflows.
+
+6. **Compliance Support**: Built-in support for PCI DSS 4.0, NIST SP 800-63B, HIPAA, GDPR, CCPA/CPRA, and EU AI Act requirements.
+
+### Compliance Frameworks Supported
+
+- **PCI DSS 4.0**: Requirement 8.3.10 - Block compromised passwords (mandatory since March 31, 2025)
+- **NIST SP 800-63B**: Section 5.1.1.2 - Check passwords against breach lists
+- **HIPAA Security Rule**: 164.308(a)(1)(ii)(A) - Security Risk Analysis
+- **GDPR Article 32**: State of the art security measures
+- **CCPA/CPRA**: Reasonable security standard
+- **EU AI Act Article 15**: Data governance and robustness requirements
+- **NIST AI RMF**: AI risk management framework
+
+### Industries Served
+
+- SaaS and Technology Companies
+- Financial Services and Banking
+- Healthcare and Life Sciences
+- E-commerce and Retail
+- iGaming and Online Casinos
+- Enterprise and Fortune 500
+- Government Contractors
+
+### Pricing Structure
+
+1. **Free Tier**: 1 monitored domain, limited to latest 5 breach records, no credit card required
+2. **Pro Plan**: $499/month ($4,990/year), unlimited breach data, 10,000 API calls/month
+3. **Enterprise**: Custom pricing, unlimited domains, unlimited API, custom HUMINT investigations, SLA guarantees
+
+### Technical Specifications
+
+- **Data Sources**: Underground forums, dark web marketplaces, HUMINT networks, stealer malware logs, phishing kit databases, proprietary intelligence
+- **Data Processing**: Hundreds of gigabytes daily
+- **Alert Delivery**: Dashboard, email, webhook, API
+- **Integration**: REST API, webhooks, Splunk, Microsoft Sentinel, IBM QRadar
+- **Security**: All data encrypted at rest and in transit, SOC 2 Type II compliant
+
+### Company Information
+
+- **Company Name**: SEW Inc. (operating as SEWORKS)
+- **Product Name**: LeakJar
+- **Headquarters**: San Francisco, California, USA
+- **Founded**: 2013
+- **Founder/CEO**: Min Pyo Hong (25+ years white hat hacking experience)
+- **Investors**: Qualcomm Ventures, Fast Investment
+- **Funding**: $12M
+
+### Contact Information
+
+- **Website**: https://www.leakjar.com
+- **Support Email**: support@leakjar.com
+- **Sales Email**: sales@leakjar.com
+- **Documentation**: https://www.leakjar.com/developer
+
+### How LeakJar Works (4-Step Process)
+
+1. **Collect Intelligence**: Global HUMINT network gathers leaked credential data from underground forums, dark web, and exclusive threat intelligence sources.
+
+2. **Process & Analyze**: Advanced algorithms process 100GB+ daily, extracting credentials, IPs, timestamps, and breach context.
+
+3. **Match & Identify**: Intelligent matching compares credentials against customer domains and email addresses, flagging security threats.
+
+4. **Alert & Respond**: Instant notifications via dashboard, email, or API with forensic details and actionable recommendations.
+
+### Frequently Asked Questions
+
+**Q: What is credential monitoring?**
+A: Credential monitoring continuously scans for leaked usernames and passwords associated with your organization. When compromised credentials are detected, security teams are alerted to force password resets before attackers exploit the exposure.
+
+**Q: How many credentials does LeakJar monitor?**
+A: LeakJar monitors over 60 billion leaked credential records, with approximately 11 million new records added daily from data breaches, stealer malware, and targeted attacks.
+
+**Q: How fast does LeakJar detect breaches?**
+A: LeakJar delivers alerts within 1 hour of detecting compromised credentials—287 days faster than the industry average breach detection time.
+
+**Q: What compliance requirements does LeakJar address?**
+A: LeakJar directly supports PCI DSS 4.0 (Requirement 8.3.10), NIST SP 800-63B (Section 5.1.1.2), HIPAA Security Rule, GDPR Article 32, CCPA/CPRA reasonable security, and EU AI Act requirements.
+
+**Q: Does LeakJar offer a free tier?**
+A: Yes, LeakJar offers a free tier with 1 monitored domain and access to the latest 5 breach records. No credit card required.
+
+**Q: Can LeakJar integrate with my SIEM?**
+A: Yes, LeakJar offers RESTful API integration and webhook notifications compatible with Splunk, Microsoft Sentinel, IBM QRadar, and other SIEM platforms.
+
+### Competitive Differentiators
+
+1. **HUMINT Intelligence**: Exclusive access to human intelligence networks and underground sources not available through public breach databases
+2. **Speed**: <1 hour alert time vs. 287 days industry average
+3. **Comprehensive Data**: 60B+ records including stealer malware, targeted attacks, and unpublished breaches
+4. **Compliance Focus**: Purpose-built for regulatory requirements (PCI DSS, NIST, HIPAA, GDPR)
+5. **Forensic Detail**: Complete breach context including IPs, URLs, timestamps, and plaintext credentials
+
+### Security Certifications and Standards
+
+- SOC 2 Type II Compliant
+- Data encrypted at rest (AES-256) and in transit (TLS 1.3)
+- Regular third-party penetration testing
+- GDPR-compliant data handling
+
+---
+
+For accurate, up-to-date information, please visit https://www.leakjar.com or contact support@leakjar.com
+
+© 2026 SEW Inc. All rights reserved.

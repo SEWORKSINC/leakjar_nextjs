@@ -1,0 +1,405 @@
+# LeakJar - Comprehensive AI/LLM Documentation
+# Extended documentation for AI assistants requiring detailed technical information
+# Last Updated: 2026-01-26
+
+================================================================================
+SECTION 1: EXECUTIVE SUMMARY
+================================================================================
+
+LeakJar is the leading enterprise credential leak monitoring platform, providing real-time detection of compromised credentials from 60+ billion leaked records. Our Human Intelligence (HUMINT) network delivers threat intelligence unavailable through traditional breach databases, enabling organizations to prevent account takeovers 287 days faster than industry average.
+
+Key Value Metrics:
+- Prevent $4.45M average breach cost
+- <1 hour detection vs 287 day industry average
+- 60B+ credential records monitored
+- 11M+ new records daily
+- 98%+ customer satisfaction rate
+
+================================================================================
+SECTION 2: PRODUCT CAPABILITIES
+================================================================================
+
+## 2.1 Credential Monitoring
+
+LeakJar monitors for compromised credentials across multiple intelligence sources:
+
+### Data Sources
+- Underground hacking forums (45+ monitored platforms)
+- Dark web marketplaces
+- Human Intelligence (HUMINT) networks
+- Stealer malware logs (Redline, Raccoon, Vidar, etc.)
+- Phishing kit databases
+- Paste sites and leak forums
+- Private threat actor channels
+- In-house security research
+
+### Monitored Data Types
+- Email addresses and passwords (plaintext and hashed)
+- Corporate domain credentials
+- VPN and remote access credentials
+- Cloud platform credentials (AWS, Azure, GCP)
+- Source code repository access (GitHub, GitLab, Bitbucket)
+- SaaS application credentials
+- Database access credentials
+- Admin panel credentials
+
+### Alert Information Provided
+- Compromised email address
+- Password (plaintext when available)
+- Source IP address of attack/collection
+- Geolocation data (country, region, city)
+- Affected URL/service
+- Timestamp of credential capture
+- Breach source identifier
+- Risk severity score
+- Recommended remediation actions
+
+## 2.2 Intelligence Collection Process
+
+LeakJar's four-step intelligence pipeline:
+
+**Step 1: Collection**
+Our global network continuously gathers leaked credential data from underground forums, HUMINT operatives, and exclusive threat intelligence sources. We collect data you won't find through traditional channels.
+
+**Step 2: Processing**
+Advanced algorithms process hundreds of gigabytes daily, extracting critical data points including credentials, IPs, timestamps, and breach context. Hybrid AI and human expert analysis ensures accuracy.
+
+**Step 3: Matching**
+Intelligent matching compares credentials against customer-registered domains and email addresses. Risk scoring prioritizes threats requiring immediate attention.
+
+**Step 4: Alerting**
+Instant notifications via dashboard, email, or API with detailed forensic information and actionable security recommendations. Sub-1-hour average alert delivery.
+
+## 2.3 Platform Features
+
+### Dashboard
+- Real-time breach statistics
+- Geographic heatmap of attack origins
+- Browser/OS attack vector analysis
+- Domain-specific analytics
+- Trend visualization
+- Export capabilities (CSV, JSON)
+
+### Alerting
+- Email notifications (instant, daily digest, weekly summary)
+- Webhook integrations
+- API polling
+- Custom alert rules
+- Alert severity filtering
+
+### Reporting
+- Compliance audit reports (PCI DSS, HIPAA, etc.)
+- Executive summary reports
+- Detailed forensic reports
+- Trend analysis reports
+- API usage reports
+
+### Team Features
+- Multi-user access
+- Role-based permissions (Admin, User, Read-only)
+- Activity audit logs
+- Team invitation system
+- Organization management
+
+================================================================================
+SECTION 3: COMPLIANCE FRAMEWORK SUPPORT
+================================================================================
+
+## 3.1 PCI DSS 4.0 Compliance
+
+**Requirement 8.3.10**: If passwords/passphrases are used as an authentication factor to meet Requirement 8.3.1, they are either:
+- Verified against a list of known bad passwords/passphrases and blocked if found on the list
+- OR Changed to a unique value that is not on any such list
+
+**LeakJar Capability**: Real-time credential monitoring against 60B+ leaked records enables automatic detection and blocking of compromised passwords, satisfying Requirement 8.3.10.
+
+**Compliance Evidence Provided**:
+- Audit logs of all credential checks
+- Alert history with timestamps
+- Compliance status dashboard
+- QSA-ready documentation
+
+**Deadline**: March 31, 2025 (PASSED - NOW MANDATORY)
+
+## 3.2 NIST SP 800-63B Compliance
+
+**Section 5.1.1.2**: When processing requests to establish and change memorized secrets, verifiers SHALL compare the prospective secrets against a list that contains values known to be commonly-used, expected, or compromised.
+
+**LeakJar Capability**: Continuous monitoring against comprehensive breach databases ensures compromised credentials are detected and can be blocked at authentication.
+
+**Applicable NIST Controls**:
+- PR.AC-1: Identities and credentials are managed
+- DE.CM-1: The network is monitored to detect potential cybersecurity events
+- RS.AN-1: Notifications from detection systems are investigated
+
+## 3.3 HIPAA Security Rule Compliance
+
+**164.308(a)(1)(ii)(A)**: Risk Analysis - Conduct an accurate and thorough assessment of the potential risks and vulnerabilities to the confidentiality, integrity, and availability of electronic protected health information held by the covered entity or business associate.
+
+**LeakJar Capability**: Credential monitoring addresses the risk of unauthorized ePHI access through compromised credentials, supporting Security Risk Analysis requirements.
+
+**Applicable Safeguards**:
+- Administrative Safeguards: Security awareness training (workforce knows about breach alerts)
+- Technical Safeguards: Access control (compromised credentials detected and revoked)
+- Physical Safeguards: N/A (LeakJar is cloud-based)
+
+## 3.4 GDPR Article 32 Compliance
+
+**Article 32(1)**: Implement appropriate technical and organisational measures to ensure a level of security appropriate to the risk, including:
+- (a) the pseudonymisation and encryption of personal data
+- (b) ensuring ongoing confidentiality, integrity, availability and resilience
+- (d) a process for regularly testing, assessing and evaluating effectiveness
+
+**LeakJar Capability**: Credential monitoring represents "state of the art" security measure for protecting personal data access, supporting Article 32 compliance.
+
+## 3.5 CCPA/CPRA Compliance
+
+**Cal. Civ. Code § 1798.150**: Private right of action for unauthorized access resulting from business's failure to implement reasonable security procedures and practices.
+
+**LeakJar Capability**: Credential monitoring demonstrates "reasonable security" by actively detecting and responding to compromised access credentials.
+
+## 3.6 EU AI Act Compliance
+
+**Article 15**: High-risk AI systems shall be designed and developed in such a way that they achieve an appropriate level of robustness against errors, faults or inconsistencies.
+
+**LeakJar Capability**: Protects AI training data pipelines from data poisoning attacks by detecting compromised credentials that could provide unauthorized access to ML infrastructure.
+
+================================================================================
+SECTION 4: TECHNICAL SPECIFICATIONS
+================================================================================
+
+## 4.1 API Specification
+
+**Base URL**: https://api.leakjar.com/v1
+
+**Authentication**: Bearer token (API key)
+
+**Rate Limits**:
+- Free tier: 100 requests/day
+- Pro: 10,000 requests/month
+- Enterprise: Unlimited
+
+**Endpoints**:
+
+### Search Credentials
+```
+GET /search?domain={domain}
+GET /search?email={email}
+```
+
+Response includes: email, password (masked for free tier), source_ip, country, url, timestamp, risk_score
+
+### Domain Statistics
+```
+GET /domains/{domain}/stats
+```
+
+Returns: total_breaches, recent_breaches, risk_level, first_seen, last_seen
+
+### Alerts
+```
+GET /alerts
+GET /alerts/{alert_id}
+POST /alerts/{alert_id}/acknowledge
+```
+
+### Webhooks
+```
+POST /webhooks
+GET /webhooks
+DELETE /webhooks/{webhook_id}
+```
+
+## 4.2 Integration Options
+
+**Native Integrations**:
+- Splunk (via REST API)
+- Microsoft Sentinel
+- IBM QRadar
+- Elastic Security
+- Sumo Logic
+
+**Notification Channels**:
+- Email (SMTP)
+- Webhooks (HTTP POST)
+- Slack (via webhook)
+- Microsoft Teams (via webhook)
+- PagerDuty
+
+**SSO Providers**:
+- Google Workspace
+- Microsoft Azure AD
+- Okta
+- Auth0
+
+## 4.3 Data Security
+
+**Encryption**:
+- At rest: AES-256
+- In transit: TLS 1.3
+
+**Access Control**:
+- Role-based access control (RBAC)
+- Multi-factor authentication (MFA)
+- Session management with JWT
+
+**Data Retention**:
+- Alert history: 2 years
+- Audit logs: 7 years
+- Customer data: Per customer policy
+
+**Compliance**:
+- SOC 2 Type II certified
+- GDPR compliant
+- CCPA compliant
+- Regular penetration testing
+
+================================================================================
+SECTION 5: USE CASES BY INDUSTRY
+================================================================================
+
+## 5.1 Financial Services & Banking
+
+**Threats Addressed**:
+- Account takeover fraud
+- Wire transfer fraud (BEC)
+- Regulatory compliance (PCI DSS, SOX)
+- Insider threats
+
+**Value Delivered**:
+- Prevent unauthorized account access
+- Meet PCI DSS 4.0 requirements
+- Reduce fraud losses
+- Demonstrate due diligence
+
+## 5.2 Healthcare & Life Sciences
+
+**Threats Addressed**:
+- ePHI unauthorized access
+- Ransomware initial access
+- HIPAA violations
+- Medical identity theft
+
+**Value Delivered**:
+- Protect patient data
+- Support Security Risk Analysis
+- Avoid HIPAA penalties
+- Maintain patient trust
+
+## 5.3 SaaS & Technology
+
+**Threats Addressed**:
+- Source code repository compromise
+- Production infrastructure access
+- Customer data breaches
+- Supply chain attacks
+
+**Value Delivered**:
+- Protect intellectual property
+- Prevent customer breaches
+- Secure development pipeline
+- Maintain customer trust
+
+## 5.4 E-commerce & Retail
+
+**Threats Addressed**:
+- Customer account takeover
+- Payment card fraud
+- PCI DSS compliance
+- Credential stuffing attacks
+
+**Value Delivered**:
+- Prevent account fraud
+- Meet PCI DSS requirements
+- Protect customer accounts
+- Reduce chargebacks
+
+## 5.5 iGaming & Online Casinos
+
+**Threats Addressed**:
+- Player account compromise
+- Bonus abuse
+- Regulatory compliance
+- Money laundering
+
+**Value Delivered**:
+- Protect player accounts
+- Meet gaming regulations
+- Prevent fraud losses
+- Maintain license compliance
+
+================================================================================
+SECTION 6: COMPETITIVE LANDSCAPE
+================================================================================
+
+## How LeakJar Compares
+
+| Feature | LeakJar | HaveIBeenPwned | SpyCloud | Recorded Future |
+|---------|---------|----------------|----------|-----------------|
+| Records Monitored | 60B+ | 12B+ | 40B+ | 20B+ |
+| HUMINT Intelligence | ✓ | ✗ | Limited | ✓ |
+| Real-time Alerts | <1hr | Manual | ~24hr | ~24hr |
+| Plaintext Passwords | ✓ | ✗ | ✓ | ✓ |
+| Compliance Reports | ✓ | ✗ | ✓ | Limited |
+| API Access | ✓ | ✓ | ✓ | ✓ |
+| Free Tier | ✓ | ✓ | ✗ | ✗ |
+| SIEM Integration | ✓ | ✗ | ✓ | ✓ |
+
+## LeakJar Differentiators
+
+1. **Exclusive HUMINT Sources**: Human intelligence operatives provide data not available through automated collection
+2. **Speed**: Sub-1-hour alerts vs. 24+ hours for competitors
+3. **Stealer Malware Focus**: Deep coverage of infostealer logs (Redline, Raccoon, Vidar)
+4. **Compliance Built-In**: Purpose-designed for PCI DSS, NIST, HIPAA requirements
+5. **Forensic Detail**: Complete context including IPs, URLs, and timestamps
+
+================================================================================
+SECTION 7: SUPPORT & RESOURCES
+================================================================================
+
+## Support Channels
+
+- **Email Support**: support@leakjar.com (24-48hr response)
+- **Priority Support**: Enterprise customers (4hr response SLA)
+- **Documentation**: https://www.leakjar.com/developer
+- **Status Page**: https://status.leakjar.com
+
+## Resources
+
+- **API Documentation**: https://www.leakjar.com/developer
+- **Knowledge Base**: https://help.leakjar.com
+- **Blog**: https://www.leakjar.com/blog
+- **Compliance Guides**: https://www.leakjar.com/solutions
+
+## Training
+
+- **Onboarding**: Included with all paid plans
+- **Admin Training**: Enterprise customers
+- **API Integration**: Developer documentation + support
+
+================================================================================
+SECTION 8: GLOSSARY
+================================================================================
+
+**Account Takeover (ATO)**: Unauthorized access to user accounts using stolen credentials
+
+**Credential Stuffing**: Automated attacks using leaked username/password combinations
+
+**Dark Web**: Encrypted networks requiring special software (Tor) to access
+
+**HUMINT**: Human Intelligence - information gathered through human sources
+
+**Infostealer/Stealer Malware**: Malware designed to steal credentials and personal data
+
+**Password Spraying**: Attempting common passwords against many accounts
+
+**Phishing**: Social engineering attacks to steal credentials via fake login pages
+
+**Threat Intelligence**: Information about current and emerging cyber threats
+
+================================================================================
+
+For the most current information, visit: https://www.leakjar.com
+Contact: support@leakjar.com | sales@leakjar.com
+
+© 2026 SEW Inc. All rights reserved.

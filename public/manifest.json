@@ -1,0 +1,65 @@
+{
+  "name": "LeakJar - Credential Leak Monitoring & Breach Detection",
+  "short_name": "LeakJar",
+  "description": "Monitor 60B+ leaked credentials in real-time. Detect compromised accounts before attackers exploit them.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#1e40af",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["security", "business", "productivity"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-dashboard.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "LeakJar Dashboard - Real-time breach monitoring"
+    },
+    {
+      "src": "/screenshot-search.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "label": "Credential Search - Check breach exposure"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Dashboard",
+      "short_name": "Dashboard",
+      "description": "Access your credential monitoring dashboard",
+      "url": "/dashboard",
+      "icons": [{ "src": "/icon-dashboard.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Search Credentials",
+      "short_name": "Search",
+      "description": "Search for leaked credentials by domain",
+      "url": "/open-search",
+      "icons": [{ "src": "/icon-search.png", "sizes": "192x192" }]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
