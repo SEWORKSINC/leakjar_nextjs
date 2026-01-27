@@ -10,7 +10,7 @@ import { Label } from '@/components/ui/label';
 import { Card, CardContent } from '@/components/ui/card';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Mail, Lock, User, CheckCircle2, Shield, ArrowRight, Activity, Database, AlertTriangle } from 'lucide-react';
-import { trackSignupStarted, trackSignupSuccess, trackSignupError } from '@/lib/vercel-analytics';
+import { trackSignupStarted, trackSignupSuccess, trackSignupError, mapSignupError } from '@/lib/vercel-analytics';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -33,14 +33,14 @@ export default function SignupPage() {
     if (formData.password !== formData.confirmPassword) {
       setMessage('Passwords do not match');
       setIsSuccess(false);
-      trackSignupError('passwords_mismatch');
+      trackSignupError(mapSignupError('passwords do not match'));
       return;
     }
 
     if (formData.password.length < 6) {
       setMessage('Password must be at least 6 characters long');
       setIsSuccess(false);
-      trackSignupError('password_too_short');
+      trackSignupError(mapSignupError('password too short'));
       return;
     }
 
@@ -61,7 +61,8 @@ export default function SignupPage() {
       if (error) {
         setMessage(error.message);
         setIsSuccess(false);
-        trackSignupError(error.message);
+        // Use mapSignupError to sanitize error message and prevent PII leakage
+        trackSignupError(mapSignupError(error.message));
       } else {
         setMessage('Please check your email for the verification link!');
         setIsSuccess(true);
@@ -77,7 +78,7 @@ export default function SignupPage() {
       console.error('Sign up error:', error);
       setMessage('An unexpected error occurred. Please try again.');
       setIsSuccess(false);
-      trackSignupError('unexpected_error');
+      trackSignupError('unknown_error');
     } finally {
       setIsLoading(false);
     }

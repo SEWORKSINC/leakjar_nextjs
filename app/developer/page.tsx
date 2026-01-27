@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -14,6 +14,11 @@ import { trackDocSectionViewed, trackCodeSampleCopied } from '@/lib/vercel-analy
 export default function DeveloperPage() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState<string>('introduction');
+  
+  // Refs for throttling and tracking
+  const previousSectionRef = useRef<string>('introduction');
+  const lastScrollTimeRef = useRef<number>(0);
+  const THROTTLE_DELAY = 200; // milliseconds
 
   const copyToClipboard = (code: string, id: string, language?: string) => {
     navigator.clipboard.writeText(code);
@@ -25,38 +30,45 @@ export default function DeveloperPage() {
     setTimeout(() => setCopiedCode(null), 2000);
   };
 
-  // Handle smooth scrolling and active section tracking
-  useEffect(() => {
-    let previousSection = activeSection;
+  // Throttled scroll handler to prevent excessive event firing
+  const handleScroll = useCallback(() => {
+    const now = Date.now();
     
-    const handleScroll = () => {
-      const sections = [
-        'introduction', 'quick-start', 'authentication', 'endpoints',
-        'code-examples', 'error-handling', 'rate-limiting', 'support'
-      ];
-      
-      const scrollPosition = window.scrollY + 100;
-      
-      for (const sectionId of sections) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            if (sectionId !== previousSection) {
-              setActiveSection(sectionId);
-              // Track section viewed event
-              trackDocSectionViewed(sectionId);
-              previousSection = sectionId;
-            }
-            break;
+    // Throttle: only process if enough time has passed
+    if (now - lastScrollTimeRef.current < THROTTLE_DELAY) {
+      return;
+    }
+    lastScrollTimeRef.current = now;
+    
+    const sections = [
+      'introduction', 'quick-start', 'authentication', 'endpoints',
+      'code-examples', 'error-handling', 'rate-limiting', 'support'
+    ];
+    
+    const scrollPosition = window.scrollY + 100;
+    
+    for (const sectionId of sections) {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        const { offsetTop, offsetHeight } = element;
+        if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+          if (sectionId !== previousSectionRef.current) {
+            setActiveSection(sectionId);
+            // Track section viewed event (only when section actually changes)
+            trackDocSectionViewed(sectionId);
+            previousSectionRef.current = sectionId;
           }
+          break;
         }
       }
-    };
+    }
+  }, []);
 
-    window.addEventListener('scroll', handleScroll);
+  // Set up scroll listener
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeSection]);
+  }, [handleScroll]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);

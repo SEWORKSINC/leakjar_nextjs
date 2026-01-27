@@ -11,7 +11,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Mail, Lock, Shield, InfoIcon, ArrowRight, CheckCircle2 } from 'lucide-react';
-import { trackLoginSuccess, trackLoginError } from '@/lib/vercel-analytics';
+import { trackLoginSuccess, trackLoginError, mapLoginError } from '@/lib/vercel-analytics';
 
 function LoginContent() {
   const router = useRouter();
@@ -48,7 +48,8 @@ function LoginContent() {
 
       if (error) {
         setError(error.message);
-        trackLoginError(error.message);
+        // Use mapLoginError to sanitize error message and prevent PII leakage
+        trackLoginError(mapLoginError(error.message));
       } else if (data?.session) {
         trackLoginSuccess('email');
         router.refresh();
@@ -60,7 +61,7 @@ function LoginContent() {
       }
     } catch (err) {
       setError('An unexpected error occurred. Please try again.');
-      trackLoginError('unexpected_error');
+      trackLoginError('unknown_error');
     } finally {
       setIsLoading(false);
     }

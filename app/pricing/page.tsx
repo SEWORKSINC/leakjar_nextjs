@@ -8,7 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Shield, Check, ArrowRight, Zap, Building2 } from 'lucide-react';
 import { SharedHeader } from '@/components/shared-header';
 import { SharedFooter } from '@/components/shared-footer';
-import { trackPricingPageViewed, trackBillingCycleToggled, trackPlanCtaClicked } from '@/lib/vercel-analytics';
+import { trackPricingPageViewed, trackBillingCycleToggled, trackPlanCtaClicked, type PlanName, type BillingCycle } from '@/lib/vercel-analytics';
 
 // FAQ Structured Data for SEO
 const faqStructuredData = {
@@ -79,7 +79,7 @@ export default function PricingPage() {
     trackBillingCycleToggled(cycle);
   };
 
-  const handlePlanClick = (planName: string) => {
+  const handlePlanClick = (planName: PlanName) => {
     trackPlanCtaClicked(planName, billingCycle);
   };
 
@@ -264,7 +264,7 @@ export default function PricingPage() {
                     }`}
                     variant={tier.ctaVariant}
                     asChild
-                    onClick={() => handlePlanClick(tier.name)}
+                    onClick={() => handlePlanClick(tier.name as PlanName)}
                   >
                     <Link href={tier.name === 'Enterprise' ? '/contact' : '/auth/signup'}>
                       {tier.cta}

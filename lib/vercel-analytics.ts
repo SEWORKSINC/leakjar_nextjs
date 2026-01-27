@@ -11,6 +11,13 @@
 import { track } from '@vercel/analytics';
 
 // ============================================================================
+// Configuration
+// ============================================================================
+
+const isDev = process.env.NODE_ENV === 'development';
+const DEBUG_ANALYTICS = process.env.NEXT_PUBLIC_DEBUG_ANALYTICS === 'true';
+
+// ============================================================================
 // Type Definitions
 // ============================================================================
 
@@ -66,6 +73,157 @@ export const EventNames = {
   FEATURE_EXPLORED: 'Feature Explored',
 } as const;
 
+/**
+ * Strict type definitions for event properties
+ */
+export type PlanName = 'Free Trial' | 'Pro' | 'Enterprise';
+export type BillingCycle = 'monthly' | 'annual';
+export type DomainType = 'URL' | 'EMAIL';
+export type LoginMethod = 'email' | 'google' | 'github' | 'sso';
+
+/**
+ * Standardized error codes for authentication events
+ * Prevents PII leakage in error tracking
+ */
+export type SignupErrorCode = 
+  | 'email_exists'
+  | 'invalid_email'
+  | 'password_too_short'
+  | 'passwords_mismatch'
+  | 'network_error'
+  | 'rate_limited'
+  | 'unknown_error';
+
+export type LoginErrorCode =
+  | 'invalid_credentials'
+  | 'account_locked'
+  | 'email_not_verified'
+  | 'no_session'
+  | 'network_error'
+  | 'unknown_error';
+
+export type ContactErrorCode =
+  | 'validation_error'
+  | 'network_error'
+  | 'rate_limited'
+  | 'unknown_error';
+
+// ============================================================================
+// Safe Track Wrapper with Error Handling & Debug Mode
+// ============================================================================
+
+/**
+ * Safely track an event with error handling
+ * - In development: logs to console instead of sending
+ * - In production: silently fails if tracking errors (analytics shouldn't break UX)
+ */
+function safeTrack(eventName: string, properties?: Record<string, string | number | boolean | null>) {
+  // Debug mode - log to console
+  if (isDev || DEBUG_ANALYTICS) {
+    console.log('📊 [Analytics]', eventName, properties || '');
+    if (isDev) {
+      return; // Don't send events in development
+    }
+  }
+
+  try {
+    track(eventName, properties);
+  } catch (error) {
+    // Silent fail - analytics should never break user experience
+    if (DEBUG_ANALYTICS) {
+      console.warn('⚠️ [Analytics] Tracking failed:', eventName, error);
+    }
+  }
+}
+
+// ============================================================================
+// Throttle Utility for High-Frequency Events
+// ============================================================================
+
+/**
+ * Creates a throttled version of a function
+ * Useful for scroll events, resize events, etc.
+ */
+export function createThrottledTracker<T extends (...args: Parameters<T>) => void>(
+  fn: T,
+  delay: number = 200
+): T {
+  let lastCall = 0;
+  let timeoutId: ReturnType<typeof setTimeout> | null = null;
+
+  return ((...args: Parameters<T>) => {
+    const now = Date.now();
+    const timeSinceLastCall = now - lastCall;
+
+    if (timeSinceLastCall >= delay) {
+      lastCall = now;
+      fn(...args);
+    } else if (!timeoutId) {
+      // Schedule a call for the end of the throttle period
+      timeoutId = setTimeout(() => {
+        lastCall = Date.now();
+        timeoutId = null;
+        fn(...args);
+      }, delay - timeSinceLastCall);
+    }
+  }) as T;
+}
+
+// ============================================================================
+// Error Code Mapper
+// ============================================================================
+
+/**
+ * Maps raw error messages to standardized error codes
+ * Prevents PII from being sent to analytics
+ */
+export function mapSignupError(errorMessage: string): SignupErrorCode {
+  const message = errorMessage.toLowerCase();
+  
+  if (message.includes('already') || message.includes('exists') || message.includes('registered')) {
+    return 'email_exists';
+  }
+  if (message.includes('invalid') && message.includes('email')) {
+    return 'invalid_email';
+  }
+  if (message.includes('password') && (message.includes('short') || message.includes('length') || message.includes('character'))) {
+    return 'password_too_short';
+  }
+  if (message.includes('match') || message.includes('mismatch')) {
+    return 'passwords_mismatch';
+  }
+  if (message.includes('network') || message.includes('fetch') || message.includes('connection')) {
+    return 'network_error';
+  }
+  if (message.includes('rate') || message.includes('limit') || message.includes('too many')) {
+    return 'rate_limited';
+  }
+  
+  return 'unknown_error';
+}
+
+export function mapLoginError(errorMessage: string): LoginErrorCode {
+  const message = errorMessage.toLowerCase();
+  
+  if (message.includes('invalid') || message.includes('incorrect') || message.includes('wrong')) {
+    return 'invalid_credentials';
+  }
+  if (message.includes('locked') || message.includes('disabled') || message.includes('blocked')) {
+    return 'account_locked';
+  }
+  if (message.includes('verify') || message.includes('confirm') || message.includes('verification')) {
+    return 'email_not_verified';
+  }
+  if (message.includes('session') || message.includes('no_session')) {
+    return 'no_session';
+  }
+  if (message.includes('network') || message.includes('fetch') || message.includes('connection')) {
+    return 'network_error';
+  }
+  
+  return 'unknown_error';
+}
+
 // ============================================================================
 // Authentication Events
 // ============================================================================
@@ -74,7 +232,7 @@ export const EventNames = {
  * Track when a user starts the signup process
  */
 export function trackSignupStarted(location?: string) {
-  track(EventNames.SIGNUP_STARTED, {
+  safeTrack(EventNames.SIGNUP_STARTED, {
     location: location || 'unknown',
   });
 }
@@ -83,33 +241,36 @@ export function trackSignupStarted(location?: string) {
  * Track successful signup
  */
 export function trackSignupSuccess() {
-  track(EventNames.SIGNUP_SUCCESS);
+  safeTrack(EventNames.SIGNUP_SUCCESS);
 }
 
 /**
- * Track signup error
+ * Track signup error with sanitized error code
+ * @param errorCode - Standardized error code (no PII)
  */
-export function trackSignupError(errorType: string) {
-  track(EventNames.SIGNUP_ERROR, {
-    errorType,
+export function trackSignupError(errorCode: SignupErrorCode) {
+  safeTrack(EventNames.SIGNUP_ERROR, {
+    errorCode,
   });
 }
 
 /**
  * Track successful login
+ * @param method - Authentication method used
  */
-export function trackLoginSuccess(method: string = 'email') {
-  track(EventNames.LOGIN_SUCCESS, {
+export function trackLoginSuccess(method: LoginMethod = 'email') {
+  safeTrack(EventNames.LOGIN_SUCCESS, {
     method,
   });
 }
 
 /**
- * Track login error
+ * Track login error with sanitized error code
+ * @param errorCode - Standardized error code (no PII)
  */
-export function trackLoginError(errorType: string) {
-  track(EventNames.LOGIN_ERROR, {
-    errorType,
+export function trackLoginError(errorCode: LoginErrorCode) {
+  safeTrack(EventNames.LOGIN_ERROR, {
+    errorCode,
   });
 }
 
@@ -117,7 +278,7 @@ export function trackLoginError(errorType: string) {
  * Track user logout
  */
 export function trackLogout() {
-  track(EventNames.LOGOUT);
+  safeTrack(EventNames.LOGOUT);
 }
 
 // ============================================================================
@@ -128,7 +289,7 @@ export function trackLogout() {
  * Track contact form submission
  */
 export function trackContactFormSubmitted(category: string) {
-  track(EventNames.CONTACT_FORM_SUBMITTED, {
+  safeTrack(EventNames.CONTACT_FORM_SUBMITTED, {
     category,
   });
 }
@@ -136,9 +297,9 @@ export function trackContactFormSubmitted(category: string) {
 /**
  * Track contact form error
  */
-export function trackContactFormError(errorType: string) {
-  track(EventNames.CONTACT_FORM_ERROR, {
-    errorType,
+export function trackContactFormError(errorCode: ContactErrorCode) {
+  safeTrack(EventNames.CONTACT_FORM_ERROR, {
+    errorCode,
   });
 }
 
@@ -150,14 +311,14 @@ export function trackContactFormError(errorType: string) {
  * Track when pricing page is viewed
  */
 export function trackPricingPageViewed() {
-  track(EventNames.PRICING_PAGE_VIEWED);
+  safeTrack(EventNames.PRICING_PAGE_VIEWED);
 }
 
 /**
  * Track billing cycle toggle (monthly/annual)
  */
-export function trackBillingCycleToggled(cycle: 'monthly' | 'annual') {
-  track(EventNames.BILLING_CYCLE_TOGGLED, {
+export function trackBillingCycleToggled(cycle: BillingCycle) {
+  safeTrack(EventNames.BILLING_CYCLE_TOGGLED, {
     cycle,
   });
 }
@@ -165,8 +326,8 @@ export function trackBillingCycleToggled(cycle: 'monthly' | 'annual') {
 /**
  * Track when a plan CTA is clicked
  */
-export function trackPlanCtaClicked(planName: string, billingCycle: 'monthly' | 'annual') {
-  track(EventNames.PLAN_CTA_CLICKED, {
+export function trackPlanCtaClicked(planName: PlanName, billingCycle: BillingCycle) {
+  safeTrack(EventNames.PLAN_CTA_CLICKED, {
     planName,
     billingCycle,
   });
@@ -179,8 +340,8 @@ export function trackPlanCtaClicked(planName: string, billingCycle: 'monthly' | 
 /**
  * Track when a domain is added
  */
-export function trackDomainAdded(domainType: 'URL' | 'EMAIL') {
-  track(EventNames.DOMAIN_ADDED, {
+export function trackDomainAdded(domainType: DomainType) {
+  safeTrack(EventNames.DOMAIN_ADDED, {
     domainType,
   });
 }
@@ -188,8 +349,8 @@ export function trackDomainAdded(domainType: 'URL' | 'EMAIL') {
 /**
  * Track when a domain is deleted
  */
-export function trackDomainDeleted(domainType: 'URL' | 'EMAIL') {
-  track(EventNames.DOMAIN_DELETED, {
+export function trackDomainDeleted(domainType: DomainType) {
+  safeTrack(EventNames.DOMAIN_DELETED, {
     domainType,
   });
 }
@@ -197,8 +358,8 @@ export function trackDomainDeleted(domainType: 'URL' | 'EMAIL') {
 /**
  * Track when domain verification is started
  */
-export function trackDomainVerificationStarted(domainType: 'URL' | 'EMAIL') {
-  track(EventNames.DOMAIN_VERIFICATION_STARTED, {
+export function trackDomainVerificationStarted(domainType: DomainType) {
+  safeTrack(EventNames.DOMAIN_VERIFICATION_STARTED, {
     domainType,
   });
 }
@@ -211,21 +372,21 @@ export function trackDomainVerificationStarted(domainType: 'URL' | 'EMAIL') {
  * Track when an API key is created
  */
 export function trackApiKeyCreated() {
-  track(EventNames.API_KEY_CREATED);
+  safeTrack(EventNames.API_KEY_CREATED);
 }
 
 /**
  * Track when an API key is deleted
  */
 export function trackApiKeyDeleted() {
-  track(EventNames.API_KEY_DELETED);
+  safeTrack(EventNames.API_KEY_DELETED);
 }
 
 /**
  * Track when an API key is copied
  */
 export function trackApiKeyCopied() {
-  track(EventNames.API_KEY_COPIED);
+  safeTrack(EventNames.API_KEY_COPIED);
 }
 
 // ============================================================================
@@ -236,7 +397,7 @@ export function trackApiKeyCopied() {
  * Track dashboard view with metrics
  */
 export function trackDashboardViewed(domainsCount: number, totalBreaches: number) {
-  track(EventNames.DASHBOARD_VIEWED, {
+  safeTrack(EventNames.DASHBOARD_VIEWED, {
     domainsCount,
     totalBreaches,
   });
@@ -246,7 +407,7 @@ export function trackDashboardViewed(domainsCount: number, totalBreaches: number
  * Track data export
  */
 export function trackDataExported(format: string, recordCount: number) {
-  track(EventNames.DATA_EXPORTED, {
+  safeTrack(EventNames.DATA_EXPORTED, {
     format,
     recordCount,
   });
@@ -256,7 +417,7 @@ export function trackDataExported(format: string, recordCount: number) {
  * Track chart interaction
  */
 export function trackChartInteracted(chartType: string, action: string) {
-  track(EventNames.CHART_INTERACTED, {
+  safeTrack(EventNames.CHART_INTERACTED, {
     chartType,
     action,
   });
@@ -268,9 +429,10 @@ export function trackChartInteracted(chartType: string, action: string) {
 
 /**
  * Track when a documentation section is viewed
+ * Note: Use createThrottledTracker() wrapper for scroll-based tracking
  */
 export function trackDocSectionViewed(sectionId: string) {
-  track(EventNames.DOC_SECTION_VIEWED, {
+  safeTrack(EventNames.DOC_SECTION_VIEWED, {
     sectionId,
   });
 }
@@ -279,7 +441,7 @@ export function trackDocSectionViewed(sectionId: string) {
  * Track when a code sample is copied
  */
 export function trackCodeSampleCopied(language: string) {
-  track(EventNames.CODE_SAMPLE_COPIED, {
+  safeTrack(EventNames.CODE_SAMPLE_COPIED, {
     language,
   });
 }
@@ -288,7 +450,7 @@ export function trackCodeSampleCopied(language: string) {
  * Track API docs link click
  */
 export function trackApiDocsLinkClicked(linkTarget: string) {
-  track(EventNames.API_DOCS_LINK_CLICKED, {
+  safeTrack(EventNames.API_DOCS_LINK_CLICKED, {
     linkTarget,
   });
 }
@@ -301,7 +463,7 @@ export function trackApiDocsLinkClicked(linkTarget: string) {
  * Track search performed
  */
 export function trackSearchPerformed(searchType: string, hasResults: boolean) {
-  track(EventNames.SEARCH_PERFORMED, {
+  safeTrack(EventNames.SEARCH_PERFORMED, {
     searchType,
     hasResults,
   });
@@ -311,7 +473,7 @@ export function trackSearchPerformed(searchType: string, hasResults: boolean) {
  * Track breach data viewed
  */
 export function trackBreachDataViewed(domain: string, recordCount: number) {
-  track(EventNames.BREACH_DATA_VIEWED, {
+  safeTrack(EventNames.BREACH_DATA_VIEWED, {
     domain,
     recordCount,
   });
@@ -321,7 +483,7 @@ export function trackBreachDataViewed(domain: string, recordCount: number) {
  * Track filter applied
  */
 export function trackFilterApplied(filterType: string, filterValue: string) {
-  track(EventNames.FILTER_APPLIED, {
+  safeTrack(EventNames.FILTER_APPLIED, {
     filterType,
     filterValue,
   });
@@ -335,7 +497,7 @@ export function trackFilterApplied(filterType: string, filterValue: string) {
  * Track CTA button click
  */
 export function trackCtaClicked(ctaName: string, location: string) {
-  track(EventNames.CTA_CLICKED, {
+  safeTrack(EventNames.CTA_CLICKED, {
     ctaName,
     location,
   });
@@ -345,7 +507,7 @@ export function trackCtaClicked(ctaName: string, location: string) {
  * Track feature exploration
  */
 export function trackFeatureExplored(featureName: string) {
-  track(EventNames.FEATURE_EXPLORED, {
+  safeTrack(EventNames.FEATURE_EXPLORED, {
     featureName,
   });
 }
@@ -360,5 +522,5 @@ export function trackFeatureExplored(featureName: string) {
  * @param properties - Optional properties to include with the event
  */
 export function trackCustomEvent(eventName: string, properties?: Record<string, string | number | boolean | null>) {
-  track(eventName, properties);
+  safeTrack(eventName, properties);
 }

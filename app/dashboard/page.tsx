@@ -28,6 +28,7 @@ export default function DashboardPage() {
   const [loadingCountryStats, setLoadingCountryStats] = useState(false);
   const [domainsLoaded, setDomainsLoaded] = useState(false);
   const dashboardTrackedRef = useRef(false);
+  const breachDataTrackedRef = useRef<string | null>(null);
 
   // Check and refresh session on mount
   useEffect(() => {
@@ -66,6 +67,29 @@ export default function DashboardPage() {
       trackDashboardViewed(domains.length, totalRecords);
     }
   }, [selectedMenu, domainsLoaded, loadingStats, domains.length, totalRecords]);
+
+  // Track breach data viewed when navigating to a domain-specific view
+  // This useEffect prevents duplicate tracking on every render
+  useEffect(() => {
+    if (selectedMenu.startsWith('domain-')) {
+      const domainName = selectedMenu.replace('domain-', '');
+      
+      // Only track if this is a new domain being viewed
+      if (domainName !== breachDataTrackedRef.current) {
+        const selectedDomain = domains.find(d => d.domain === domainName);
+        const domainType = selectedDomain?.type;
+        const statsKey = `${domainName}-${domainType}`;
+        const stats = domainStats[statsKey];
+        const breachCount = stats?.total || 0;
+        
+        trackBreachDataViewed(domainName, breachCount);
+        breachDataTrackedRef.current = domainName;
+      }
+    } else {
+      // Reset tracking ref when not viewing a domain
+      breachDataTrackedRef.current = null;
+    }
+  }, [selectedMenu, domains, domainStats]);
 
   const fetchCountryStats = async () => {
     setLoadingCountryStats(true);
@@ -233,14 +257,8 @@ export default function DashboardPage() {
       // Find the domain type from the stored domains
       const selectedDomain = domains.find(d => d.domain === domainName);
       const domainType = selectedDomain?.type;
-      
-      // Get breach count for this domain from stats
-      const statsKey = `${domainName}-${domainType}`;
-      const stats = domainStats[statsKey];
-      const breachCount = stats?.total || 0;
-      
-      // Track breach data viewed
-      trackBreachDataViewed(domainName, breachCount);
+
+      // Note: Tracking is now handled by useEffect to prevent duplicate events on re-renders
 
       return (
         <>
