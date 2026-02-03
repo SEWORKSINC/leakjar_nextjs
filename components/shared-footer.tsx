@@ -43,7 +43,7 @@ export function SharedFooter() {
           </div>
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm">
-          <p>&copy; 2025 SEW Inc. All rights reserved. Built with ❤️ in San Francisco, CA</p>
+          <p>&copy; 2026 SEW Inc. All rights reserved. Built with ❤️ in San Francisco, CA</p>
         </div>
       </div>
     </footer>
