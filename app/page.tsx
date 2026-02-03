@@ -581,8 +581,8 @@ export default function Home() {
             </symbol>
           </svg>
           <img className="w-auto invert" alt="Leakjar AWS partnership" src="/l_aws.png">
-          <svg className="w-auto"><use href="#nvidia"></use></svg>
-          <svg className="w-auto" style="width: 4rem"><use href="#drata"></use></svg>
+          {/* <svg className="w-auto"><use href="#nvidia"></use></svg> */}
+          {/* <svg className="w-auto" style="width: 4rem"><use href="#drata"></use></svg> */}
         </div>
       </section>
 
